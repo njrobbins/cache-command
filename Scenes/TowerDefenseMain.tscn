@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=2]
+
+[node name="TowerDefenseMain" type="Node2D"]
+
+[node name="UI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackToMenuButton" type="Button" parent="UI"]
+margin_left = 40.0
+margin_top = 592.475
+margin_right = 384.234
+margin_bottom = 664.475
+custom_fonts/font = ExtResource( 1 )
+text = "Back to Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI"]
+margin_left = 276.02
+margin_top = 138.889
+margin_right = 933.02
+margin_bottom = 204.889
+custom_fonts/font = ExtResource( 1 )
+text = "Tower Defense Style Game Mode Area"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="UI/BackToMenuButton" to="UI" method="_on_BackToMenuButton_pressed"]
