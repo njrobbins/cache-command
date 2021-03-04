@@ -5,7 +5,8 @@ var scene
 func _on_BackButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
-# func _on_ContinueButton_pressed():
+func _on_ContinueButton_pressed():
+	pass
 	# TODO
 
 func _on_CreditsButton_pressed():
@@ -23,10 +24,12 @@ func _on_MainMenuButton_pressed():
 func _on_PauseMenuButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/PauseMenu.tscn")
 
-# func _on_QuitButton_pressed():
+func _on_QuitButton_pressed():
+	pass
 	# TODO
 
-# func _on_ResumeButton_pressed():
+func _on_ResumeButton_pressed():
+	pass
 	# TODO
 
 func _on_StartButton_pressed():
@@ -35,10 +38,12 @@ func _on_StartButton_pressed():
 func _on_TDButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/TowerDefenseMain.tscn")
 
-# func _on_TowerShopButton_pressed():
+func _on_TowerShopButton_pressed():
+	pass
 	# TODO
 
-# func _on_TryAgainButton_pressed():
+func _on_TryAgainButton_pressed():
+	pass
 	# TODO
 
 func _on_WinLevelButton_pressed():
