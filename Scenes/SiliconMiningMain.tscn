@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=1]
 [ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=3]
 
 [node name="SiliconMiningMain" type="Node2D"]
 
@@ -81,6 +82,11 @@ text = "Lose Level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Joystick" parent="UI" instance=ExtResource( 3 )]
+margin_top = 393.0
+margin_right = -886.0
+margin_bottom = -15.0
 [connection signal="pressed" from="UI/PauseMenuButton" to="UI" method="_on_PauseMenuButton_pressed"]
 [connection signal="pressed" from="UI/TDButton" to="UI" method="_on_TDButton_pressed"]
 [connection signal="pressed" from="UI/WinLevelButton" to="UI" method="_on_WinLevelButton_pressed"]
