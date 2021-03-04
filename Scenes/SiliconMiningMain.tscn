@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=1]
+[ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=2]
 
-[node name="TowerDefenseMain" type="Node2D"]
+[node name="SiliconMiningMain" type="Node2D"]
 
 [node name="UI" type="Control" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -24,21 +24,21 @@ __meta__ = {
 [node name="PauseMenuButton" type="Button" parent="UI"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 236.0
+margin_right = 240.0
 margin_bottom = 88.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "Pause Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TowerShopButton" type="Button" parent="UI"]
-margin_left = 1040.0
+[node name="TDButton" type="Button" parent="UI"]
+margin_left = 896.0
 margin_top = 16.0
-margin_right = 1260.0
+margin_right = 1265.52
 margin_bottom = 88.0
-custom_fonts/font = ExtResource( 1 )
-text = "Tower Shop"
+custom_fonts/font = ExtResource( 2 )
+text = "Tower Defense Mode"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -48,12 +48,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -280.5
+margin_left = -275.0
 margin_top = -33.0
-margin_right = 280.5
+margin_right = 275.0
 margin_bottom = 33.0
-custom_fonts/font = ExtResource( 1 )
-text = "Tower Defense Game Mode Area"
+custom_fonts/font = ExtResource( 2 )
+text = "Silicon Mining Game Mode Area"
 align = 1
 valign = 1
 __meta__ = {
@@ -65,7 +65,7 @@ margin_left = 384.0
 margin_top = 512.0
 margin_right = 576.0
 margin_bottom = 584.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "Win Level"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -76,12 +76,12 @@ margin_left = 704.0
 margin_top = 512.0
 margin_right = 904.0
 margin_bottom = 584.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "Lose Level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="UI/PauseMenuButton" to="UI" method="_on_PauseMenuButton_pressed"]
-[connection signal="pressed" from="UI/TowerShopButton" to="UI" method="_on_TowerShopButton_pressed"]
+[connection signal="pressed" from="UI/TDButton" to="UI" method="_on_TDButton_pressed"]
 [connection signal="pressed" from="UI/WinLevelButton" to="UI" method="_on_WinLevelButton_pressed"]
 [connection signal="pressed" from="UI/LoseLevelButton" to="UI" method="_on_LoseLevelButton_pressed"]

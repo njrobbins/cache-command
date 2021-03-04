@@ -14,29 +14,33 @@ __meta__ = {
 [node name="BackgroundColor" type="ColorRect" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
-color = Color( 0.890196, 0.890196, 0.498039, 1 )
+color = Color( 0.6, 0.6, 0.6, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BackButton" type="Button" parent="."]
-margin_left = 40.0
-margin_top = 35.1617
-margin_right = 137.891
-margin_bottom = 107.162
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 113.891
+margin_bottom = 88.0003
 custom_fonts/font = ExtResource( 1 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 516.878
-margin_top = 35.1617
-margin_right = 642.878
-margin_bottom = 101.162
+[node name="CreditsLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -63.0
+margin_top = 67.0
+margin_right = 63.0
+margin_bottom = 133.0
 custom_fonts/font = ExtResource( 1 )
 text = "Credits"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
