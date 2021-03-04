@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
 
 [node name="TowerDefenseMain" type="Node2D"]
 
@@ -31,6 +33,53 @@ text = "Pause Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TowerShopPopupMenu" type="PopupMenu" parent="UI"]
+margin_left = 253.0
+margin_top = 63.0
+margin_right = 1023.0
+margin_bottom = 575.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+
+[node name="Tower1Button" type="TextureButton" parent="UI/TowerShopPopupMenu"]
+material = SubResource( 1 )
+margin_left = 197.0
+margin_top = 129.0
+margin_right = 321.0
+margin_bottom = 259.0
+stretch_mode = 3
+
+[node name="Tower2Button" type="TextureButton" parent="UI/TowerShopPopupMenu"]
+margin_left = 470.951
+margin_top = 132.059
+margin_right = 593.951
+margin_bottom = 258.059
+
+[node name="TowerShopText" type="Label" parent="UI/TowerShopPopupMenu"]
+margin_left = 281.0
+margin_top = 15.0
+margin_right = 482.0
+margin_bottom = 81.0
+custom_fonts/font = ExtResource( 1 )
+text = "Tower Shop"
+
+[node name="BuyTower1Label" type="Label" parent="UI/TowerShopPopupMenu"]
+margin_left = 150.0
+margin_top = 274.0
+margin_right = 365.0
+margin_bottom = 350.0
+custom_fonts/font = ExtResource( 1 )
+text = "Buy Tower 1"
+
+[node name="BuyTower2Label" type="Label" parent="UI/TowerShopPopupMenu"]
+margin_left = 445.0
+margin_top = 273.0
+margin_right = 659.0
+margin_bottom = 350.0
+custom_fonts/font = ExtResource( 1 )
+text = "Buy Tower 2"
 
 [node name="TowerShopButton" type="Button" parent="UI"]
 margin_left = 1040.0

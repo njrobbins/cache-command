@@ -39,9 +39,8 @@ func _on_TDButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/TowerDefenseMain.tscn")
 
 func _on_TowerShopButton_pressed():
-	pass
-	# TODO
-
+	get_node("TowerShopPopupMenu").popup()
+	
 func _on_TryAgainButton_pressed():
 	pass
 	# TODO
