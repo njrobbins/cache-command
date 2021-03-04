@@ -72,6 +72,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="FireButton" type="Button" parent="UI"]
+margin_left = 1021.72
+margin_top = 512.0
+margin_right = 1213.72
+margin_bottom = 584.0
+custom_fonts/font = ExtResource( 2 )
+text = "Fire"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LoseLevelButton" type="Button" parent="UI"]
 margin_left = 704.0
 margin_top = 512.0
