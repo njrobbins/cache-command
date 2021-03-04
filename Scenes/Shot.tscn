@@ -1,10 +1,23 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Shot.gd" type="Script" id=1]
 
-[node name="Node2D" type="Area2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 13.9084, 2.10845 )
+
+[node name="Shot" type="Area2D" groups=[
+"shot",
+]]
 script = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="ColorRect" parent="."]
+margin_right = 27.0
+margin_bottom = 4.0
+color = Color( 0.823529, 0.87451, 0.2, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 13.2163, 2.46321 )
+shape = SubResource( 1 )
