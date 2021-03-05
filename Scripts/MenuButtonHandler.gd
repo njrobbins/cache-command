@@ -47,3 +47,7 @@ func _on_TryAgainButton_pressed():
 
 func _on_WinLevelButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/LevelWon.tscn")
+
+
+func _on_TextureButton_pressed():
+	print("pressed")
