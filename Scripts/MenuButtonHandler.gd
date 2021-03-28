@@ -36,7 +36,7 @@ func _on_StartButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/SiliconMiningMain.tscn")
 
 func _on_TDButton_pressed():
-	scene = get_tree().change_scene("res://Scenes/TowerDefenseMain.tscn")
+	scene = get_tree().change_scene("res://Scenes/Game.tscn")
 
 func _on_TowerShopButton_pressed():
 	get_node("TowerShopPopupMenu").popup()
