@@ -4,10 +4,12 @@ var tower = load("res://Scenes/Tower.tscn")
 var mob = load("res://Scenes/Drone.tscn")
 var instance
 
-var cash = 50
+var cash = 500
+var base_hp = 5
 var wave = 0
 var mobs_left = 0
-var wave_mobs = [5, 15, 30, 60, 120]
+var mobs_total
+var wave_mobs = [5, 5, 5, 5, 5]
 
 var tilemap
 var cell_size
@@ -20,9 +22,14 @@ func _ready():
 	tilemap = $TileMap
 	cell_size = tilemap.cell_size
 	$WaveTimer.start()
+	
+	mobs_total = 0
+	for w in wave_mobs:
+		mobs_total += w
 
 func _physics_process(_delta):
 	$CashLabel.text = "cash: " + str(cash)
+	$BaseLabel.text = "Base Health: " + str(base_hp)
 	
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
@@ -41,6 +48,14 @@ func _input(event):
 
 func add_cash(num):
 	cash += num
+	mobs_total -= 1
+	if mobs_total == 0:
+		var scene = get_tree().change_scene("res://Scenes/LevelWon.tscn")
+	
+func base_hit():
+	base_hp -= 1
+	if base_hp == 0:
+		var scene = get_tree().change_scene("res://Scenes/LevelLost.tscn")
 
 func _on_WaveTimer_timeout():
 #	print("Wave Start")

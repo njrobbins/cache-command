@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tower_base.png" type="Texture" id=2]
@@ -35,6 +35,9 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -6.71799, 155.7, 0, 0, 0, 0, 356.184, 155.517, 0, 0, 0, 0, 358.035, 551.55, 0, 0, 0, 0, 1293.39, 539.53 )
 }
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 20, 20 )
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -68,11 +71,38 @@ __meta__ = {
 
 [node name="MobTimer" type="Timer" parent="."]
 
+[node name="BaseLabel" type="Label" parent="."]
+margin_left = 1139.0
+margin_right = 1277.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CashLabel" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TheBase" type="ColorRect" parent="."]
+margin_left = 1240.14
+margin_top = 518.356
+margin_right = 1280.14
+margin_bottom = 558.356
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TheBaseArea" type="Area2D" parent="TheBase" groups=[
+"TheBase",
+]]
+position = Vector2( 19.8057, 21.1261 )
+
+[node name="TheBaseCol" type="CollisionShape2D" parent="TheBase/TheBaseArea" groups=[
+"TheBase",
+]]
+shape = SubResource( 5 )
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]

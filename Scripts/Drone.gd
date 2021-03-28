@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-export var speed = 40
+export var speed = 160
 export var hp = 10
 
 func _ready():
@@ -22,3 +22,6 @@ func _on_Area2D_area_entered(area):
 		if hp <= 0:
 			get_parent().get_parent().add_cash(5)
 			queue_free()
+	if area.is_in_group("TheBase"):
+		queue_free()
+		get_parent().get_parent().base_hit()
