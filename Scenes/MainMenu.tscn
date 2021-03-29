@@ -37,9 +37,6 @@ margin_left = -80.0
 margin_top = -173.0
 margin_right = 64.0
 margin_bottom = -109.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CreditsButton" type="TextureButton" parent="."]
 margin_left = 957.0
