@@ -24,6 +24,8 @@ __meta__ = {
 [node name="BackButton" type="Button" parent="."]
 margin_left = 16.0
 margin_top = 16.0
+margin_right = 78.0
+margin_bottom = 78.0
 icon = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
