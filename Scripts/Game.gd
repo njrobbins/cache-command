@@ -19,7 +19,7 @@ var cell_id
 var occupied = []
 
 func _ready():
-	tilemap = $TileMap
+	tilemap = $TowerPlacementTileMap
 	cell_size = tilemap.cell_size
 	$WaveTimer.start()
 	
@@ -30,7 +30,7 @@ func _ready():
 func _physics_process(_delta):
 	$CashLabel.text = "Cash: " + str(cash)
 	$BaseLabel.text = "Base Health: " + str(base_hp)
-	$MobsLabel.text = "Mobs Left: " + str(mobs_left)
+#	$MobsLabel.text = "Mobs Left: " + str(mobs_left)
 	
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
