@@ -24,7 +24,6 @@ func _physics_process(_delta):
 		if collision.collider != null:
 			if collision.collider.is_in_group("res"):
 				mined += 1
-				print(mined)
-			print(collision.collider.name)
+				print("Mined: ",mined)
 			
 			collision.collider.free()
