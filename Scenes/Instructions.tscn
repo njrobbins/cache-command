@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/return_icon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=2]
+[ext_resource path="res://fonts/kenvector_future.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/metal_panel.png" type="Texture" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=1]
 
 [node name="Instructions" type="Control"]
 anchor_right = 1.0
@@ -14,18 +18,16 @@ __meta__ = {
 [node name="BackgroundColor" type="ColorRect" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
-color = Color( 0.6, 0.6, 0.6, 1 )
+color = Color( 0.247059, 0.486275, 0.713726, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BackButton" type="Button" parent="."]
+material = SubResource( 1 )
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 113.891
-margin_bottom = 88.0
-custom_fonts/font = ExtResource( 1 )
-text = "Back"
+icon = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,14 +35,29 @@ __meta__ = {
 [node name="InstructionsLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -104.0
+margin_left = -208.0
 margin_top = 66.0
-margin_right = 104.0
+margin_right = 208.0
 margin_bottom = 132.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Instructions"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = -200.0
+margin_right = 500.0
+margin_bottom = 300.0
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
