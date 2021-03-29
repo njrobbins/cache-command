@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Icons/return.png" type="Texture" id=3]
+[ext_resource path="res://Assets/metal_panel.png" type="Texture" id=4]
+[ext_resource path="res://fonts/kenvector_future.tres" type="DynamicFont" id=5]
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
@@ -14,7 +17,7 @@ __meta__ = {
 [node name="BackgroundColor" type="ColorRect" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
-color = Color( 0.6, 0.6, 0.6, 1 )
+color = Color( 0.247059, 0.486275, 0.713726, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -22,10 +25,8 @@ __meta__ = {
 [node name="BackButton" type="Button" parent="."]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 113.891
-margin_bottom = 88.0003
 custom_fonts/font = ExtResource( 1 )
-text = "Back"
+icon = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,14 +34,28 @@ __meta__ = {
 [node name="CreditsLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -63.0
-margin_top = 67.0
-margin_right = 63.0
-margin_bottom = 133.0
-custom_fonts/font = ExtResource( 1 )
+margin_left = -118.0
+margin_top = 66.0
+margin_right = 129.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 5 )
 text = "Credits"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsPanel" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = -200.0
+margin_right = 500.0
+margin_bottom = 250.0
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

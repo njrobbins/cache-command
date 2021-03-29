@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=1]
 [ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Icons/pause.png" type="Texture" id=4]
 
 [node name="SiliconMiningMain" type="Node2D"]
 
@@ -25,10 +26,10 @@ __meta__ = {
 [node name="PauseMenuButton" type="Button" parent="UI"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 240.0
+margin_right = 78.0
 margin_bottom = 88.0
 custom_fonts/font = ExtResource( 2 )
-text = "Pause Menu"
+icon = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

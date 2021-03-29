@@ -2,8 +2,13 @@
 
 [ext_resource path="res://Scripts/Tower.gd" type="Script" id=1]
 
+<<<<<<< HEAD
 [sub_resource type="CircleShape2D" id=2]
 radius = 300.0
+=======
+[sub_resource type="CircleShape2D" id=1]
+radius = 200.0
+>>>>>>> 522f8ada23f1343e948b838dda1c7065db589d0a
 
 [node name="Tower" type="Area2D"]
 script = ExtResource( 1 )
@@ -31,7 +36,7 @@ __meta__ = {
 
 [node name="AggroShape" type="CollisionShape2D" parent="Aggro"]
 position = Vector2( 32, 32 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 0.25
