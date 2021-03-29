@@ -11,7 +11,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 1 )
@@ -28,7 +28,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartButton" type="TextureButton" parent="."]
+[node name="PlayButton" type="TextureButton" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -37,6 +37,9 @@ margin_left = -80.0
 margin_top = -173.0
 margin_right = 64.0
 margin_bottom = -109.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CreditsButton" type="TextureButton" parent="."]
 margin_left = 957.0
@@ -47,5 +50,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="InstructionsButton" to="." method="_on_InstructionsButton_pressed"]
-[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
