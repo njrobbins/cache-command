@@ -23,17 +23,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LevelWonLabel" type="Label" parent="."]
+[node name="LevelCompleteLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -415.0
+margin_left = -371.5
 margin_top = -169.0
-margin_right = 415.0
+margin_right = 371.5
 margin_bottom = -101.0
 custom_fonts/font = ExtResource( 4 )
-text = "You beat the level!"
+text = "Level Complete!"
 align = 1
 valign = 1
 __meta__ = {

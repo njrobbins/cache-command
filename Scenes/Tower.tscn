@@ -16,11 +16,11 @@ __meta__ = {
 }
 
 [node name="Gun" type="ColorRect" parent="."]
-margin_left = 28.0
-margin_top = 28.0
-margin_right = 36.0
-margin_bottom = 36.0
-color = Color( 0.0627451, 0.121569, 0.996078, 1 )
+margin_left = 21.0
+margin_top = 29.0
+margin_right = 41.0
+margin_bottom = 34.0
+color = Color( 0.921569, 0.996078, 0.0627451, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
