@@ -3,6 +3,15 @@ extends PathFollow2D
 export var speed = 160
 export var hp = 10
 
+
+func init(spd, h, big=false, fast=false):
+	speed = spd
+	hp = h
+	if big:
+		$Area2D/AnimatedSprite.color = Color(255, 0, 0)
+	elif fast:
+		$Area2D/AnimatedSprite.color = Color(255, 255, 0)
+	
 func _ready():
 	$Label.text = str(hp)
 	

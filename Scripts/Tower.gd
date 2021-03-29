@@ -5,15 +5,20 @@ var enemy_array = []
 var shooting = false
 var current_target = null
 var target_position
-var distance_to_t = 1000
+var distance_to_t
 
 var instance
 var shot = load("res://Scenes/Shot.tscn")
 
-var RADIUS
+export var RADIUS = 200
+export var shoot_rate = 4
 
-func _ready():
-	RADIUS = $Aggro/AggroShape.shape.radius
+func init(rad, rate):
+	RADIUS = rad
+	shoot_rate = rate
+	
+	$Aggro/AggroShape.shape.radius = RADIUS
+	$ShootTimer.set_wait_time(1.0/shoot_rate)
 		
 func _physics_process(_delta):
 	if !current_target:

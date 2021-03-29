@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Shot.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 13.9084, 2.10845 )
+extents = Vector2( 2, 2 )
 
 [node name="Shot" type="Area2D" groups=[
 "shot",
@@ -11,13 +11,17 @@ extents = Vector2( 13.9084, 2.10845 )
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="ColorRect" parent="."]
-margin_right = 27.0
+margin_right = 4.0
 margin_bottom = 4.0
-color = Color( 0.823529, 0.87451, 0.2, 1 )
+color = Color( 0.0823529, 0.741176, 0.847059, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 13.2163, 2.46321 )
+position = Vector2( 2, 2 )
 shape = SubResource( 1 )
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 0.5
+[connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]
