@@ -1,9 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
-[ext_resource path="res://Assets/tower_defense_3.png" type="Texture" id=2]
-[ext_resource path="res://Assets/tower_defense_2.png" type="Texture" id=3]
-[ext_resource path="res://Assets/tower_defense_1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Tilesheets/tower_defense_1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Icons/pause.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Tilesheets/tower_defense_3.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Tilesheets/tower_defense_2.png" type="Texture" id=7]
@@ -136,7 +134,7 @@
 22/shapes = [  ]
 22/z_index = 0
 23/name = "tower_defense_tilesheet_2.png 23"
-23/texture = ExtResource( 3 )
+23/texture = ExtResource( 7 )
 23/tex_offset = Vector2( 0, 0 )
 23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 1056, 640, 64, 64 )
@@ -150,7 +148,7 @@
 23/shapes = [  ]
 23/z_index = 0
 24/name = "tower_defense_tilesheet_2.png 24"
-24/texture = ExtResource( 3 )
+24/texture = ExtResource( 7 )
 24/tex_offset = Vector2( 0, 0 )
 24/modulate = Color( 1, 1, 1, 1 )
 24/region = Rect2( 1056, 704, 64, 64 )
@@ -164,7 +162,7 @@
 24/shapes = [  ]
 24/z_index = 0
 25/name = "tower_defense_tilesheet_2.png 25"
-25/texture = ExtResource( 3 )
+25/texture = ExtResource( 7 )
 25/tex_offset = Vector2( 0, 0 )
 25/modulate = Color( 1, 1, 1, 1 )
 25/region = Rect2( 1024, 672, 64, 64 )
@@ -178,7 +176,7 @@
 25/shapes = [  ]
 25/z_index = 0
 26/name = "tower_defense_tilesheet_2.png 26"
-26/texture = ExtResource( 3 )
+26/texture = ExtResource( 7 )
 26/tex_offset = Vector2( 0, 0 )
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 1088, 672, 64, 64 )
@@ -192,7 +190,7 @@
 26/shapes = [  ]
 26/z_index = 0
 27/name = "tower_defense_tilesheet_2.png 27"
-27/texture = ExtResource( 3 )
+27/texture = ExtResource( 7 )
 27/tex_offset = Vector2( 0, 0 )
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 1024, 704, 64, 64 )
@@ -206,7 +204,7 @@
 27/shapes = [  ]
 27/z_index = 0
 28/name = "tower_defense_tilesheet_2.png 28"
-28/texture = ExtResource( 3 )
+28/texture = ExtResource( 7 )
 28/tex_offset = Vector2( 0, 0 )
 28/modulate = Color( 1, 1, 1, 1 )
 28/region = Rect2( 1088, 640, 64, 64 )
@@ -220,7 +218,7 @@
 28/shapes = [  ]
 28/z_index = 0
 29/name = "tower_defense_tilesheet_2.png 29"
-29/texture = ExtResource( 3 )
+29/texture = ExtResource( 7 )
 29/tex_offset = Vector2( 0, 0 )
 29/modulate = Color( 1, 1, 1, 1 )
 29/region = Rect2( 576, 832, 64, 64 )
@@ -234,7 +232,7 @@
 29/shapes = [  ]
 29/z_index = 0
 30/name = "tower_defense_tilesheet_2.png 30"
-30/texture = ExtResource( 3 )
+30/texture = ExtResource( 7 )
 30/tex_offset = Vector2( 0, 0 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 640, 768, 64, 64 )
@@ -248,7 +246,7 @@
 30/shapes = [  ]
 30/z_index = 0
 31/name = "tower_defense_tilesheet_3.png 31"
-31/texture = ExtResource( 2 )
+31/texture = ExtResource( 6 )
 31/tex_offset = Vector2( 0, 0 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 1024, 320, 64, 64 )
