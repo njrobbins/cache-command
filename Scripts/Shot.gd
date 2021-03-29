@@ -2,7 +2,7 @@ extends Area2D
 
 
 var target = null
-var speed = 200
+var speed = 400
 var velocity
 var timerStarted = false
 

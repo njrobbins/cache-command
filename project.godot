@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Game",
+"language": "GDScript",
+"path": "res://Scripts/MapGenerator.gd"
+}, {
 "base": "Control",
 "class": "Joystick",
 "language": "GDScript",
 "path": "res://Joystick/Joystick.gd"
 } ]
 _global_script_class_icons={
+"Game": "",
 "Joystick": ""
 }
 

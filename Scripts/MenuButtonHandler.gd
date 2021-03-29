@@ -33,7 +33,7 @@ func _on_ResumeButton_pressed():
 	# TODO
 
 func _on_StartButton_pressed():
-	scene = get_tree().change_scene("res://Scenes/SiliconMiningMain.tscn")
+	scene = get_tree().change_scene("res://Scenes/DigDug.tscn")
 
 func _on_TDButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/Game.tscn")
