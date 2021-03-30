@@ -1,21 +1,16 @@
 extends KinematicBody2D
 
 export var speed = 200
+export var RADIUS = 200
+export var shoot_rate = 2
+export var hp = 100
 
 var velocity = Vector2()
 
 onready var joystick_move = get_parent().get_node("Joystick")
 
-var tilemap
-var cell
-var tile_id
-
 var mined = 0
-
-export var RADIUS = 200
-export var shoot_rate = 2
-export var hp = 100
-
+var enemy_array = []
 var instance
 var current_target = null
 var shot = load("res://Scenes/Shot.tscn")
@@ -37,6 +32,10 @@ func _physics_process(_delta):
 				collision.collider.free()
 			elif collision.collider.is_in_group("tile"):
 				collision.collider.free()
+				
+	if current_target == null and len(enemy_array) > 0:
+		current_target = enemy_array[0]
+		$ShootTimer.start()
 
 
 func _on_HitDetector_area_entered(area):
@@ -44,8 +43,6 @@ func _on_HitDetector_area_entered(area):
 		area.queue_free()
 		hp -= 1
 		$Label.text = str(hp)
-		
-
 
 func _on_ShootTimer_timeout():
 	if current_target != null:
@@ -55,14 +52,16 @@ func _on_ShootTimer_timeout():
 		instance.sentBy = "player"
 		get_parent().add_child(instance)
 
-
 func _on_Aggro_body_entered(body):
 	if body.is_in_group("enemy"):
 		current_target = body
+		enemy_array.append(body)
 		$ShootTimer.start()
-
 
 func _on_Aggro_body_exited(body):
 	if body.is_in_group("enemy"):
-		current_target = null
-		$ShootTimer.stop()
+		enemy_array.erase(body)
+		if current_target:
+			if body == current_target:
+				current_target = null
+				$ShootTimer.stop()
