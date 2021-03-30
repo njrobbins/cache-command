@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Drone.gd" type="Script" id=1]
-[ext_resource path="res://Assets/drone_1.png" type="Texture" id=2]
-[ext_resource path="res://Assets/drone_3.png" type="Texture" id=3]
-[ext_resource path="res://Assets/drone_4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/drone_1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/drone_3.png" type="Texture" id=4]
 [ext_resource path="res://Assets/drone_2.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -29,7 +28,9 @@ script = ExtResource( 1 )
 visible = false
 margin_left = -32.0
 margin_top = -32.0
-texture = ExtResource( 2 )
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -39,15 +40,6 @@ visible = false
 margin_left = -32.0
 margin_top = -32.0
 texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DroneRed" type="TextureRect" parent="Area2D"]
-visible = false
-margin_left = -32.0
-margin_top = -32.0
-texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

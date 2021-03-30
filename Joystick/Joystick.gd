@@ -58,7 +58,6 @@ func _on_Background_gui_input(event: InputEvent) -> void:
 			output = Vector2.ZERO
 			_set_handle_center_position(_background.rect_size / 2)
 			_handle.modulate = _original_color
-	
 	if event is InputEventScreenDrag:
 		var vector : Vector2 = event.position - _background.rect_size / 2
 		var dead_size = dead_zone * _background.rect_size.x / 2

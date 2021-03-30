@@ -43,7 +43,7 @@ func _on_TextureButton_pressed():
 
 func _on_TowerShopButton_pressed():
 	get_node("TowerShopPopupMenu").popup()
-	
+
 func _on_TryAgainButton_pressed():
 	pass
 	# TODO

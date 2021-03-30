@@ -1,25 +1,23 @@
 extends Area2D
 
-var enemy_array = []
-
-var shooting = false
-var current_target = null
-var target_position
-var distance_to_t
-
-var instance
-var shot = load("res://Scenes/Shot.tscn")
-
 export var RADIUS = 200
 export var shoot_rate = 4
+
+var instance
+var distance_to_t
+var target_position
+
+var current_target = null
+var enemy_array = []
+var shooting = false
+var shot = load("res://Scenes/Shot.tscn")
 
 func init(rad, rate):
 	RADIUS = rad
 	shoot_rate = rate
-	
 	$Aggro/AggroShape.shape.radius = RADIUS
-	$ShootTimer.set_wait_time(1.0/shoot_rate)
-		
+	$ShootTimer.set_wait_time(1.0 / shoot_rate)
+
 func _physics_process(_delta):
 	if !current_target:
 		distance_to_t = RADIUS + 1
@@ -31,17 +29,16 @@ func _physics_process(_delta):
 			if current_target:
 				$ShootTimer.start()
 	else:
-		if(!current_target.get_ref()):
+		if !current_target.get_ref():
 			current_target = null
 			$ShootTimer.stop()
 		else:
 			target_position = current_target.get_ref().get_global_transform().origin
-			$Gun.set_rotation((target_position - position).angle()+30)
+			$Gun.set_rotation((target_position - position).angle() + 30)
 
 func _on_Aggro_area_entered(area):
 	if area.is_in_group("enemy"):
 		enemy_array.append(area.get_parent())
-
 
 func _on_Aggro_area_exited(area):
 	if area.is_in_group("enemy"):
