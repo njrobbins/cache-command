@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/TowerDefenseGame.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Tilesheets/tower_defense_1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Icons/pause.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Tilesheets/tower_defense_3.png" type="Texture" id=6]
@@ -368,6 +369,9 @@ __meta__ = {
 [node name="MobTimer" type="Timer" parent="."]
 
 [node name="WaveTimer" type="Timer" parent="."]
+
+[node name="MenuButtonAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]

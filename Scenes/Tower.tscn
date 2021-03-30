@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Tower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tower_gun_1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tower_base.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Audio/laser_short.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 200.0
@@ -39,6 +40,9 @@ shape = SubResource( 1 )
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 0.25
+
+[node name="SmallShotAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 [connection signal="area_entered" from="Aggro" to="." method="_on_Aggro_area_entered"]
 [connection signal="area_exited" from="Aggro" to="." method="_on_Aggro_area_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
