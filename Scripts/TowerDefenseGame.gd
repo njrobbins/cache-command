@@ -47,6 +47,8 @@ func _input(event):
 				instance.position = tower_pos
 
 func _on_PauseButton_pressed():
+	$MenuButtonAudio.play()
+	yield($MenuButtonAudio, "finished")
 	scene = get_tree().change_scene("res://Scenes/PauseMenu.tscn")
 
 func add_cash(num):

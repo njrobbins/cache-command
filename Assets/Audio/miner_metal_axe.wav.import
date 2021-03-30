@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/miner_metal_axe.wav-e0cb23c61f879b6eed72731cc1ff4a02.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/miner_metal_axe.wav"
+dest_files=[ "res://.import/miner_metal_axe.wav-e0cb23c61f879b6eed72731cc1ff4a02.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

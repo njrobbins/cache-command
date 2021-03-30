@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Icons/return.png" type="Texture" id=3]
 [ext_resource path="res://Assets/metal_panel.png" type="Texture" id=4]
@@ -59,4 +60,7 @@ texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MenuButtonAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
