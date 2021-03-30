@@ -12,6 +12,8 @@ radius = 200.0
 [node name="DigDugEnemy" type="KinematicBody2D" groups=[
 "enemy",
 ]]
+z_index = 5
+z_as_relative = false
 collision_layer = 4
 collision_mask = 6
 script = ExtResource( 2 )

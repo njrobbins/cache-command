@@ -3,32 +3,27 @@ extends KinematicBody2D
 export var speed = 200
 export var RADIUS = 200
 export var shoot_rate = 2
-export var hp = 100
 
 var velocity = Vector2()
 
 onready var joystick_move = get_parent().get_node("Joystick")
 
-var mined = 0
+var slow_amt = 0
 var enemy_array = []
 var instance
 var current_target = null
 var shot = load("res://Scenes/Shot.tscn")
-
-func _ready():
-	$Label.text = str(hp)
 	
 func _physics_process(_delta):
 	if joystick_move and joystick_move.is_working:
-		var vel = joystick_move.output * speed
+		var vel = joystick_move.output * (speed - slow_amt)
 		velocity = move_and_slide(vel)
 	
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider != null:
 			if collision.collider.is_in_group("res"):
-				mined += 1
-				print("Mined: ",mined)
+				get_parent().add_time(0.5)
 				collision.collider.free()
 			elif collision.collider.is_in_group("tile"):
 				collision.collider.free()
@@ -41,8 +36,9 @@ func _physics_process(_delta):
 func _on_HitDetector_area_entered(area):
 	if area.is_in_group("shot") and area.sentBy != "player":
 		area.queue_free()
-		hp -= 1
-		$Label.text = str(hp)
+		slow_amt += 10
+		print(slow_amt)
+		$SlowTimer.start()
 
 func _on_ShootTimer_timeout():
 	if current_target != null:
@@ -65,3 +61,6 @@ func _on_Aggro_body_exited(body):
 			if body == current_target:
 				current_target = null
 				$ShootTimer.stop()
+
+func _on_SlowTimer_timeout():
+	slow_amt = 0

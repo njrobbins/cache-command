@@ -32,7 +32,6 @@ func _on_Area2D_area_entered(area):
 		if hp <= 0:
 			get_parent().get_parent().add_cash(5)
 			queue_free()
-	print(area.get_groups())
 	if area.is_in_group("Base"):
 		queue_free()
 		get_parent().get_parent().base_hit()

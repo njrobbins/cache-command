@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Drone.gd" type="Script" id=1]
 [ext_resource path="res://Assets/drone_1.png" type="Texture" id=3]
@@ -7,15 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.20693, 13.147 )
-
-[sub_resource type="DynamicFontData" id=2]
-antialiased = false
-hinting = 0
-font_path = "res://fonts/Oswald-Regular.ttf"
-
-[sub_resource type="DynamicFont" id=3]
-size = 14
-font_data = SubResource( 2 )
 
 [node name="Drone" type="PathFollow2D"]
 script = ExtResource( 1 )
@@ -57,12 +48,11 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = -3.71236
-margin_top = -35.9013
-margin_right = 3.28764
-margin_bottom = -15.9013
-custom_fonts/font = SubResource( 3 )
-text = "0"
+margin_left = -8.0
+margin_top = -28.0
+margin_right = 8.0
+margin_bottom = -14.0
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

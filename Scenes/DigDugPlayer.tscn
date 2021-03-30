@@ -37,17 +37,11 @@ shape = SubResource( 2 )
 
 [node name="ShootTimer" type="Timer" parent="."]
 
-[node name="Label" type="Label" parent="."]
-margin_left = -16.0
-margin_top = -29.0
-margin_right = 16.0
-margin_bottom = -15.0
-text = "0"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="SlowTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
 [connection signal="area_entered" from="HitDetector" to="." method="_on_HitDetector_area_entered"]
 [connection signal="body_entered" from="Aggro" to="." method="_on_Aggro_body_entered"]
 [connection signal="body_exited" from="Aggro" to="." method="_on_Aggro_body_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+[connection signal="timeout" from="SlowTimer" to="." method="_on_SlowTimer_timeout"]

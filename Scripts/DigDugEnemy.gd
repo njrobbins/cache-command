@@ -19,7 +19,7 @@ func init(rad, rate):
 	$Aggro/AggroShape.shape.radius = RADIUS
 	$ShootTimer.set_wait_time(1.0 / shoot_rate)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if current_target != null:
 		velocity = ((current_target.get_global_transform().origin - position).normalized() * move_speed)
 		if (position - current_target.get_global_transform().origin).length() > 50:

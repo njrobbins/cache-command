@@ -43,6 +43,7 @@ class MapGen:
 	
 	static func genMapFromSeed(rows, columns, _seeed="seed", fillrate=32):
 		"""Generates a grid from a random seed, can specify rows, columns, seed, fill rate"""
+		randomize()
 		var grid = []
 		for _i in range(columns + 30):
 			grid.append([])
