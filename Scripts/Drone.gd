@@ -8,9 +8,11 @@ func init(spd, h, big=false, fast=false):
 	speed = spd
 	hp = h
 	if big:
-		$Area2D/AnimatedSprite.color = Color(255, 0, 0)
+		$Area2D/DroneGreen.visible = true
 	elif fast:
-		$Area2D/AnimatedSprite.color = Color(255, 255, 0)
+		$Area2D/DroneOrange.visible = true
+	else:
+		$Area2D/DroneGray.visible = true
 	
 func _ready():
 	$Label.text = str(hp)

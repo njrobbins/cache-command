@@ -36,7 +36,7 @@ func _physics_process(_delta):
 			$ShootTimer.stop()
 		else:
 			target_position = current_target.get_ref().get_global_transform().origin
-			$Gun.set_rotation((target_position - position).angle())
+			$Gun.set_rotation((target_position - position).angle()+30)
 
 func _on_Aggro_area_entered(area):
 	if area.is_in_group("enemy"):

@@ -8,6 +8,7 @@
 radius = 200.0
 
 [node name="Tower" type="Area2D"]
+z_index = 4
 script = ExtResource( 1 )
 
 [node name="Base" type="TextureRect" parent="."]
@@ -18,41 +19,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Base(Old)" type="ColorRect" parent="."]
-visible = false
-margin_right = 64.0
-margin_bottom = 64.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Gun" type="TextureRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+rect_pivot_offset = Vector2( 32, 32 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ShotPosition" type="Node2D" parent="Gun"]
-position = Vector2( 32, 29 )
-
-[node name="Gun(Old)" type="ColorRect" parent="."]
-visible = false
-margin_left = 21.0
-margin_top = 29.0
-margin_right = 41.0
-margin_bottom = 34.0
-color = Color( 0.921569, 0.996078, 0.0627451, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+position = Vector2( 32, 50 )
 
 [node name="Aggro" type="Area2D" parent="."]
-visible = false
 
 [node name="AggroShape" type="CollisionShape2D" parent="Aggro"]
-visible = false
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
 

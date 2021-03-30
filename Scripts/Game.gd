@@ -9,7 +9,7 @@ var base_hp = 5
 var wave = 0
 var mobs_left = 0
 var mobs_total
-var wave_mobs = [5, 5, 15, 15, 15]
+var wave_mobs = [5, 5, 5, 5, 5]
 
 var tilemap
 var cell_size
@@ -57,12 +57,12 @@ func add_cash(num):
 	cash += num
 	mobs_total -= 1
 	if mobs_total == 0:
-		var scene = get_tree().change_scene("res://Scenes/LevelWon.tscn")
+		var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
 	
 func base_hit():
 	base_hp -= 1
 	if base_hp == 0:
-		var scene = get_tree().change_scene("res://Scenes/LevelLost.tscn")
+		var _scene = get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 func _on_WaveTimer_timeout():
 #	print("Wave Start")
@@ -77,13 +77,13 @@ func _on_MobTimer_timeout():
 	if mobs_left % 5 == 0:
 		# every 5 mobs are bigger slower mobs
 		
-		instance.init(120, 20, true)
+		instance.init(80, 20, true)
 	elif mobs_left % 3 == 0:
 		# every 3 mobs are smaller faster mobs
-		instance.init(200, 5, false, true)
+		instance.init(120, 5, false, true)
 	else:
 		# Spawn normal mobs
-		instance.init(160, 10)
+		instance.init(100, 10)
 	$Path2D.add_child(instance)
 	mobs_left -= 1
 	if mobs_left <= 0:
