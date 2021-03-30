@@ -23,7 +23,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PauseMenuButton" type="Button" parent="UI"]
+[node name="PauseButton" type="Button" parent="UI"]
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 236.0
@@ -130,7 +130,7 @@ text = "Lose Level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="UI/PauseMenuButton" to="UI" method="_on_PauseMenuButton_pressed"]
+[connection signal="pressed" from="UI/PauseButton" to="UI" method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="UI/TowerShopButton" to="UI" method="_on_TowerShopButton_pressed"]
 [connection signal="pressed" from="UI/WinLevelButton" to="UI" method="_on_WinLevelButton_pressed"]
 [connection signal="pressed" from="UI/LoseLevelButton" to="UI" method="_on_LoseLevelButton_pressed"]

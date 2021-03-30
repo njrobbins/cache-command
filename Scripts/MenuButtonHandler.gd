@@ -16,15 +16,15 @@ func _on_InstructionsButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/Instructions.tscn")
 
 func _on_LoseLevelButton_pressed():
-	scene = get_tree().change_scene("res://Scenes/LevelLost.tscn")
+	scene = get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 func _on_MainMenuButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
-func _on_PauseMenuButton_pressed():
+func _on_PauseButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/PauseMenu.tscn")
 
-func _on_QuitButton_pressed():
+func _on_QuitGameButton_pressed():
 	pass
 	# TODO
 
@@ -32,11 +32,14 @@ func _on_ResumeButton_pressed():
 	pass
 	# TODO
 
-func _on_StartButton_pressed():
+func _on_PlayButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/DigDug.tscn")
 
 func _on_TDButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/Game.tscn")
+
+func _on_TextureButton_pressed():
+	print("pressed")
 
 func _on_TowerShopButton_pressed():
 	get_node("TowerShopPopupMenu").popup()
@@ -46,8 +49,4 @@ func _on_TryAgainButton_pressed():
 	# TODO
 
 func _on_WinLevelButton_pressed():
-	scene = get_tree().change_scene("res://Scenes/LevelWon.tscn")
-
-
-func _on_TextureButton_pressed():
-	print("pressed")
+	scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")

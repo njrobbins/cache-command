@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Drone.gd" type="Script" id=1]
+[ext_resource path="res://Assets/drone_1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/drone_3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/drone_4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/drone_2.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.20693, 8.41159 )
@@ -22,7 +26,43 @@ script = ExtResource( 1 )
 ]]
 position = Vector2( -8, -8 )
 
+[node name="DroneGray" type="TextureRect" parent="Area2D"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DroneOrange" type="TextureRect" parent="Area2D"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DroneRed" type="TextureRect" parent="Area2D"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DroneGreen" type="TextureRect" parent="Area2D"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimatedSprite" type="ColorRect" parent="Area2D"]
+visible = false
 margin_right = 16.0
 margin_bottom = 16.0
 color = Color( 0.415686, 0.913725, 0.470588, 1 )

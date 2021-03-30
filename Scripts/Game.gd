@@ -18,6 +18,8 @@ var cell_id
 
 var occupied = []
 
+var scene
+
 func _ready():
 	tilemap = $TowerPlacementTileMap
 	cell_size = tilemap.cell_size
@@ -47,6 +49,9 @@ func _input(event):
 				instance.init(210,4)
 				add_child(instance)
 				instance.position = tower_pos
+
+func _on_PauseButton_pressed():
+	scene = get_tree().change_scene("res://Scenes/PauseMenu.tscn")
 
 func add_cash(num):
 	cash += num
