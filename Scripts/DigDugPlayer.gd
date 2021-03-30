@@ -38,7 +38,6 @@ func _on_HitDetector_area_entered(area):
 	if area.is_in_group("shot") and area.sentBy != "player":
 		area.queue_free()
 		slow_amt += 10
-		print(slow_amt)
 		$SlowTimer.start()
 
 func _on_ShootTimer_timeout():

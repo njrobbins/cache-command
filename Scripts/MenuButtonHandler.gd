@@ -10,7 +10,7 @@ func _on_BackButton_pressed():
 func _on_ContinueButton_pressed():
 	$MenuButtonAudio.play()
 	yield($MenuButtonAudio, "finished")
-	pass
+	scene = get_tree().change_scene("res://Scenes/DigDug.tscn")
 	# TODO
 
 func _on_CreditsButton_pressed():
