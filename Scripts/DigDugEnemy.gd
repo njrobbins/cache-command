@@ -22,7 +22,8 @@ func init(rad, rate):
 func _physics_process(delta):
 	if current_target != null:
 		velocity = ((current_target.get_global_transform().origin - position).normalized() * move_speed)
-		position += velocity * delta
+		if (position - current_target.get_global_transform().origin).length() > 50:
+			velocity = move_and_slide(velocity)
 		rotation = velocity.angle()
 	
 	
