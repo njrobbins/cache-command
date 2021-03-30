@@ -1,7 +1,7 @@
 extends Node2D
 
-const Tile = preload("res://Scenes/Tile.tscn")
-const Res = preload("res://Scenes/Resource.tscn")
+const Tile = preload("res://Scenes/DigDugTile.tscn")
+const Res = preload("res://Scenes/DigDugResource.tscn")
 
 var cell_w = 16
 var cell_h = 16

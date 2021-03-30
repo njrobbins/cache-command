@@ -36,13 +36,7 @@ func _on_PlayButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/DigDug.tscn")
 
 func _on_TDButton_pressed():
-	scene = get_tree().change_scene("res://Scenes/Game.tscn")
-
-func _on_TextureButton_pressed():
-	print("pressed")
-
-func _on_TowerShopButton_pressed():
-	get_node("TowerShopPopupMenu").popup()
+	scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
 
 func _on_TryAgainButton_pressed():
 	pass

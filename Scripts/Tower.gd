@@ -9,7 +9,6 @@ var target_position
 
 var current_target = null
 var enemy_array = []
-var shooting = false
 var shot = load("res://Scenes/Shot.tscn")
 
 func init(rad, rate):

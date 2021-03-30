@@ -5,6 +5,7 @@ var velocity
 var speed = 400
 var timerStarted = false
 var target = null
+var sentBy
 
 func _physics_process(delta):
 	if target.get_ref():
@@ -17,7 +18,10 @@ func _physics_process(delta):
 	if timerStarted:
 		position += velocity * delta
 
-func set_target(new_target):
+func set_target(new_target, fromPlayer=false):
+	if fromPlayer:
+		$BulletCopper.visible = false
+		$BulletSteel.visible = true
 	target = weakref(new_target)
 
 func _on_LifeTimer_timeout():
