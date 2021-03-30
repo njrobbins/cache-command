@@ -41,5 +41,4 @@ func add_time(var amt):
 	$GameTimer.start($GameTimer.time_left + amt)
 
 func _on_GameTimer_timeout():
-#	print("out of time")
-	pass
+	var _scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")

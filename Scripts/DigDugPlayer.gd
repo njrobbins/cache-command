@@ -24,6 +24,7 @@ func _physics_process(_delta):
 		if collision.collider != null:
 			if collision.collider.is_in_group("res"):
 				get_parent().add_time(0.5)
+				Settings.cash += 5
 				collision.collider.free()
 			elif collision.collider.is_in_group("tile"):
 				collision.collider.free()

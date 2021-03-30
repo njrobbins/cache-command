@@ -7,7 +7,7 @@ var instance
 var scene
 var tilemap
 
-var cash = 500
+var cash
 var base_hp = 5
 var mob = load("res://Scenes/Drone.tscn")
 var mobs_left = 0
@@ -20,6 +20,7 @@ var wave_mobs = [5, 5, 5, 5, 5]
 func _ready():
 	tilemap = $TowerPlacementTileMap
 	cell_size = tilemap.cell_size
+	cash = Settings.cash
 	$WaveTimer.start()
 	mobs_total = 0
 	for w in wave_mobs:
