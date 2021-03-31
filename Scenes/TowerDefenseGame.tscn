@@ -571,6 +571,7 @@ position = Vector2( 20, 16 )
 shape = SubResource( 5 )
 
 [node name="PauseButton" type="Button" parent="."]
+visible = false
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 78.0
@@ -660,6 +661,7 @@ __meta__ = {
 }
 
 [node name="TowerShopButton" type="Button" parent="."]
+visible = false
 margin_left = 1202.0
 margin_top = 16.0
 margin_right = 1264.0
