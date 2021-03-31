@@ -4,6 +4,8 @@ const Tile = preload("res://Scenes/DigDugTile.tscn")
 const Res = preload("res://Scenes/DigDugResource.tscn")
 const Enemy = preload("res://Scenes/DigDugEnemy.tscn")
 
+var scene
+
 var cell_w = 16
 var cell_h = 16
 var number_of_enemies = 8
@@ -34,11 +36,15 @@ func _ready():
 						inst.position = Vector2(x * cell_w, y * cell_h)
 						$Map.add_child(inst)
 						number_of_enemies -= 1
+
 func _process(delta):
 	$TimeLabel.text = str($GameTimer.time_left)
-	
+
 func add_time(var amt):
 	$GameTimer.start($GameTimer.time_left + amt)
 
 func _on_GameTimer_timeout():
 	var _scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
+
+func _on_PauseButton_pressed():
+	scene = get_tree().change_scene("res://Scenes/PauseMenu.tscn")

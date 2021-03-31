@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/DigDugPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Icons/pause.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/DigDugGame.gd" type="Script" id=3]
 [ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/kenvector_future_thin_small.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/gray_bar.png" type="Texture" id=6]
 
 [node name="DigDug" type="Node2D"]
 script = ExtResource( 3 )
@@ -22,11 +25,71 @@ wait_time = 15.0
 one_shot = true
 autostart = true
 
+[node name="TimeSection" type="TextureRect" parent="."]
+margin_left = 522.0
+margin_top = 16.0
+margin_right = 712.0
+margin_bottom = 61.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLeftLabel" type="Label" parent="."]
+margin_left = 536.0
+margin_top = 24.0
+margin_right = 609.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Time:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TimeLabel" type="Label" parent="."]
-margin_left = 442.48
-margin_right = 482.48
-margin_bottom = 14.0
+margin_left = 624.0
+margin_top = 24.0
+margin_right = 700.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "12.34"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseButton" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 78.0
+margin_bottom = 78.0
+icon = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WafersSection" type="TextureRect" parent="."]
+margin_left = 1074.0
+margin_top = 16.0
+margin_right = 1264.0
+margin_bottom = 61.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WafersCollectedLabel" type="Label" parent="."]
+margin_left = 1088.0
+margin_top = 24.0
+margin_right = 1209.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Wafers:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
