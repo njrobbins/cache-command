@@ -37,7 +37,7 @@ func _ready():
 						$Map.add_child(inst)
 						number_of_enemies -= 1
 
-func _process(delta):
+func _process(_delta):
 	$TimeLabel.text = str(stepify($GameTimer.time_left,0.001))
 
 func add_time(var amt):

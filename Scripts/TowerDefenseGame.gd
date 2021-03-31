@@ -20,6 +20,7 @@ func _ready():
 	tilemap = $TowerPlacementTileMap
 	cell_size = tilemap.cell_size
 	$BaseLabel.text = str(base_hp)
+	$CashLabel.text = str(Settings.cash)
 	$WaveTimer.start()
 	mobs_total = 0
 	for w in wave_mobs:
