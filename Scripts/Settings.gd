@@ -1,4 +1,4 @@
 extends Node
 
 
-var cash = 0
+var cash = 250

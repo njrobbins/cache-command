@@ -7,7 +7,6 @@ var instance
 var scene
 var tilemap
 
-var cash
 var base_hp = 5
 var mob = load("res://Scenes/Drone.tscn")
 var mobs_left = 0
@@ -20,16 +19,11 @@ var wave_mobs = [5, 5, 5, 5, 5]
 func _ready():
 	tilemap = $TowerPlacementTileMap
 	cell_size = tilemap.cell_size
-	cash = Settings.cash
+	$BaseLabel.text = str(base_hp)
 	$WaveTimer.start()
 	mobs_total = 0
 	for w in wave_mobs:
 		mobs_total += w
-
-func _physics_process(_delta):
-	$CashLabel.text = "Cash: " + str(cash)
-	$BaseLabel.text = "Base Health: " + str(base_hp)
-#	$MobsLabel.text = "Mobs Left: " + str(mobs_left)
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
@@ -39,8 +33,8 @@ func _input(event):
 		if cell_id != -1:
 #			var tile_name = tilemap.tile_set.tile_get_name(cell_id)
 			var tower_pos = Vector2(cell_position.x * cell_size.x , cell_position.y * cell_size.y)
-			if occupied.count(tower_pos) == 0 and cash >= 25:
-				cash -= 25
+			if occupied.count(tower_pos) == 0 and Settings.cash >= 25:
+				Settings.cash -= 25
 				occupied.push_back(tower_pos)
 				instance = tower.instance()
 				instance.init(210, 4)
@@ -53,13 +47,15 @@ func _on_PauseButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/PauseMenu.tscn")
 
 func add_cash(num):
-	cash += num
+	Settings.cash += num
+	$CashLabel.text = str(Settings.cash)
 	mobs_total -= 1
 	if mobs_total == 0:
 		var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
 
 func base_hit():
 	base_hp -= 1
+	$BaseLabel.text = str(base_hp)
 	if base_hp == 0:
 		var _scene = get_tree().change_scene("res://Scenes/GameOver.tscn")
 
