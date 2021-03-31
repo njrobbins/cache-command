@@ -6,7 +6,7 @@ export var shoot_rate = 2
 
 var velocity = Vector2()
 
-onready var joystick_move = get_parent().get_node("Joystick")
+onready var joystick_move = get_parent().get_node("UI/Joystick")
 
 var slow_amt = 0
 var enemy_array = []
@@ -20,17 +20,6 @@ func _physics_process(_delta):
 		velocity = move_and_slide(vel)
 		
 		$PlayerWrapper.rotation = velocity.angle()
-	
-#	for i in get_slide_count():
-#		var collision = get_slide_collision(i)
-#		if collision.collider != null:
-#			if collision.collider.is_in_group("res"):
-#				get_parent().add_time(0.5)
-#				Settings.cash += 5
-#				get_parent().update_wafers()
-#				collision.collider.free()
-#			elif collision.collider.is_in_group("tile"):
-#				collision.collider.free()
 				
 	if current_target != null:
 		var target_position = current_target.get_global_transform().origin
