@@ -2,15 +2,15 @@
 
 [ext_resource path="res://Scripts/DigDugPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/robot_gray.png" type="Texture" id=2]
-[ext_resource path="res://Assets/tower_gun_3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/robot_turret_gray.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14, 14 )
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 25.0
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 200.0
 
 [node name="DigDugPlayer" type="KinematicBody2D" groups=[
@@ -33,14 +33,14 @@ texture = ExtResource( 2 )
 [node name="HitDetector" type="Area2D" parent="PlayerWrapper"]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerWrapper/HitDetector"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Aggro" type="Area2D" parent="PlayerWrapper"]
 visible = false
 collision_mask = 5
 
 [node name="AggroShape" type="CollisionShape2D" parent="PlayerWrapper/Aggro"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Turret" type="TextureRect" parent="."]
 margin_left = -30.4183
