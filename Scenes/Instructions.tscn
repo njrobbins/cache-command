@@ -61,6 +61,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RichTextLabel" type="RichTextLabel" parent="MetalPanel"]
+margin_right = 999.0
+margin_bottom = 497.0
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[color=#000000][center]Digging mode
+Use the left thumbstick to gather blue resources while avoiding enemies.
+
+Resources gathered will be used to purchase towers.
+
+Tower Defense Mode
+
+Create towers by clicking on tower placement positions.
+
+Towers defeat enemies to protect your base, every enemy leaked will subtract 1 health point.
+
+To win kill all of the enemies before your health reaches 0."
+text = "Digging mode
+Use the left thumbstick to gather blue resources while avoiding enemies.
+
+Resources gathered will be used to purchase towers.
+
+Tower Defense Mode
+
+Create towers by clicking on tower placement positions.
+
+Towers defeat enemies to protect your base, every enemy leaked will subtract 1 health point.
+
+To win kill all of the enemies before your health reaches 0."
+
 [node name="MenuButtonAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
