@@ -38,10 +38,13 @@ func _ready():
 						number_of_enemies -= 1
 
 func _process(delta):
-	$TimeLabel.text = str($GameTimer.time_left)
+	$TimeLabel.text = str(stepify($GameTimer.time_left,0.01))
 
 func add_time(var amt):
 	$GameTimer.start($GameTimer.time_left + amt)
+
+func update_wafers():
+	$WafersCollectedLabel.text = str("Wafers: " + str(Settings.cash))
 
 func _on_GameTimer_timeout():
 	var _scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
