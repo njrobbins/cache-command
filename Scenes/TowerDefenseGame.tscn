@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/TowerDefenseGame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Tilesheets/tower_defense_2.png" type="Texture" id=7]
 [ext_resource path="res://fonts/kenvector_future_thin_small.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Assets/gray_bar.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Icons/heart.png" type="Texture" id=10]
 
 [sub_resource type="TileSet" id=1]
 14/name = "tower_defense_tilesheet.png 14"
@@ -590,10 +591,10 @@ __meta__ = {
 }
 
 [node name="BaseHealthLabel" type="Label" parent="."]
-margin_left = 104.0
+margin_left = 136.0
 margin_top = 32.0
-margin_right = 221.0
-margin_bottom = 62.0
+margin_right = 243.0
+margin_bottom = 59.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Health:"
@@ -602,13 +603,13 @@ __meta__ = {
 }
 
 [node name="BaseLabel" type="Label" parent="."]
-margin_left = 224.0
+margin_left = 248.0
 margin_top = 32.0
-margin_right = 260.0
-margin_bottom = 62.0
+margin_right = 264.0
+margin_bottom = 58.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "00"
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -623,11 +624,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 96.0
+margin_top = 24.0
+margin_right = 136.0
+margin_bottom = 64.0
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="WafersLeftLabel" type="Label" parent="."]
 margin_left = 1008.0
 margin_top = 32.0
-margin_right = 1129.0
-margin_bottom = 62.0
+margin_right = 1121.0
+margin_bottom = 59.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Wafers:"
@@ -636,10 +648,10 @@ __meta__ = {
 }
 
 [node name="CashLabel" type="Label" parent="."]
-margin_left = 1129.0
+margin_left = 1128.0
 margin_top = 32.0
-margin_right = 1183.0
-margin_bottom = 62.0
+margin_right = 1179.0
+margin_bottom = 59.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "000"
