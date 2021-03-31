@@ -37,9 +37,9 @@ __meta__ = {
 }
 
 [node name="TimeLeftLabel" type="Label" parent="."]
-margin_left = 536.0
+margin_left = 528.0
 margin_top = 24.0
-margin_right = 609.0
+margin_right = 601.0
 margin_bottom = 56.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -49,13 +49,13 @@ __meta__ = {
 }
 
 [node name="TimeLabel" type="Label" parent="."]
-margin_left = 624.0
+margin_left = 608.0
 margin_top = 24.0
-margin_right = 700.0
+margin_right = 702.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "12.34"
+text = "12.345"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -81,9 +81,9 @@ __meta__ = {
 }
 
 [node name="WafersCollectedLabel" type="Label" parent="."]
-margin_left = 1088.0
+margin_left = 1080.0
 margin_top = 24.0
-margin_right = 1209.0
+margin_right = 1201.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )

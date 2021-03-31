@@ -38,7 +38,7 @@ func _ready():
 						number_of_enemies -= 1
 
 func _process(delta):
-	$TimeLabel.text = str(stepify($GameTimer.time_left,0.01))
+	$TimeLabel.text = str(stepify($GameTimer.time_left,0.001))
 
 func add_time(var amt):
 	$GameTimer.start($GameTimer.time_left + amt)
