@@ -57,6 +57,8 @@ func _on_TDButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
 
 func _on_TryAgainButton_pressed():
+	$MenuButtonAudio.play()
+	yield($MenuButtonAudio, "finished")
 	pass
 	# TODO
 

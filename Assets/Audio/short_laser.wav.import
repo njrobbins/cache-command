@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/pew.wav-94ebeb71b02359e3f48106e605def202.sample"
+path="res://.import/short_laser.wav-a04fff641c51c164f30acf07b1d7a31d.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/pew.wav"
-dest_files=[ "res://.import/pew.wav-94ebeb71b02359e3f48106e605def202.sample" ]
+source_file="res://Assets/Audio/short_laser.wav"
+dest_files=[ "res://.import/short_laser.wav-a04fff641c51c164f30acf07b1d7a31d.sample" ]
 
 [params]
 

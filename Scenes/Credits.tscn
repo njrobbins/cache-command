@@ -61,6 +61,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RichTextLabel" type="RichTextLabel" parent="MetalPanel"]
+margin_left = 0.943848
+margin_top = 0.943848
+margin_right = 1000.94
+margin_bottom = 497.944
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#000000]Programmers:
+Tristan Tyler
+Nikko Robbins
+Matthew Glenn
+
+Graphics:
+Kenney Vleugels www.kenney.nl
+
+Music:
+Kevin MacLeod
+ \"Neon Laser Horizon\"
+https://filmmusic.io/song/7015-neon-laser-horizon"
+text = "Programmers:
+Tristan Tyler
+Nikko Robbins
+Matthew Glenn
+
+Graphics:
+Kenney Vleugels www.kenney.nl
+
+Music:
+Kevin MacLeod
+ \"Neon Laser Horizon\"
+https://filmmusic.io/song/7015-neon-laser-horizon"
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="MenuButtonAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
