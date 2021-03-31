@@ -29,9 +29,12 @@ func _on_Area2D_area_entered(area):
 		area.queue_free()
 		hp -= 1
 		$Label.text = str(hp)
-		if hp <= 0:
-			get_parent().get_parent().add_cash(5)
+		if hp == 0:
+			Settings.drones_destroyed += 1
+			get_parent().get_parent().drone_destroyed(5)
 			queue_free()
+			
 	if area.is_in_group("Base"):
-		queue_free()
+		Settings.drones_destroyed += 1
 		get_parent().get_parent().base_hit()
+		queue_free()

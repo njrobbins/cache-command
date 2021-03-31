@@ -10,11 +10,11 @@ var tilemap
 var base_hp = 5
 var mob = load("res://Scenes/Drone.tscn")
 var mobs_left = 0
-var mobs_total
 var occupied = []
 var tower = load("res://Scenes/Tower.tscn")
 var wave = 0
 var wave_mobs = [5, 5, 5, 5, 5]
+var total_drones = 0
 
 func _ready():
 	tilemap = $TowerPlacementTileMap
@@ -22,9 +22,10 @@ func _ready():
 	$BaseLabel.text = str(base_hp)
 	$CashLabel.text = str(Settings.cash)
 	$WaveTimer.start()
-	mobs_total = 0
-	for w in wave_mobs:
-		mobs_total += w
+	Settings.drones_destroyed = 0
+	for i in wave_mobs:
+		total_drones += i
+	
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
@@ -36,6 +37,7 @@ func _input(event):
 			var tower_pos = Vector2(cell_position.x * cell_size.x , cell_position.y * cell_size.y)
 			if occupied.count(tower_pos) == 0 and Settings.cash >= 25:
 				Settings.cash -= 25
+				$CashLabel.text = str(Settings.cash)
 				occupied.push_back(tower_pos)
 				instance = tower.instance()
 				instance.init(210, 4)
@@ -47,12 +49,12 @@ func _on_PauseButton_pressed():
 	yield($MenuButtonAudio, "finished")
 	scene = get_tree().change_scene("res://Scenes/PauseMenu.tscn")
 
-func add_cash(num):
-	Settings.cash += num
+func drone_destroyed(cash):
+	Settings.cash += cash
 	$CashLabel.text = str(Settings.cash)
-	mobs_total -= 1
-	if mobs_total == 0:
+	if Settings.drones_destroyed == total_drones:
 		var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
+		
 
 func base_hit():
 	base_hp -= 1
@@ -85,3 +87,4 @@ func _on_MobTimer_timeout():
 		wave += 1
 		if wave < len(wave_mobs):
 			$WaveTimer.start()
+			
