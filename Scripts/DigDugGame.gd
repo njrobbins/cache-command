@@ -6,8 +6,8 @@ const Enemy = preload("res://Scenes/DigDugEnemy.tscn")
 
 var scene
 
-var cell_w = 16
-var cell_h = 16
+var cell_w = 32
+var cell_h = 32
 var number_of_enemies = 8
 var rng = RandomNumberGenerator.new()
 

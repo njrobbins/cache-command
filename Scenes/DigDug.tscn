@@ -10,6 +10,14 @@
 [node name="DigDug" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="BackgroundColor" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0.133333, 0.482353, 0.305882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Map" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
