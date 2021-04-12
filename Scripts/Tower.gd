@@ -10,12 +10,26 @@ var target_position
 var current_target = null
 var enemy_array = []
 var shot = load("res://Scenes/Shot.tscn")
+var placed = false
+var type
 
-func init(rad, rate):
-	RADIUS = rad
-	shoot_rate = rate
+func init(rad=210, rate=4):
+	
+	if Settings.tower_type_selected == "normal":
+		RADIUS = rad
+		shoot_rate = rate
+		type = "normal"
+	elif Settings.tower_type_selected == "type2":
+		RADIUS = 350
+		shoot_rate = 8
+		type = "type2"
+	
 	$Aggro/AggroShape.shape.radius = RADIUS
+	var rad_scale = RADIUS / 100.0
+	$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
 	$ShootTimer.set_wait_time(1.0 / shoot_rate)
+	$UpgradePanel/RangeLabel.text = str(RADIUS)
+	$UpgradePanel/SpeedLabel.text = str(shoot_rate)
 
 func _physics_process(_delta):
 	if !current_target:
@@ -56,3 +70,30 @@ func _on_ShootTimer_timeout():
 		instance.set_target(current_target.get_ref())
 		instance.position = $Gun/ShotPosition.get_global_transform().origin
 		get_parent().add_child(instance)
+
+
+func _on_TowerButton_pressed():
+	if placed:
+		$RadiusCircle.visible = !$RadiusCircle.visible
+		$UpgradePanel.visible = !$UpgradePanel.visible
+	else:
+		placed = true
+
+
+func _on_RangeButton_pressed():
+	if Settings.cash >= 10:
+		Settings.cash -= 10
+		RADIUS += 25
+		$Aggro/AggroShape.shape.radius = RADIUS
+		var rad_scale = RADIUS / 100.0
+		$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
+		$UpgradePanel/RangeLabel.text = str(RADIUS)
+	
+
+
+func _on_SpeedButton_pressed():
+	if Settings.cash >= 10:
+		Settings.cash -= 10
+		shoot_rate += 1
+		$ShootTimer.set_wait_time(1.0 / shoot_rate)
+		$UpgradePanel/SpeedLabel.text = str(shoot_rate)

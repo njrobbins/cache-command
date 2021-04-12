@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/TowerDefenseGame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://fonts/kenvector_future_thin_small.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Assets/gray_bar.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Icons/heart.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/TowerShop.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 14/name = "tower_defense_tilesheet.png 14"
@@ -571,7 +572,6 @@ position = Vector2( 20, 16 )
 shape = SubResource( 5 )
 
 [node name="PauseButton" type="Button" parent="."]
-visible = false
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 78.0
@@ -625,7 +625,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Heart" type="TextureRect" parent="."]
 margin_left = 96.0
 margin_top = 24.0
 margin_right = 136.0
@@ -661,7 +661,6 @@ __meta__ = {
 }
 
 [node name="TowerShopButton" type="Button" parent="."]
-visible = false
 margin_left = 1202.0
 margin_top = 16.0
 margin_right = 1264.0
@@ -671,6 +670,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TowerShop" parent="." instance=ExtResource( 11 )]
+visible = false
+margin_left = 1036.26
+margin_top = 78.0
+margin_right = 1036.26
+margin_bottom = 78.0
+
 [node name="MobTimer" type="Timer" parent="."]
 
 [node name="WaveTimer" type="Timer" parent="."]
@@ -678,5 +684,6 @@ __meta__ = {
 [node name="MenuButtonAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="TowerShopButton" to="." method="_on_TowerShopButton_pressed"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]

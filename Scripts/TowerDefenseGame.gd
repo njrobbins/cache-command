@@ -28,6 +28,7 @@ func _ready():
 	
 
 func _input(event):
+	$CashLabel.text = str(Settings.cash)
 	if event is InputEventMouseButton and event.pressed:
 		var m_position = get_global_mouse_position()
 		cell_position = Vector2(floor(m_position.x / cell_size.x), floor(m_position.y / cell_size.y))
@@ -37,10 +38,9 @@ func _input(event):
 			var tower_pos = Vector2(cell_position.x * cell_size.x , cell_position.y * cell_size.y)
 			if occupied.count(tower_pos) == 0 and Settings.cash >= 25:
 				Settings.cash -= 25
-				$CashLabel.text = str(Settings.cash)
 				occupied.push_back(tower_pos)
 				instance = tower.instance()
-				instance.init(210, 4)
+				instance.init()
 				add_child(instance)
 				instance.position = tower_pos
 
@@ -88,3 +88,7 @@ func _on_MobTimer_timeout():
 		if wave < len(wave_mobs):
 			$WaveTimer.start()
 			
+
+
+func _on_TowerShopButton_pressed():
+	$TowerShop.visible = !$TowerShop.visible

@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/TowerShop.gd" type="Script" id=1]
+
+[node name="TowerShop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 228.0
+margin_bottom = 306.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NormalType" type="Button" parent="Panel"]
+margin_left = 77.0
+margin_top = 67.0
+margin_right = 152.0
+margin_bottom = 103.0
+text = "Normal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TowerType2" type="Button" parent="Panel"]
+margin_left = 77.0
+margin_top = 155.196
+margin_right = 152.0
+margin_bottom = 191.196
+text = "Type 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 53.0187
+margin_top = 14.0647
+margin_right = 179.019
+margin_bottom = 28.0647
+text = "Select a Tower Type"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel/NormalType" to="." method="_on_NormalType_pressed"]
+[connection signal="pressed" from="Panel/TowerType2" to="." method="_on_TowerType2_pressed"]
