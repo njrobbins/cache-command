@@ -7,10 +7,10 @@ var instance
 var scene
 var tilemap
 
+var current_towers = []
 var base_hp = 5
 var mob = load("res://Scenes/Drone.tscn")
 var mobs_left = 0
-var occupied = []
 var tower = load("res://Scenes/Tower.tscn")
 var wave = 0
 var wave_mobs = [5, 5, 5, 5, 5]
@@ -26,23 +26,32 @@ func _ready():
 	for i in wave_mobs:
 		total_drones += i
 	
-
+	for tow in Settings.current_towers_info:
+		instance = tower.instance()
+		add_child(instance)
+		instance.recreate(tow)
+		current_towers.push_back(instance)
+	
 func _input(event):
 	$CashLabel.text = str(Settings.cash)
 	if event is InputEventMouseButton and event.pressed:
 		var m_position = get_global_mouse_position()
-		cell_position = Vector2(floor(m_position.x / cell_size.x), floor(m_position.y / cell_size.y))
-		cell_id = tilemap.get_cellv(cell_position)
-		if cell_id != -1:
-#			var tile_name = tilemap.tile_set.tile_get_name(cell_id)
-			var tower_pos = Vector2(cell_position.x * cell_size.x , cell_position.y * cell_size.y)
-			if occupied.count(tower_pos) == 0 and Settings.cash >= 25:
-				Settings.cash -= 25
-				occupied.push_back(tower_pos)
-				instance = tower.instance()
-				instance.init()
-				add_child(instance)
-				instance.position = tower_pos
+		placeTower(m_position)
+
+func placeTower(var pos):
+	cell_position = Vector2(floor(pos.x / cell_size.x), floor(pos.y / cell_size.y))
+	cell_id = tilemap.get_cellv(cell_position)
+	if cell_id != -1:
+		var tower_pos = Vector2(cell_position.x * cell_size.x , cell_position.y * cell_size.y)
+		if Settings.tower_positions.count(tower_pos) == 0 and Settings.cash >= 25:
+			Settings.cash -= 25
+			Settings.tower_positions.push_back(tower_pos)
+			instance = tower.instance()
+			instance.init()
+			add_child(instance)
+			instance.position = tower_pos
+			current_towers.push_back(instance)
+				
 
 func _on_PauseButton_pressed():
 	$MenuButtonAudio.play()
@@ -53,7 +62,21 @@ func drone_destroyed(cash):
 	Settings.cash += cash
 	$CashLabel.text = str(Settings.cash)
 	if Settings.drones_destroyed == total_drones:
+		saveTowers()
 		var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
+		
+func saveTowers():
+	var t = []
+	for tower in current_towers:
+		var d = {
+			"position": tower.position,
+			"radius": tower.RADIUS,
+			"shootRate": tower.shoot_rate,
+			"type": tower.type,
+			"destroyed": tower.enemies_destroyed,
+		}
+		t.push_back(d)
+	Settings.current_towers_info = t
 		
 
 func base_hit():
@@ -89,6 +112,6 @@ func _on_MobTimer_timeout():
 			$WaveTimer.start()
 			
 
-
 func _on_TowerShopButton_pressed():
 	$TowerShop.visible = !$TowerShop.visible
+		

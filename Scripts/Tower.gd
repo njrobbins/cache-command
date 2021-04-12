@@ -31,6 +31,16 @@ func init(rad=210, rate=4):
 	$ShootTimer.set_wait_time(1.0 / shoot_rate)
 	$UpgradePanel/RangeLabel.text = str(RADIUS)
 	$UpgradePanel/SpeedLabel.text = str(shoot_rate)
+	$UpgradePanel/DronesDestroyed.text = "Destroyed: " + str(enemies_destroyed)
+		
+func recreate(var t):
+	position = t["position"] 
+	RADIUS = t["radius"]
+	shoot_rate = t["shootRate"]
+	type = t["type"]
+	enemies_destroyed = t["destroyed"]
+	
+	init(RADIUS, shoot_rate)
 
 func _physics_process(_delta):
 	if !current_target:

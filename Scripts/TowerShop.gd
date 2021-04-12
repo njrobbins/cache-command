@@ -1,7 +1,5 @@
 extends Control
 
-
-
 func _on_NormalType_pressed():
 	Settings.tower_type_selected = "normal"
 	print("Normal tower selected")
