@@ -5,7 +5,7 @@ var velocity
 var speed = 400
 var timerStarted = false
 var target = null
-var sentBy
+var owner_tower = null
 
 func _physics_process(delta):
 	if target.get_ref():

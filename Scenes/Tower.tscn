@@ -68,7 +68,7 @@ __meta__ = {
 [node name="UpgradePanel" type="Panel" parent="."]
 visible = false
 margin_left = 7.0
-margin_top = -79.0
+margin_top = -99.0
 margin_right = 155.0
 margin_bottom = -1.0
 __meta__ = {
@@ -112,6 +112,16 @@ margin_right = 140.606
 margin_bottom = 61.7279
 text = "Speed"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DronesDestroyed" type="Label" parent="UpgradePanel"]
+margin_left = 3.47296
+margin_top = 76.098
+margin_right = 73.473
+margin_bottom = 90.098
+text = "Destroyed: "
 __meta__ = {
 "_edit_use_anchors_": false
 }

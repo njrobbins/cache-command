@@ -12,6 +12,7 @@ var enemy_array = []
 var shot = load("res://Scenes/Shot.tscn")
 var placed = false
 var type
+var enemies_destroyed = 0
 
 func init(rad=210, rate=4):
 	
@@ -68,9 +69,9 @@ func _on_ShootTimer_timeout():
 	if current_target.get_ref():
 		instance = shot.instance()
 		instance.set_target(current_target.get_ref())
+		instance.owner_tower = self
 		instance.position = $Gun/ShotPosition.get_global_transform().origin
 		get_parent().add_child(instance)
-
 
 func _on_TowerButton_pressed():
 	if placed:
@@ -78,7 +79,6 @@ func _on_TowerButton_pressed():
 		$UpgradePanel.visible = !$UpgradePanel.visible
 	else:
 		placed = true
-
 
 func _on_RangeButton_pressed():
 	if Settings.cash >= 10:
@@ -88,8 +88,6 @@ func _on_RangeButton_pressed():
 		var rad_scale = RADIUS / 100.0
 		$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
 		$UpgradePanel/RangeLabel.text = str(RADIUS)
-	
-
 
 func _on_SpeedButton_pressed():
 	if Settings.cash >= 10:
@@ -97,3 +95,8 @@ func _on_SpeedButton_pressed():
 		shoot_rate += 1
 		$ShootTimer.set_wait_time(1.0 / shoot_rate)
 		$UpgradePanel/SpeedLabel.text = str(shoot_rate)
+		
+
+func updateDronesDestroyed():
+	enemies_destroyed += 1
+	$UpgradePanel/DronesDestroyed.text = "Destroyed: " + str(enemies_destroyed)

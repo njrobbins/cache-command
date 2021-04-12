@@ -30,6 +30,8 @@ func _on_Area2D_area_entered(area):
 		hp -= 1
 		$Label.text = str(hp)
 		if hp == 0:
+			if area.owner_tower:
+				area.owner_tower.updateDronesDestroyed()
 			Settings.drones_destroyed += 1
 			get_parent().get_parent().drone_destroyed(5)
 			queue_free()
