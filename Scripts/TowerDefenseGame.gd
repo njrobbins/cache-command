@@ -1,5 +1,9 @@
 extends Node2D
 
+var mob = load("res://Scenes/Drone.tscn")
+var tower = load("res://Scenes/Tower.tscn")
+
+# Variables used for tower placement
 var cell_id
 var cell_position
 var cell_size
@@ -7,14 +11,15 @@ var instance
 var scene
 var tilemap
 
+# Variables for used in tracking towers
 var current_towers = []
-var base_hp = 5
-var mob = load("res://Scenes/Drone.tscn")
-var mobs_left = 0
-var tower = load("res://Scenes/Tower.tscn")
-var wave = 0
-var wave_mobs = [5, 5, 5, 5, 5]
-var total_drones = 0
+
+# General Variables
+var base_hp = 15 # The base hp before the base is destroyed
+var wave = 0 # Indicates what wave is active (i.e what index of wave_mobs is being run)
+var mobs_left_wave = 0 # Indicates how many mobs are left in the current wave
+var wave_mobs = [5, 5, 5, 5, 5] # Indicates how many mobs are in each wave
+var total_drones = 0 # Tracks the total number of drones destroyed
 
 func _ready():
 	tilemap = $TowerPlacementTileMap
@@ -22,10 +27,13 @@ func _ready():
 	$BaseLabel.text = str(base_hp)
 	$CashLabel.text = str(Settings.cash)
 	$WaveTimer.start()
+	
+	# Calculates the total number of drones that need to be destoryed before the level is over
 	Settings.drones_destroyed = 0
 	for i in wave_mobs:
 		total_drones += i
 	
+	# Places any previously placed towers
 	for tow in Settings.current_towers_info:
 		instance = tower.instance()
 		add_child(instance)
@@ -61,10 +69,11 @@ func _on_PauseButton_pressed():
 func drone_destroyed(cash):
 	Settings.cash += cash
 	$CashLabel.text = str(Settings.cash)
-	if Settings.drones_destroyed == total_drones:
+	if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
 		saveTowers()
 		var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
 		
+# Saves the current towers information in the global current_towers_info structure
 func saveTowers():
 	var t = []
 	for tower in current_towers:
@@ -86,26 +95,27 @@ func base_hit():
 		var _scene = get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 func _on_WaveTimer_timeout():
-#	print("Wave Start")
-	mobs_left = wave_mobs[wave]
+	# Starts a wave
+	mobs_left_wave = wave_mobs[wave]
 	$MobTimer.start()
 	$WaveTimer.stop()
 
 func _on_MobTimer_timeout():
-#	print("Spawning")
+	# Spawns a new mob, changes depending on how many mobs are left in wave
 	instance = mob.instance()
-	if mobs_left % 5 == 0:
+	if mobs_left_wave % 5 == 0:
 		# Every 5 mobs are bigger, slower mobs
 		instance.init(80, 20, true)
-	elif mobs_left % 3 == 0:
+	elif mobs_left_wave % 3 == 0:
 		# Every 3 mobs are smaller, faster mobs
 		instance.init(120, 5, false, true)
 	else:
 		# Spawn normal mobs
 		instance.init(100, 10)
 	$Path2D.add_child(instance)
-	mobs_left -= 1
-	if mobs_left <= 0:
+	
+	mobs_left_wave -= 1
+	if mobs_left_wave <= 0:
 		$MobTimer.stop()
 		wave += 1
 		if wave < len(wave_mobs):

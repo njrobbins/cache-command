@@ -14,6 +14,7 @@ var placed = false
 var type
 var enemies_destroyed = 0
 
+# rad is the range of the tower for shooting, and rate is how fast it shoots
 func init(rad=210, rate=4):
 	
 	if Settings.tower_type_selected == "normal":
@@ -33,6 +34,8 @@ func init(rad=210, rate=4):
 	$UpgradePanel/SpeedLabel.text = str(shoot_rate)
 	$UpgradePanel/DronesDestroyed.text = "Destroyed: " + str(enemies_destroyed)
 		
+
+# Used whenever you need to place a previously placed tower
 func recreate(var t):
 	position = t["position"] 
 	RADIUS = t["radius"]
@@ -83,6 +86,11 @@ func _on_ShootTimer_timeout():
 		instance.position = $Gun/ShotPosition.get_global_transform().origin
 		get_parent().add_child(instance)
 
+func updateDronesDestroyed():
+	enemies_destroyed += 1
+	$UpgradePanel/DronesDestroyed.text = "Destroyed: " + str(enemies_destroyed)
+
+#### Stats and Upgrade Screen Functions ####
 func _on_TowerButton_pressed():
 	if placed:
 		$RadiusCircle.visible = !$RadiusCircle.visible
@@ -107,6 +115,4 @@ func _on_SpeedButton_pressed():
 		$UpgradePanel/SpeedLabel.text = str(shoot_rate)
 		
 
-func updateDronesDestroyed():
-	enemies_destroyed += 1
-	$UpgradePanel/DronesDestroyed.text = "Destroyed: " + str(enemies_destroyed)
+
