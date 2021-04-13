@@ -1,0 +1,199 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/UpgradeScreen.gd" type="Script" id=2]
+[ext_resource path="res://fonts/kenvector_future.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/kenvector_future_large.tres" type="DynamicFont" id=4]
+[ext_resource path="res://fonts/kenvector_future_thin.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Icons/continue.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.219608, 0.352941, 0.611765, 1 )
+
+[node name="UpgradeScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButtonAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0.247059, 0.486275, 0.713726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueButton" type="Button" parent="."]
+margin_left = 921.97
+margin_top = 635.42
+margin_right = 1259.97
+margin_bottom = 691.42
+custom_fonts/font = ExtResource( 3 )
+text = "Continue"
+icon = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="."]
+margin_left = 28.326
+margin_top = 17.5343
+margin_right = 953.326
+margin_bottom = 85.5343
+custom_fonts/font = ExtResource( 4 )
+text = "Upgrade Silicon Mining"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CashLabel" type="Label" parent="."]
+margin_left = 510.44
+margin_top = 247.641
+margin_right = 811.44
+margin_bottom = 297.641
+custom_fonts/font = ExtResource( 5 )
+text = "Wafers:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_bottom = 0.024
+margin_left = 847.0
+margin_top = 185.0
+margin_right = 1260.0
+margin_bottom = 399.72
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatLabel" type="Label" parent="Panel"]
+margin_left = 123.979
+margin_top = -37.3594
+margin_right = 240.979
+margin_bottom = 12.6406
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Stats"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedLabel" type="Label" parent="Panel"]
+margin_left = 28.1622
+margin_top = 12.6406
+margin_right = 145.162
+margin_bottom = 62.6406
+custom_fonts/font = ExtResource( 5 )
+text = "Speed:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RateLabel" type="Label" parent="Panel"]
+margin_left = 28.1622
+margin_top = 62.6406
+margin_right = 232.162
+margin_bottom = 112.641
+custom_fonts/font = ExtResource( 5 )
+text = "Fire Rate:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLabel" type="Label" parent="Panel"]
+margin_left = 28.1622
+margin_top = 112.641
+margin_right = 262.162
+margin_bottom = 162.641
+custom_fonts/font = ExtResource( 5 )
+text = "Time Added:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CashLabel" type="Label" parent="Panel"]
+margin_left = 28.1622
+margin_top = 162.641
+margin_right = 262.162
+margin_bottom = 212.641
+custom_fonts/font = ExtResource( 5 )
+text = "Wafers Added:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="."]
+anchor_bottom = 0.024
+margin_left = 68.0
+margin_top = 185.0
+margin_right = 481.0
+margin_bottom = 617.72
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeLabel" type="Label" parent="Panel2"]
+margin_left = 105.434
+margin_top = -37.3594
+margin_right = 305.434
+margin_bottom = 12.6406
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Upgrades"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedButton" type="Button" parent="Panel2"]
+anchor_right = 0.015
+anchor_bottom = 0.043
+margin_left = 29.0
+margin_top = 13.0
+margin_right = 360.805
+margin_bottom = 40.65
+custom_fonts/font = ExtResource( 5 )
+text = "Speed $20"
+
+[node name="RateButton" type="Button" parent="Panel2"]
+anchor_right = 0.015
+anchor_bottom = 0.043
+margin_left = 29.0
+margin_top = 113.0
+margin_right = 360.805
+margin_bottom = 149.65
+custom_fonts/font = ExtResource( 5 )
+text = "Rate $20"
+
+[node name="TimeButton" type="Button" parent="Panel2"]
+anchor_right = 0.015
+anchor_bottom = 0.043
+margin_left = 29.0
+margin_top = 232.0
+margin_right = 360.805
+margin_bottom = 268.65
+custom_fonts/font = ExtResource( 5 )
+text = "Time $20"
+
+[node name="CashButton" type="Button" parent="Panel2"]
+anchor_right = 0.015
+anchor_bottom = 0.043
+margin_left = 29.0
+margin_top = 345.0
+margin_right = 360.805
+margin_bottom = 381.65
+custom_fonts/font = ExtResource( 5 )
+text = "Wafers $20"
+[connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="Panel2/SpeedButton" to="." method="_on_SpeedButton_pressed"]
+[connection signal="pressed" from="Panel2/RateButton" to="." method="_on_RateButton_pressed"]
+[connection signal="pressed" from="Panel2/TimeButton" to="." method="_on_TimeButton_pressed"]
+[connection signal="pressed" from="Panel2/CashButton" to="." method="_on_CashButton_pressed"]

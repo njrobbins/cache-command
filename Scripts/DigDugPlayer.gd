@@ -1,9 +1,5 @@
 extends KinematicBody2D
 
-export var speed = 200
-export var RADIUS = 200
-export var shoot_rate = 2
-
 var velocity = Vector2()
 
 onready var joystick_move = get_parent().get_node("UI/Joystick")
@@ -14,11 +10,36 @@ var instance
 var current_target = null
 var shot = load("res://Scenes/Shot.tscn")
 
+func _ready():
+	$ShootTimer.set_wait_time(1.0 / Settings.player_shoot_rate)
+
+# TEMPORARY - just for debugging
+func _process(_delta):
+	$Debug/Label1.text = str(getSpeed())
+	
+# TEMPORARY - just for debugging with keyboard
+func get_input():
+	velocity = Vector2()
+	if Input.is_action_pressed("right"):
+		velocity.x += 1
+	if Input.is_action_pressed("left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("down"):
+		velocity.y += 1
+	if Input.is_action_pressed("up"):
+		velocity.y -= 1
+	velocity = velocity.normalized() * getSpeed()
+
 func _physics_process(_delta):
+	# TEMPORARY - just for debugging with keyboard
+	get_input()
+	velocity = move_and_slide(velocity)
+	$PlayerWrapper.rotation = velocity.angle()
+	
 	if joystick_move and joystick_move.is_working:
-		var vel = joystick_move.output * (speed - slow_amt)
+		var vel = joystick_move.output * getSpeed()
 		velocity = move_and_slide(vel)
-		
+
 		$PlayerWrapper.rotation = velocity.angle()
 				
 	if current_target != null:
@@ -28,6 +49,11 @@ func _physics_process(_delta):
 		current_target = enemy_array[0]
 		$ShootTimer.start()
 
+func getSpeed():
+	if (Settings.player_speed - slow_amt) < 50:
+		return 50
+	else:
+		return (Settings.player_speed - slow_amt)
 
 func _on_HitDetector_area_entered(area):
 	if area.is_in_group("shot") and area.sentBy != "player":
@@ -63,8 +89,8 @@ func _on_SlowTimer_timeout():
 
 func _on_HitDetector_body_entered(body):
 	if body.is_in_group("res"):
-		get_parent().add_time(0.5)
-		Settings.cash += 5
+		get_parent().add_time(Settings.time_added_per_wafer)
+		Settings.cash += Settings.cash_per_wafer
 		get_parent().update_wafers()
 		body.free()
 	elif body.is_in_group("tile"):

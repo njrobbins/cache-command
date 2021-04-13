@@ -13,3 +13,7 @@ var tower_positions = [] # Keeps a list of all the positions currently occupied 
 var current_towers_info = [] # Keeps a list of dictionaries containing information about each placed tower
 
 # Dig Dug Variables
+var player_speed = 200
+var player_shoot_rate = 2
+var time_added_per_wafer = 0.5
+var cash_per_wafer = 5

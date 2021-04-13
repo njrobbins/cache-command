@@ -31,11 +31,12 @@ func _ready():
 				$Map.add_child(inst)
 			else:
 				if !(x >= 0 && x < 3) && !(y >= 0 && y < 3) :
-					if randi() % 27 == 0 and number_of_enemies > 0:
+					if randi() % 8 == 0 and number_of_enemies > 0:
 						inst = Enemy.instance()
 						inst.position = Vector2(x * cell_w, y * cell_h)
 						$Map.add_child(inst)
 						number_of_enemies -= 1
+
 
 func _process(_delta):
 	$UI/TimeLabel.text = str(stepify($GameTimer.time_left,0.001))
@@ -47,7 +48,7 @@ func update_wafers():
 	$UI/WafersCollectedLabel.text = str("Wafers: " + str(Settings.cash))
 
 func _on_GameTimer_timeout():
-	var _scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
+	var _scene = get_tree().change_scene("res://Scenes/UpgradeScreen.tscn")
 
 func _on_PauseButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/PauseMenu.tscn")
