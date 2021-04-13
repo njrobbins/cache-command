@@ -1,8 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
-
-onready var joystick_move = get_parent().get_node("UI/Joystick")
+var target = position
 
 var slow_amt = 0
 var enemy_array = []
@@ -17,29 +16,15 @@ func _ready():
 func _process(_delta):
 	$Debug/Label1.text = str(getSpeed())
 	
-# TEMPORARY - just for debugging with keyboard
-func get_input():
-	velocity = Vector2()
-	if Input.is_action_pressed("right"):
-		velocity.x += 1
-	if Input.is_action_pressed("left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("down"):
-		velocity.y += 1
-	if Input.is_action_pressed("up"):
-		velocity.y -= 1
-	velocity = velocity.normalized() * getSpeed()
 
 func _physics_process(_delta):
-	# TEMPORARY - just for debugging with keyboard
-	get_input()
-	velocity = move_and_slide(velocity)
-	$PlayerWrapper.rotation = velocity.angle()
 	
-	if joystick_move and joystick_move.is_working:
-		var vel = joystick_move.output * getSpeed()
-		velocity = move_and_slide(vel)
-
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+		target = get_global_mouse_position()
+		
+	velocity = (target - position).normalized() * getSpeed()
+	if (target - position).length() > 5:
+		velocity = move_and_slide(velocity)
 		$PlayerWrapper.rotation = velocity.angle()
 				
 	if current_target != null:
