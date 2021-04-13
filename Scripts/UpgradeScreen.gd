@@ -5,7 +5,7 @@ func _process(_delta):
 	$Panel/RateLabel.text = "Rate: " + str(Settings.player_shoot_rate)
 	$Panel/TimeLabel.text = "Time Added: " + str(Settings.time_added_per_wafer)
 	$Panel/CashLabel.text = "Wafers Added: " + str(Settings.cash_per_wafer)
-	$CashLabel.text = "Wafers: " + str(Settings.cash)
+	$Panel3/CashLabel.text = "Wafers: $" + str(Settings.cash)
 
 
 
@@ -37,3 +37,11 @@ func _on_ContinueButton_pressed():
 	$MenuButtonAudio.play()
 	yield($MenuButtonAudio, "finished")
 	var _scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
+
+
+func _on_InfoPanelButton_pressed():
+	$InfoPanel.visible = true
+
+
+func _on_CloseInfoPanelButton_pressed():
+	$InfoPanel.visible = false

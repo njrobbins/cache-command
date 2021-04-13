@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/UpgradeScreen.gd" type="Script" id=2]
@@ -6,9 +6,23 @@
 [ext_resource path="res://fonts/kenvector_future_large.tres" type="DynamicFont" id=4]
 [ext_resource path="res://fonts/kenvector_future_thin.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Assets/Icons/continue.png" type="Texture" id=6]
+[ext_resource path="res://fonts/roboto/Roboto-Black.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://fonts/roboto/Roboto-Regular.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.219608, 0.352941, 0.611765, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.294118, 0.415686, 0.65098, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 28
+use_filter = true
+font_data = ExtResource( 8 )
 
 [node name="UpgradeScreen" type="Control"]
 anchor_right = 1.0
@@ -48,17 +62,6 @@ margin_right = 953.326
 margin_bottom = 85.5343
 custom_fonts/font = ExtResource( 4 )
 text = "Upgrade Silicon Mining"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CashLabel" type="Label" parent="."]
-margin_left = 510.44
-margin_top = 247.641
-margin_right = 811.44
-margin_bottom = 297.641
-custom_fonts/font = ExtResource( 5 )
-text = "Wafers:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -130,6 +133,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Panel3" type="Panel" parent="."]
+anchor_bottom = 0.024
+margin_left = 484.0
+margin_top = 248.0
+margin_right = 844.0
+margin_bottom = 280.72
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CashLabel" type="Label" parent="Panel3"]
+margin_right = 366.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 5 )
+text = "Wafers:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Panel2" type="Panel" parent="."]
 anchor_bottom = 0.024
 margin_left = 68.0
@@ -192,8 +216,69 @@ margin_right = 360.805
 margin_bottom = 381.65
 custom_fonts/font = ExtResource( 5 )
 text = "Wafers $20"
+
+[node name="InfoPanelButton" type="Button" parent="."]
+margin_left = 484.0
+margin_top = 348.0
+margin_right = 844.0
+margin_bottom = 395.0
+custom_fonts/font = ExtResource( 5 )
+text = "Info Panel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoPanel" type="Panel" parent="."]
+visible = false
+margin_left = 68.0
+margin_top = 115.0
+margin_right = 847.0
+margin_bottom = 635.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="InfoPanel"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 760.0
+margin_bottom = 435.0
+custom_fonts/bold_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 0.105882, 0.0980392, 0.0980392, 1 )
+bbcode_enabled = true
+bbcode_text = "[b]Speed:[/b] Indicates how fast the player moves across the mining game mode
+
+[b]Fire Rate/Rate:[/b] Indicates how fast the player's turret shoots at drones in the mining game mode
+
+[b]Time Added/Time:[/b] Indicates how much time is added to the timer for each circuit collected
+
+[b]Wafers Added/Wafers:[/b] Indicates how many wafers are added to the players running total for each circuit collected
+"
+text = "Speed: Indicates how fast the player moves across the mining game mode
+
+Fire Rate/Rate: Indicates how fast the player's turret shoots at drones in the mining game mode
+
+Time Added/Time: Indicates how much time is added to the timer for each circuit collected
+
+Wafers Added/Wafers: Indicates how many wafers are added to the players running total for each circuit collected
+"
+
+[node name="CloseInfoPanelButton" type="Button" parent="InfoPanel"]
+margin_left = 20.0
+margin_top = 471.0
+margin_right = 386.0
+margin_bottom = 518.0
+custom_fonts/font = ExtResource( 5 )
+text = "Close Panel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="Panel2/SpeedButton" to="." method="_on_SpeedButton_pressed"]
 [connection signal="pressed" from="Panel2/RateButton" to="." method="_on_RateButton_pressed"]
 [connection signal="pressed" from="Panel2/TimeButton" to="." method="_on_TimeButton_pressed"]
 [connection signal="pressed" from="Panel2/CashButton" to="." method="_on_CashButton_pressed"]
+[connection signal="pressed" from="InfoPanelButton" to="." method="_on_InfoPanelButton_pressed"]
+[connection signal="pressed" from="InfoPanel/CloseInfoPanelButton" to="." method="_on_CloseInfoPanelButton_pressed"]
