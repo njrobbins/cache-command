@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Icons/return.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=2]
 [ext_resource path="res://fonts/kenvector_future.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/metal_panel.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=5]
+[ext_resource path="res://fonts/roboto/roboto_regular.tres" type="DynamicFont" id=6]
+[ext_resource path="res://fonts/roboto/roboto_black_bold.tres" type="DynamicFont" id=7]
 
 [node name="Instructions" type="Control"]
 anchor_right = 1.0
@@ -62,11 +64,29 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MetalPanel"]
-margin_right = 999.0
+margin_left = 20.0
+margin_right = 980.0
 margin_bottom = 497.0
-custom_fonts/normal_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 6 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "[color=#000000][center]Digging mode
+bbcode_text = "[center][b]Digging mode[/b][/center]
+
+Use the left thumbstick to gather blue resources while avoiding enemies.
+
+Resources gathered will be used to purchase towers.
+
+[center][b]Tower Defense Mode[/b][/center]
+
+Create towers by clicking on tower placement positions.
+
+Towers defeat enemies to protect your base, every enemy leaked will subtract 1 health point.
+
+To win kill all of the enemies before your health reaches 0.
+"
+text = "Digging mode
+
 Use the left thumbstick to gather blue resources while avoiding enemies.
 
 Resources gathered will be used to purchase towers.
@@ -77,19 +97,11 @@ Create towers by clicking on tower placement positions.
 
 Towers defeat enemies to protect your base, every enemy leaked will subtract 1 health point.
 
-To win kill all of the enemies before your health reaches 0."
-text = "Digging mode
-Use the left thumbstick to gather Silicon resources while avoiding enemies.
-
-Resources gathered will be used to purchase towers.
-
-Tower Defense Mode
-
-Create towers by clicking on tower placement positions.
-
-Towers defeat enemies to protect your base, every enemy leaked will subtract 1 health point.
-
-To win kill all of the enemies before your health reaches 0."
+To win kill all of the enemies before your health reaches 0.
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MenuButtonAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

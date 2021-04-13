@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Icons/return.png" type="Texture" id=3]
 [ext_resource path="res://Assets/metal_panel.png" type="Texture" id=4]
 [ext_resource path="res://fonts/kenvector_future.tres" type="DynamicFont" id=5]
+[ext_resource path="res://fonts/roboto/roboto_regular.tres" type="DynamicFont" id=6]
+[ext_resource path="res://fonts/roboto/roboto_black_bold.tres" type="DynamicFont" id=7]
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
@@ -66,9 +68,26 @@ margin_left = 0.943848
 margin_top = 0.943848
 margin_right = 1000.94
 margin_bottom = 497.944
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/bold_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 6 )
 bbcode_enabled = true
-bbcode_text = "[center][color=#000000]Programmers:
+bbcode_text = "[center][color=#000000]
+[b]Programmers:[/b]
+[center]Tristan Tyler
+Nikko Robbins
+Matthew Glenn
+
+[b]Graphics:[/b]
+Kenney Vleugels www.kenney.nl
+
+[b]Music[/b]
+Kevin MacLeod
+ \"Neon Laser Horizon\"
+https://filmmusic.io/song/7015-neon-laser-horizon
+[/center]
+[/center]"
+text = "
+Programmers:
 Tristan Tyler
 Nikko Robbins
 Matthew Glenn
@@ -76,22 +95,12 @@ Matthew Glenn
 Graphics:
 Kenney Vleugels www.kenney.nl
 
-Music:
+Music
 Kevin MacLeod
  \"Neon Laser Horizon\"
-https://filmmusic.io/song/7015-neon-laser-horizon"
-text = "Programmers:
-Tristan Tyler
-Nikko Robbins
-Matthew Glenn
+https://filmmusic.io/song/7015-neon-laser-horizon
 
-Graphics:
-Kenney Vleugels www.kenney.nl
-
-Music:
-Kevin MacLeod
- \"Neon Laser Horizon\"
-https://filmmusic.io/song/7015-neon-laser-horizon"
+[/center]"
 __meta__ = {
 "_editor_description_": ""
 }
