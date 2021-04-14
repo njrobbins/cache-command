@@ -678,8 +678,10 @@ margin_right = 1036.26
 margin_bottom = 78.0
 
 [node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.3
 
 [node name="WaveTimer" type="Timer" parent="."]
+wait_time = 0.6
 
 [node name="MenuButtonAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

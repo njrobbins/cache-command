@@ -69,9 +69,9 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="."]
 anchor_bottom = 0.024
 margin_left = 847.0
-margin_top = 185.0
+margin_top = 207.641
 margin_right = 1260.0
-margin_bottom = 399.72
+margin_bottom = 510.361
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -79,9 +79,9 @@ __meta__ = {
 
 [node name="StatLabel" type="Label" parent="Panel"]
 margin_left = 123.979
-margin_top = -37.3594
+margin_top = 3.8147e-06
 margin_right = 240.979
-margin_bottom = 12.6406
+margin_bottom = 50.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Stats"
@@ -91,9 +91,9 @@ __meta__ = {
 
 [node name="SpeedLabel" type="Label" parent="Panel"]
 margin_left = 28.1622
-margin_top = 12.6406
-margin_right = 145.162
-margin_bottom = 62.6406
+margin_top = 50.0
+margin_right = 165.162
+margin_bottom = 100.0
 custom_fonts/font = ExtResource( 5 )
 text = "Speed:"
 __meta__ = {
@@ -102,9 +102,9 @@ __meta__ = {
 
 [node name="RateLabel" type="Label" parent="Panel"]
 margin_left = 28.1622
-margin_top = 62.6406
+margin_top = 100.0
 margin_right = 232.162
-margin_bottom = 112.641
+margin_bottom = 150.0
 custom_fonts/font = ExtResource( 5 )
 text = "Fire Rate:"
 __meta__ = {
@@ -113,9 +113,9 @@ __meta__ = {
 
 [node name="TimeLabel" type="Label" parent="Panel"]
 margin_left = 28.1622
-margin_top = 112.641
+margin_top = 150.0
 margin_right = 262.162
-margin_bottom = 162.641
+margin_bottom = 200.0
 custom_fonts/font = ExtResource( 5 )
 text = "Time Added:"
 __meta__ = {
@@ -124,9 +124,9 @@ __meta__ = {
 
 [node name="CashLabel" type="Label" parent="Panel"]
 margin_left = 28.1622
-margin_top = 162.641
-margin_right = 262.162
-margin_bottom = 212.641
+margin_top = 200.0
+margin_right = 329.162
+margin_bottom = 250.0
 custom_fonts/font = ExtResource( 5 )
 text = "Wafers Added:"
 __meta__ = {
@@ -135,17 +135,17 @@ __meta__ = {
 
 [node name="Panel3" type="Panel" parent="."]
 anchor_bottom = 0.024
-margin_left = 484.0
-margin_top = 248.0
-margin_right = 844.0
-margin_bottom = 280.72
+margin_left = 847.0
+margin_top = 148.0
+margin_right = 1260.0
+margin_bottom = 180.72
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CashLabel" type="Label" parent="Panel3"]
-margin_right = 366.0
+margin_right = 413.0
 margin_bottom = 50.0
 custom_fonts/font = ExtResource( 5 )
 text = "Wafers:"
@@ -157,9 +157,9 @@ __meta__ = {
 [node name="Panel2" type="Panel" parent="."]
 anchor_bottom = 0.024
 margin_left = 68.0
-margin_top = 185.0
+margin_top = 147.641
 margin_right = 481.0
-margin_bottom = 617.72
+margin_bottom = 580.361
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -186,6 +186,9 @@ margin_right = 360.805
 margin_bottom = 40.65
 custom_fonts/font = ExtResource( 5 )
 text = "Speed $20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RateButton" type="Button" parent="Panel2"]
 anchor_right = 0.015
@@ -218,10 +221,10 @@ custom_fonts/font = ExtResource( 5 )
 text = "Wafers $20"
 
 [node name="InfoPanelButton" type="Button" parent="."]
-margin_left = 484.0
-margin_top = 348.0
-margin_right = 844.0
-margin_bottom = 395.0
+margin_left = 88.0
+margin_top = 633.0
+margin_right = 448.0
+margin_bottom = 680.0
 custom_fonts/font = ExtResource( 5 )
 text = "Info Panel"
 __meta__ = {

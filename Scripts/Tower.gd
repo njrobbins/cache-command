@@ -13,6 +13,10 @@ var shot = load("res://Scenes/Shot.tscn")
 var placed = false
 var type
 var enemies_destroyed = 0
+var speed_cost = 10
+var range_cost = 10
+var range_level = 0
+var speed_level = 0
 
 # rad is the range of the tower for shooting, and rate is how fast it shoots
 func init(rad=210, rate=4):
@@ -42,6 +46,10 @@ func recreate(var t):
 	shoot_rate = t["shootRate"]
 	type = t["type"]
 	enemies_destroyed = t["destroyed"]
+	speed_cost = t["speed_cost"]
+	range_cost = t["range_cost"]
+	speed_level = t["speed_level"]
+	range_level = t["range_level"]
 	
 	init(RADIUS, shoot_rate)
 
@@ -95,24 +103,29 @@ func _on_TowerButton_pressed():
 	if placed:
 		$RadiusCircle.visible = !$RadiusCircle.visible
 		$UpgradePanel.visible = !$UpgradePanel.visible
+		$UpgradePanel/RangeButton.text = "Range $"+str(range_cost)
+		$UpgradePanel/SpeedButton.text = "Speed $"+str(speed_cost)
 	else:
 		placed = true
 
 func _on_RangeButton_pressed():
-	if Settings.cash >= 10:
-		Settings.cash -= 10
+	if Settings.cash >= range_cost:
+		Settings.cash -= range_cost
+		range_cost += 5 + range_level*5
+		range_level += 1
 		RADIUS += 25
 		$Aggro/AggroShape.shape.radius = RADIUS
 		var rad_scale = RADIUS / 100.0
 		$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
 		$UpgradePanel/RangeLabel.text = str(RADIUS)
+		$UpgradePanel/RangeButton.text = "Range $"+str(range_cost)
 
 func _on_SpeedButton_pressed():
-	if Settings.cash >= 10:
-		Settings.cash -= 10
+	if Settings.cash >= speed_cost:
+		Settings.cash -= speed_cost
+		speed_cost += 5 + speed_level*5
+		speed_level += 1
 		shoot_rate += 1
 		$ShootTimer.set_wait_time(1.0 / shoot_rate)
 		$UpgradePanel/SpeedLabel.text = str(shoot_rate)
-		
-
-
+		$UpgradePanel/SpeedButton.text = "Speed $"+str(speed_cost)

@@ -11,14 +11,14 @@ var instance
 var scene
 var tilemap
 
-# Variables for used in tracking towers
+# Variables used in tracking towers
 var current_towers = []
 
 # General Variables
 var base_hp = 15 # The base hp before the base is destroyed
 var wave = 0 # Indicates what wave is active (i.e what index of wave_mobs is being run)
 var mobs_left_wave = 0 # Indicates how many mobs are left in the current wave
-var wave_mobs = [5, 5, 5, 5, 5] # Indicates how many mobs are in each wave
+var wave_mobs = [6, 6, 6, 6, 6] # Indicates how many mobs are in each wave
 var total_drones = 0 # Tracks the total number of drones destroyed
 
 func _ready():
@@ -28,10 +28,12 @@ func _ready():
 	$CashLabel.text = str(Settings.cash)
 	$WaveTimer.start()
 	
-	# Calculates the total number of drones that need to be destoryed before the level is over
+	get_mobs()
+	# Calculates the total number of drones that need to be destroyed before the level is over
 	Settings.drones_destroyed = 0
 	for i in wave_mobs:
 		total_drones += i
+	print(total_drones)
 	
 	# Places any previously placed towers
 	for tow in Settings.current_towers_info:
@@ -39,6 +41,14 @@ func _ready():
 		add_child(instance)
 		instance.recreate(tow)
 		current_towers.push_back(instance)
+	
+	
+	
+func get_mobs():
+	for _i in range(Settings.td_level - 1):
+		for i in range(len(wave_mobs)):
+			wave_mobs[i] += 6
+	
 	
 func _input(event):
 	$CashLabel.text = str(Settings.cash)
@@ -51,8 +61,8 @@ func placeTower(var pos):
 	cell_id = tilemap.get_cellv(cell_position)
 	if cell_id != -1:
 		var tower_pos = Vector2(cell_position.x * cell_size.x , cell_position.y * cell_size.y)
-		if Settings.tower_positions.count(tower_pos) == 0 and Settings.cash >= 25:
-			Settings.cash -= 25
+		if Settings.tower_positions.count(tower_pos) == 0 and Settings.cash >= Settings.tower_costs[Settings.tower_type_selected]:
+			Settings.cash -= Settings.tower_costs[Settings.tower_type_selected]
 			Settings.tower_positions.push_back(tower_pos)
 			instance = tower.instance()
 			instance.init()
@@ -71,6 +81,7 @@ func drone_destroyed(cash):
 	$CashLabel.text = str(Settings.cash)
 	if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
 		saveTowers()
+		Settings.td_level += 1
 		var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
 		
 # Saves the current towers information in the global current_towers_info structure
@@ -83,6 +94,10 @@ func saveTowers():
 			"shootRate": tower.shoot_rate,
 			"type": tower.type,
 			"destroyed": tower.enemies_destroyed,
+			"range_cost": tower.range_cost,
+			"speed_cost": tower.speed_cost,
+			"range_level": tower.range_level,
+			"speed_level": tower.speed_level,
 		}
 		t.push_back(d)
 	Settings.current_towers_info = t
@@ -105,10 +120,10 @@ func _on_MobTimer_timeout():
 	instance = mob.instance()
 	if mobs_left_wave % 5 == 0:
 		# Every 5 mobs are bigger, slower mobs
-		instance.init(80, 20, true)
+		instance.init(80, 30, true)
 	elif mobs_left_wave % 3 == 0:
 		# Every 3 mobs are smaller, faster mobs
-		instance.init(120, 5, false, true)
+		instance.init(120, 10, false, true)
 	else:
 		# Spawn normal mobs
 		instance.init(100, 10)
