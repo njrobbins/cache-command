@@ -677,6 +677,16 @@ margin_top = 78.0
 margin_right = 1036.26
 margin_bottom = 78.0
 
+[node name="DebugLabel" type="Label" parent="."]
+margin_left = 609.509
+margin_top = 64.0
+margin_right = 649.509
+margin_bottom = 80.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.3
 

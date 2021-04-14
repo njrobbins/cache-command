@@ -41,8 +41,13 @@ func _ready():
 		add_child(instance)
 		instance.recreate(tow)
 		current_towers.push_back(instance)
-	
-	
+
+func _process(_delta):
+	$DebugLabel.text = str(Settings.drones_destroyed)
+	if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
+		saveTowers()
+		Settings.td_level += 1
+		var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
 	
 func get_mobs():
 	for _i in range(Settings.td_level - 1):
@@ -65,7 +70,7 @@ func placeTower(var pos):
 			Settings.cash -= Settings.tower_costs[Settings.tower_type_selected]
 			Settings.tower_positions.push_back(tower_pos)
 			instance = tower.instance()
-			instance.init()
+			instance.init(Settings.tower_type_selected)
 			add_child(instance)
 			instance.position = tower_pos
 			current_towers.push_back(instance)
@@ -79,10 +84,6 @@ func _on_PauseButton_pressed():
 func drone_destroyed(cash):
 	Settings.cash += cash
 	$CashLabel.text = str(Settings.cash)
-	if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
-		saveTowers()
-		Settings.td_level += 1
-		var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
 		
 # Saves the current towers information in the global current_towers_info structure
 func saveTowers():

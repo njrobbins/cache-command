@@ -19,13 +19,13 @@ var range_level = 0
 var speed_level = 0
 
 # rad is the range of the tower for shooting, and rate is how fast it shoots
-func init(rad=210, rate=4):
+func init(t_type,rad=210, rate=4):
 	
-	if Settings.tower_type_selected == "normal":
+	if t_type == "normal":
 		RADIUS = rad
 		shoot_rate = rate
 		type = "normal"
-	elif Settings.tower_type_selected == "type2":
+	elif t_type == "type2":
 		RADIUS = 350
 		shoot_rate = 8
 		type = "type2"
@@ -51,7 +51,7 @@ func recreate(var t):
 	speed_level = t["speed_level"]
 	range_level = t["range_level"]
 	
-	init(RADIUS, shoot_rate)
+	init(type, RADIUS, shoot_rate)
 
 func _physics_process(_delta):
 	if !current_target:
