@@ -55,6 +55,13 @@ func recreate(var t):
 	init(type, RADIUS, shoot_rate)
 
 func _physics_process(_delta):
+	if Settings.paused == true:
+		$SmallShotAudio.stop()
+		$ShootTimer.paused = true
+	else:
+		if $ShootTimer.paused == true:
+			$ShootTimer.paused = false
+
 	if !current_target:
 		distance_to_t = RADIUS + 1
 		for target in enemy_array:
@@ -64,12 +71,10 @@ func _physics_process(_delta):
 				distance_to_t = (position - target.position).length()
 			if current_target:
 				$ShootTimer.start()
-				$SmallShotAudio.play()
 	else:
 		if !current_target.get_ref():
 			current_target = null
 			$ShootTimer.stop()
-			$SmallShotAudio.stop()
 		else:
 			target_position = current_target.get_ref().get_global_transform().origin
 			$Gun.set_rotation((target_position - position).angle() + 30)
@@ -85,10 +90,10 @@ func _on_Aggro_area_exited(area):
 			if area.get_parent() == current_target.get_ref():
 				current_target = null
 				$ShootTimer.stop()
-				$SmallShotAudio.stop()
 
 func _on_ShootTimer_timeout():
 	if current_target.get_ref():
+		$SmallShotAudio.play()
 		instance = shot.instance()
 		instance.set_target(current_target.get_ref())
 		instance.owner_tower = self
@@ -130,3 +135,7 @@ func _on_SpeedButton_pressed():
 		$ShootTimer.set_wait_time(1.0 / shoot_rate)
 		$UpgradePanel/SpeedLabel.text = str(shoot_rate)
 		$UpgradePanel/SpeedButton.text = "Speed $"+str(speed_cost)
+
+
+func _on_SmallShotAudio_finished():
+	$SmallShotAudio.stop()

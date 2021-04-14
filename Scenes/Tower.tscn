@@ -148,6 +148,7 @@ __meta__ = {
 [connection signal="area_entered" from="Aggro" to="." method="_on_Aggro_area_entered"]
 [connection signal="area_exited" from="Aggro" to="." method="_on_Aggro_area_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+[connection signal="finished" from="SmallShotAudio" to="." method="_on_SmallShotAudio_finished"]
 [connection signal="pressed" from="TowerButton" to="." method="_on_TowerButton_pressed"]
 [connection signal="pressed" from="UpgradePanel/RangeButton" to="." method="_on_RangeButton_pressed"]
 [connection signal="pressed" from="UpgradePanel/SpeedButton" to="." method="_on_SpeedButton_pressed"]
