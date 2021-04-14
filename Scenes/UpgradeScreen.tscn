@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/UpgradeScreen.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Icons/continue.png" type="Texture" id=6]
 [ext_resource path="res://fonts/roboto/Roboto-Black.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://fonts/roboto/Roboto-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/Audio/upgrade_sound.ogg" type="AudioStream" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.219608, 0.352941, 0.611765, 1 )
@@ -278,6 +279,9 @@ text = "Close Panel"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="UpgradeButtonAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="Panel2/SpeedButton" to="." method="_on_SpeedButton_pressed"]
 [connection signal="pressed" from="Panel2/RateButton" to="." method="_on_RateButton_pressed"]

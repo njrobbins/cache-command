@@ -18,6 +18,7 @@ func _on_SpeedButton_pressed():
 		Settings.cash -= Settings.upgrade_costs["speed"]
 		Settings.upgrade_costs["speed"] += 5
 		Settings.player_speed += 10
+		$UpgradeButtonAudio.play()
 
 
 func _on_RateButton_pressed():
@@ -25,6 +26,7 @@ func _on_RateButton_pressed():
 		Settings.cash -= Settings.upgrade_costs["rate"]
 		Settings.upgrade_costs["rate"] += 15
 		Settings.player_shoot_rate += 0.5
+		$UpgradeButtonAudio.play()
 
 
 func _on_TimeButton_pressed():
@@ -32,6 +34,7 @@ func _on_TimeButton_pressed():
 		Settings.cash -= Settings.upgrade_costs["time"]
 		Settings.upgrade_costs["time"] += 10
 		Settings.time_added_per_wafer += 0.1
+		$UpgradeButtonAudio.play()
 
 
 func _on_CashButton_pressed():
@@ -39,7 +42,8 @@ func _on_CashButton_pressed():
 		Settings.cash -= Settings.upgrade_costs["wafers"]
 		Settings.upgrade_costs["wafers"] += 20
 		Settings.cash_per_wafer += 1
-
+		$UpgradeButtonAudio.play()
+		
 
 func _on_ContinueButton_pressed():
 	$MenuButtonAudio.play()
@@ -49,7 +53,8 @@ func _on_ContinueButton_pressed():
 
 func _on_InfoPanelButton_pressed():
 	$InfoPanel.visible = true
-
+	$UpgradeButtonAudio.play()
 
 func _on_CloseInfoPanelButton_pressed():
 	$InfoPanel.visible = false
+	$UpgradeButtonAudio.play()

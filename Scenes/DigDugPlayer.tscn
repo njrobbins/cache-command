@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/DigDugPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/robot_gray.png" type="Texture" id=2]
 [ext_resource path="res://Assets/robot_turret_gray.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Audio/long_laser.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Audio/tank_engine.ogg" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14, 14 )
@@ -93,6 +95,13 @@ margin_bottom = 50.8424
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PlayerShotAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="TankEngineAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -6.0
 [connection signal="area_entered" from="PlayerWrapper/HitDetector" to="." method="_on_HitDetector_area_entered"]
 [connection signal="body_entered" from="PlayerWrapper/HitDetector" to="." method="_on_HitDetector_body_entered"]
 [connection signal="body_entered" from="PlayerWrapper/Aggro" to="." method="_on_Aggro_body_entered"]

@@ -24,6 +24,7 @@ func _physics_process(_delta):
 		
 	velocity = (target - position).normalized() * getSpeed()
 	if (target - position).length() > 5:
+		$TankEngineAudio.play()
 		velocity = move_and_slide(velocity)
 		$PlayerWrapper.rotation = velocity.angle()
 				
@@ -33,7 +34,7 @@ func _physics_process(_delta):
 	if current_target == null and len(enemy_array) > 0:
 		current_target = enemy_array[0]
 		$ShootTimer.start()
-
+		
 func getSpeed():
 	if (Settings.player_speed - slow_amt) < 50:
 		return 50
@@ -59,6 +60,7 @@ func _on_Aggro_body_entered(body):
 		current_target = body
 		enemy_array.append(body)
 		$ShootTimer.start()
+		$PlayerShotAudio.play()
 
 func _on_Aggro_body_exited(body):
 	if body.is_in_group("enemy"):
@@ -67,6 +69,7 @@ func _on_Aggro_body_exited(body):
 			if body == current_target:
 				current_target = null
 				$ShootTimer.stop()
+				$PlayerShotAudio.stop()
 
 func _on_SlowTimer_timeout():
 	slow_amt = 0

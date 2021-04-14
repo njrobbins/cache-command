@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/laser_short.wav-0e0c0e19543f348a9339884c71d20fd8.sample"
+path="res://.import/long_laser.wav-bf0e8769730fb5b954c0467bc7351021.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/laser_short.wav"
-dest_files=[ "res://.import/laser_short.wav-0e0c0e19543f348a9339884c71d20fd8.sample" ]
+source_file="res://Assets/Audio/long_laser.wav"
+dest_files=[ "res://.import/long_laser.wav-bf0e8769730fb5b954c0467bc7351021.sample" ]
 
 [params]
 

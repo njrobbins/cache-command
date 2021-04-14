@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tank_engine.ogg-501b98d6f970f400496ac5b3fb293d6b.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/tank_engine.ogg"
+dest_files=[ "res://.import/tank_engine.ogg-501b98d6f970f400496ac5b3fb293d6b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
