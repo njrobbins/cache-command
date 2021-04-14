@@ -22,11 +22,11 @@ var wave_mobs = [4, 4, 4, 4, 6] # Indicates how many mobs are in each wave
 var total_drones = 0 # Tracks the total number of drones destroyed
 
 func _ready():
-	tilemap = $TowerPlacementTileMap
+	Settings.paused = true
+	tilemap = $TDLevel1/TowerPlacementTileMap
 	cell_size = tilemap.cell_size
 	$BaseLabel.text = str(base_hp)
 	$CashLabel.text = str(Settings.cash)
-	$WaveTimer.start()
 	
 	get_mobs()
 	# Calculates the total number of drones that need to be destroyed before the level is over
@@ -38,16 +38,16 @@ func _ready():
 	# Places any previously placed towers
 	for tow in Settings.current_towers_info:
 		instance = tower.instance()
-		add_child(instance)
+		$TowersNode.add_child(instance)
 		instance.recreate(tow)
 		current_towers.push_back(instance)
 
 func _process(_delta):
-	$DebugLabel.text = str(Settings.drones_destroyed)
-	if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
-		saveTowers()
-		Settings.td_level += 1
-		var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
+	if (Settings.paused == false):
+		if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
+			saveTowers()
+			Settings.td_level += 1
+			var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
 	
 func get_mobs():
 	for _i in range(Settings.td_level - 1):
@@ -71,7 +71,7 @@ func placeTower(var pos):
 			Settings.tower_positions.push_back(tower_pos)
 			instance = tower.instance()
 			instance.init(Settings.tower_type_selected)
-			add_child(instance)
+			$TowersNode.add_child(instance)
 			instance.position = tower_pos
 			current_towers.push_back(instance)
 				
@@ -79,7 +79,11 @@ func placeTower(var pos):
 func _on_PauseButton_pressed():
 	$MenuButtonAudio.play()
 	yield($MenuButtonAudio, "finished")
-	scene = get_tree().change_scene("res://Scenes/PauseMenu.tscn")
+	$PauseMenu.visible = true
+	$TowersNode.visible = false
+	$MobTimer.paused = true
+	$WaveTimer.paused = true
+	Settings.paused = true
 
 func drone_destroyed(cash):
 	Settings.cash += cash
@@ -128,7 +132,7 @@ func _on_MobTimer_timeout():
 	else:
 		# Spawn normal mobs
 		instance.init(100, 10, "normal")
-	$Path2D.add_child(instance)
+	$TDLevel1/Path2D.add_child(instance)
 	
 	mobs_left_wave -= 1
 	if mobs_left_wave <= 0:
@@ -141,3 +145,9 @@ func _on_MobTimer_timeout():
 func _on_TowerShopButton_pressed():
 	$TowerShop.visible = !$TowerShop.visible
 		
+
+
+func _on_StartButton_pressed():
+	Settings.paused = false
+	$WaveTimer.start()
+	$StartButton.visible = false

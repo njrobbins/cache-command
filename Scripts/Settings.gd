@@ -5,6 +5,7 @@ extends Node
 # Global Game Variables
 var cash = 75
 var level = 1
+var paused = false
 
 # Tower Defense Variables
 var drones_destroyed = 0
