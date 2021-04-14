@@ -44,7 +44,15 @@ func _ready():
 			var inst = Res.instance()
 			inst.position = Vector2(x * 64, y * 64)
 			$Map.add_child(inst)
+			current_map.set_cell(x, y, 21)
 			number_of_resources -= 1
+	
+	for y in range(tiles_h):
+		for x in range(tiles_w):
+			if current_map.get_cell(x, y) == -1:
+				var inst = Tile.instance()
+				inst.position = Vector2(x * 64, y * 64)
+				$Map.add_child(inst)
 			
 	while(number_of_enemies != 0):
 		var x = (randi() % tiles_w) + 1
