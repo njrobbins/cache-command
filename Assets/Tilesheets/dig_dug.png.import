@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ground.png-d6215276157ad844710057a2579c5395.stex"
+path="res://.import/dig_dug.png-6f82613617869290782f0ec38365e38f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ground.png"
-dest_files=[ "res://.import/ground.png-d6215276157ad844710057a2579c5395.stex" ]
+source_file="res://Assets/Tilesheets/dig_dug.png"
+dest_files=[ "res://.import/dig_dug.png-6f82613617869290782f0ec38365e38f.stex" ]
 
 [params]
 
