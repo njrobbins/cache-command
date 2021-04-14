@@ -2,15 +2,17 @@ extends PathFollow2D
 
 export var speed = 160
 export var hp = 10
+var type
 
-func init(spd, h, big = false, fast = false):
+func init(spd, h, drone_type):
 	speed = spd
 	hp = h
-	if big:
+	type = drone_type
+	if type == "big":
 		$Area2D/DroneGreen.visible = true
-	elif fast:
+	elif type == "fast":
 		$Area2D/DroneOrange.visible = true
-	else:
+	elif type == "normal":
 		$Area2D/DroneGray.visible = true
 
 func _ready():
@@ -33,7 +35,13 @@ func _on_Area2D_area_entered(area):
 			if area.owner_tower:
 				area.owner_tower.updateDronesDestroyed()
 			Settings.drones_destroyed += 1
-			get_parent().get_parent().drone_destroyed(5)
+			if type == "big":
+				get_parent().get_parent().drone_destroyed(10)
+			elif type == "fast":
+				get_parent().get_parent().drone_destroyed(2)
+			elif type == "normal":
+				get_parent().get_parent().drone_destroyed(1)
+			
 			queue_free()
 			
 	if area.is_in_group("Base"):

@@ -121,13 +121,13 @@ func _on_MobTimer_timeout():
 	instance = mob.instance()
 	if mobs_left_wave % 5 == 0:
 		# Every 5 mobs are bigger, slower mobs
-		instance.init(80, 30, true)
+		instance.init(80, 30, "big")
 	elif mobs_left_wave % 3 == 0:
 		# Every 3 mobs are smaller, faster mobs
-		instance.init(120, 10, false, true)
+		instance.init(120, 10, "fast")
 	else:
 		# Spawn normal mobs
-		instance.init(100, 10)
+		instance.init(100, 10, "normal")
 	$Path2D.add_child(instance)
 	
 	mobs_left_wave -= 1
