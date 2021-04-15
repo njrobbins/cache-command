@@ -75,7 +75,7 @@ func update_wafers():
 	$UI/WafersCollectedLabel.text = str("Wafers: " + str(Settings.cash))
 
 func _on_GameTimer_timeout():
-	var _scene = get_tree().change_scene("res://Scenes/UpgradeScreen.tscn")
+	var _scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
 
 func _on_PauseButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/PauseMenu.tscn")

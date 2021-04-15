@@ -47,7 +47,8 @@ func _process(_delta):
 		if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
 			saveTowers()
 			Settings.td_level += 1
-			var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
+			var _scene = get_tree().change_scene("res://Scenes/UpgradeScreen.tscn")
+			
 	
 func get_mobs():
 	for _i in range(Settings.td_level - 1):
@@ -112,6 +113,32 @@ func base_hit():
 	base_hp -= 1
 	$BaseLabel.text = str(base_hp)
 	if base_hp == 0:
+		# RESET TO ALL BASE STATS
+		# Global Game Variables
+		Settings.cash = 75
+		Settings.level = 1
+		Settings.paused = false
+		# Tower Defense Variables
+		Settings.drones_destroyed = 0
+		Settings.td_level = 1
+		Settings.tower_type_selected = "normal"
+		Settings.tower_positions = [] # Keeps a list of all the positions currently occupied by a tower
+		Settings.current_towers_info = [] # Keeps a list of dictionaries containing information about each placed tower
+		Settings.tower_costs = {
+			"normal": 25,
+			"type2": 100,
+		}
+		# Dig Dug Variables
+		Settings.player_speed = 200
+		Settings.player_shoot_rate = 2
+		Settings.time_added_per_wafer = 0.5
+		Settings.cash_per_wafer = 5
+		Settings.upgrade_costs = {
+			"speed": 20,
+			"rate": 20,
+			"time": 20,
+			"wafers": 20,
+		}
 		var _scene = get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 func _on_WaveTimer_timeout():
@@ -145,7 +172,6 @@ func _on_MobTimer_timeout():
 func _on_TowerShopButton_pressed():
 	$TowerShop.visible = !$TowerShop.visible
 		
-
 
 func _on_StartButton_pressed():
 	Settings.paused = false

@@ -48,13 +48,9 @@ func _on_CashButton_pressed():
 func _on_ContinueButton_pressed():
 	$MenuButtonAudio.play()
 	yield($MenuButtonAudio, "finished")
-	var _scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
+	var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
 
 
 func _on_InfoPanelButton_pressed():
-	$InfoPanel.visible = true
-	$UpgradeButtonAudio.play()
-
-func _on_CloseInfoPanelButton_pressed():
-	$InfoPanel.visible = false
+	$InfoPanel.visible = !$InfoPanel.visible 
 	$UpgradeButtonAudio.play()

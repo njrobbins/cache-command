@@ -11,7 +11,6 @@ func _on_ContinueButton_pressed():
 	$MenuButtonAudio.play()
 	yield($MenuButtonAudio, "finished")
 	scene = get_tree().change_scene("res://Scenes/DigDug.tscn")
-	# TODO
 
 func _on_CreditsButton_pressed():
 	$MenuButtonAudio.play()
@@ -22,9 +21,6 @@ func _on_InstructionsButton_pressed():
 	$MenuButtonAudio.play()
 	yield($MenuButtonAudio, "finished")
 	scene = get_tree().change_scene("res://Scenes/Instructions.tscn")
-
-func _on_LoseLevelButton_pressed():
-	scene = get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 func _on_MainMenuButton_pressed():
 	$MenuButtonAudio.play()
@@ -63,8 +59,7 @@ func _on_TDButton_pressed():
 func _on_TryAgainButton_pressed():
 	$MenuButtonAudio.play()
 	yield($MenuButtonAudio, "finished")
-	pass
-	# TODO
+	scene = get_tree().change_scene("res://Scenes/DigDug.tscn")
 
 func _on_WinLevelButton_pressed():
 	scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")

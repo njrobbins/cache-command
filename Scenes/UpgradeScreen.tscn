@@ -15,27 +15,27 @@
 [ext_resource path="res://Assets/wafers_panel.png" type="Texture" id=13]
 [ext_resource path="res://Assets/glass_panel.png" type="Texture" id=14]
 
-[sub_resource type="StyleBoxTexture" id=6]
+[sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 384, 320 )
 
-[sub_resource type="StyleBoxTexture" id=7]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 384, 64 )
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 384, 448 )
 
-[sub_resource type="StyleBoxTexture" id=8]
+[sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 14 )
 region_rect = Rect2( 0, 0, 632, 376 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 28
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 28
 use_filter = true
 font_data = ExtResource( 8 )
@@ -94,7 +94,7 @@ margin_left = 704.0
 margin_top = 272.0
 margin_right = 1088.0
 margin_bottom = 574.72
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -169,7 +169,7 @@ margin_left = 704.0
 margin_top = 144.0
 margin_right = 1088.0
 margin_bottom = 190.72
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -192,7 +192,7 @@ margin_left = 192.0
 margin_top = 144.0
 margin_right = 576.0
 margin_bottom = 574.72
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -278,7 +278,7 @@ margin_left = -316.0
 margin_top = -188.0
 margin_right = 316.0
 margin_bottom = 188.0
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -292,8 +292,8 @@ margin_left = -296.0
 margin_top = -172.0
 margin_right = 304.0
 margin_bottom = 172.0
-custom_fonts/bold_font = SubResource( 4 )
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 0.105882, 0.0980392, 0.0980392, 1 )
 bbcode_enabled = true
 bbcode_text = "[b]Speed:[/b] How fast you move while silicon mining
@@ -314,17 +314,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CloseInfoPanelButton" type="Button" parent="InfoPanel"]
-margin_left = 352.0
-margin_top = 408.0
-margin_right = 414.0
-margin_bottom = 464.0
-custom_fonts/font = ExtResource( 5 )
-text = "Close"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="UpgradeButtonAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -9.0
@@ -334,4 +323,3 @@ volume_db = -9.0
 [connection signal="pressed" from="Panel2/TimeButton" to="." method="_on_TimeButton_pressed"]
 [connection signal="pressed" from="Panel2/CashButton" to="." method="_on_CashButton_pressed"]
 [connection signal="pressed" from="InfoPanelButton" to="." method="_on_InfoPanelButton_pressed"]
-[connection signal="pressed" from="InfoPanel/CloseInfoPanelButton" to="." method="_on_CloseInfoPanelButton_pressed"]
