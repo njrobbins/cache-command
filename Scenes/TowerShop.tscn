@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/TowerShop.gd" type="Script" id=1]
+[ext_resource path="res://fonts/kenvector_future_thin_tiny.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/roboto/roboto_regular_tiny.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/tower_shop_panel.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 224, 312 )
 
 [node name="TowerShop" type="Control"]
 anchor_right = 1.0
@@ -11,40 +18,94 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="."]
-margin_right = 228.0
-margin_bottom = 306.0
+margin_right = 224.0
+margin_bottom = 312.0
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NormalType" type="Button" parent="Panel"]
-margin_left = 77.0
-margin_top = 67.0
-margin_right = 152.0
-margin_bottom = 103.0
-text = "Normal"
+[node name="TowerShopLabel" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -52.0
+margin_top = 8.0
+margin_right = 52.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 2 )
+text = "Tower Shop"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TowerType2" type="Button" parent="Panel"]
-margin_left = 77.0
-margin_top = 155.196
-margin_right = 152.0
-margin_bottom = 191.196
-text = "Type 2"
+[node name="TowerPreviewLabel" type="Label" parent="Panel"]
+margin_left = 80.0
+margin_top = 32.0
+margin_right = 144.0
+margin_bottom = 96.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Currently selected tower"
+align = 1
+valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Panel"]
-margin_left = 53.0187
-margin_top = 14.0647
-margin_right = 179.019
-margin_bottom = 28.0647
-text = "Select a Tower Type"
+[node name="DescriptionLabel" type="Label" parent="Panel"]
+margin_left = 8.0
+margin_top = 104.0
+margin_right = 216.0
+margin_bottom = 144.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "A tower that shoots _____ _____ _____ out of _____ turret(s)."
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Panel/NormalType" to="." method="_on_NormalType_pressed"]
-[connection signal="pressed" from="Panel/TowerType2" to="." method="_on_TowerType2_pressed"]
+
+[node name="CopperheadTower" type="Button" parent="Panel"]
+margin_left = 32.0
+margin_top = 152.0
+margin_right = 192.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 2 )
+text = "The Copperhead"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SteelTower" type="Button" parent="Panel"]
+margin_left = 32.0
+margin_top = 192.0
+margin_right = 192.0
+margin_bottom = 224.0
+custom_fonts/font = ExtResource( 2 )
+text = "Steel Team 6"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoonTower" type="Button" parent="Panel"]
+margin_left = 32.0
+margin_top = 232.0
+margin_right = 192.0
+margin_bottom = 264.0
+custom_fonts/font = ExtResource( 2 )
+text = "To the Moon"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoubleTroubleTower" type="Button" parent="Panel"]
+margin_left = 32.0
+margin_top = 272.0
+margin_right = 192.0
+margin_bottom = 304.0
+custom_fonts/font = ExtResource( 2 )
+text = "Double Trouble"
+[connection signal="pressed" from="Panel/CopperheadTower" to="." method="_on_NormalType_pressed"]
+[connection signal="pressed" from="Panel/SteelTower" to="." method="_on_TowerType2_pressed"]
