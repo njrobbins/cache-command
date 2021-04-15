@@ -72,36 +72,35 @@ custom_fonts/bold_font = ExtResource( 7 )
 custom_fonts/normal_font = ExtResource( 6 )
 bbcode_enabled = true
 bbcode_text = "[center][color=#000000]
-[b]Programmers:[/b]
+[b]Developers:[/b]
 [center]Tristan Tyler
-Nikko Robbins
+Niko Robbins
 Matthew Glenn
 
 [b]Graphics:[/b]
-Kenney Vleugels www.kenney.nl
+Kenney Vleugels 
+www.kenney.nl
 
-[b]Music[/b]
+[b]Music:[/b]
 Kevin MacLeod
  \"Neon Laser Horizon\"
-https://filmmusic.io/song/7015-neon-laser-horizon
-[/center]
-[/center]"
+www.filmmusic.io/song/7015-neon-laser-horizon"
 text = "
-Programmers:
+Developers:
 Tristan Tyler
-Nikko Robbins
+Niko Robbins
 Matthew Glenn
 
 Graphics:
-Kenney Vleugels www.kenney.nl
+Kenney Vleugels 
+www.kenney.nl
 
-Music
+Music:
 Kevin MacLeod
  \"Neon Laser Horizon\"
-https://filmmusic.io/song/7015-neon-laser-horizon
-
-[/center]"
+www.filmmusic.io/song/7015-neon-laser-horizon"
 __meta__ = {
+"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
