@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/DigDugPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/robot_gray.png" type="Texture" id=2]
 [ext_resource path="res://Assets/robot_turret_gray.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Audio/long_laser.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Audio/rlauncher.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Audio/tank_engine.ogg" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]

@@ -74,7 +74,7 @@ func placeTower(var pos):
 			$TowersNode.add_child(instance)
 			instance.position = tower_pos
 			current_towers.push_back(instance)
-				
+			$PlaceTowerAudio.play()
 
 func _on_PauseButton_pressed():
 	$MenuButtonAudio.play()
@@ -151,3 +151,4 @@ func _on_StartButton_pressed():
 	Settings.paused = false
 	$WaveTimer.start()
 	$StartButton.visible = false
+	$StartWaveAudio.play()

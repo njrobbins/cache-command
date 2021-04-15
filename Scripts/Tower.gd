@@ -75,6 +75,7 @@ func _physics_process(_delta):
 		if !current_target.get_ref():
 			current_target = null
 			$ShootTimer.stop()
+			$SmallShotAudio.stop()
 		else:
 			target_position = current_target.get_ref().get_global_transform().origin
 			$Gun.set_rotation((target_position - position).angle() + 30)
@@ -90,6 +91,7 @@ func _on_Aggro_area_exited(area):
 			if area.get_parent() == current_target.get_ref():
 				current_target = null
 				$ShootTimer.stop()
+				$SmallShotAudio.stop()
 
 func _on_ShootTimer_timeout():
 	if current_target.get_ref():
