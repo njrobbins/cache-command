@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/UpgradeScreen.gd" type="Script" id=2]
@@ -9,18 +9,33 @@
 [ext_resource path="res://fonts/roboto/Roboto-Black.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://fonts/roboto/Roboto-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Assets/Audio/upgrade_sound.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Assets/upgrades_panel.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Icons/info.png" type="Texture" id=11]
+[ext_resource path="res://Assets/stats_panel.png" type="Texture" id=12]
+[ext_resource path="res://Assets/wafers_panel.png" type="Texture" id=13]
+[ext_resource path="res://Assets/glass_panel.png" type="Texture" id=14]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.219608, 0.352941, 0.611765, 1 )
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 384, 320 )
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.294118, 0.415686, 0.65098, 1 )
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 384, 64 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 384, 448 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 632, 376 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 28
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 28
 use_filter = true
 font_data = ExtResource( 8 )
@@ -45,10 +60,14 @@ __meta__ = {
 }
 
 [node name="ContinueButton" type="Button" parent="."]
-margin_left = 921.97
-margin_top = 635.42
-margin_right = 1259.97
-margin_bottom = 691.42
+anchor_left = -0.00153904
+anchor_top = -0.00336117
+anchor_right = -0.00153904
+anchor_bottom = -0.00336117
+margin_left = 911.97
+margin_top = 628.42
+margin_right = 1249.97
+margin_bottom = 690.42
 custom_fonts/font = ExtResource( 3 )
 text = "Continue"
 icon = ExtResource( 6 )
@@ -57,123 +76,134 @@ __meta__ = {
 }
 
 [node name="TitleLabel" type="Label" parent="."]
-margin_left = 28.326
-margin_top = 17.5343
-margin_right = 953.326
-margin_bottom = 85.5343
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -487.5
+margin_top = 32.0
+margin_right = 487.5
+margin_bottom = 100.0
 custom_fonts/font = ExtResource( 4 )
-text = "Upgrade Silicon Mining"
+text = "Silicon Mining Upgrades"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="Panel" parent="."]
 anchor_bottom = 0.024
-margin_left = 847.0
-margin_top = 207.641
-margin_right = 1260.0
-margin_bottom = 510.361
-custom_styles/panel = SubResource( 1 )
+margin_left = 704.0
+margin_top = 272.0
+margin_right = 1088.0
+margin_bottom = 574.72
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StatLabel" type="Label" parent="Panel"]
-margin_left = 123.979
-margin_top = 3.8147e-06
-margin_right = 240.979
-margin_bottom = 50.0
+margin_left = 16.0
+margin_right = 133.0
+margin_bottom = 41.0
 custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Stats"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SpeedLabel" type="Label" parent="Panel"]
-margin_left = 28.1622
-margin_top = 50.0
-margin_right = 165.162
-margin_bottom = 100.0
+margin_left = 15.9999
+margin_top = 56.0
+margin_right = 153.0
+margin_bottom = 104.0
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Speed:"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RateLabel" type="Label" parent="Panel"]
-margin_left = 28.1622
-margin_top = 100.0
-margin_right = 232.162
-margin_bottom = 150.0
+margin_left = 15.9999
+margin_top = 120.0
+margin_right = 220.0
+margin_bottom = 168.0
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Fire Rate:"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TimeLabel" type="Label" parent="Panel"]
-margin_left = 28.1622
-margin_top = 150.0
-margin_right = 262.162
-margin_bottom = 200.0
+margin_left = 16.0
+margin_top = 184.0
+margin_right = 250.0
+margin_bottom = 232.0
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Time Added:"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CashLabel" type="Label" parent="Panel"]
-margin_left = 28.1622
-margin_top = 200.0
-margin_right = 329.162
-margin_bottom = 250.0
+margin_left = 16.0
+margin_top = 248.0
+margin_right = 317.0
+margin_bottom = 296.0
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Wafers Added:"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel3" type="Panel" parent="."]
 anchor_bottom = 0.024
-margin_left = 847.0
-margin_top = 148.0
-margin_right = 1260.0
-margin_bottom = 180.72
-custom_styles/panel = SubResource( 1 )
+margin_left = 704.0
+margin_top = 144.0
+margin_right = 1088.0
+margin_bottom = 190.72
+custom_styles/panel = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CashLabel" type="Label" parent="Panel3"]
-margin_right = 413.0
-margin_bottom = 50.0
+margin_left = 16.0
+margin_right = 368.0
+margin_bottom = 64.0
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Wafers:"
-align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel2" type="Panel" parent="."]
 anchor_bottom = 0.024
-margin_left = 68.0
-margin_top = 147.641
-margin_right = 481.0
-margin_bottom = 580.361
-custom_styles/panel = SubResource( 1 )
+margin_left = 192.0
+margin_top = 144.0
+margin_right = 576.0
+margin_bottom = 574.72
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UpgradeLabel" type="Label" parent="Panel2"]
-margin_left = 105.434
-margin_top = -37.3594
-margin_right = 305.434
-margin_bottom = 12.6406
+margin_right = 384.0
+margin_bottom = 41.0
 custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Upgrades"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -181,10 +211,10 @@ __meta__ = {
 [node name="SpeedButton" type="Button" parent="Panel2"]
 anchor_right = 0.015
 anchor_bottom = 0.043
-margin_left = 29.0
-margin_top = 13.0
-margin_right = 360.805
-margin_bottom = 40.65
+margin_left = 24.0
+margin_top = 72.0
+margin_right = 354.24
+margin_bottom = 108.736
 custom_fonts/font = ExtResource( 5 )
 text = "Speed $20"
 __meta__ = {
@@ -194,87 +224,103 @@ __meta__ = {
 [node name="RateButton" type="Button" parent="Panel2"]
 anchor_right = 0.015
 anchor_bottom = 0.043
-margin_left = 29.0
-margin_top = 113.0
-margin_right = 360.805
-margin_bottom = 149.65
+margin_left = 24.0
+margin_top = 168.0
+margin_right = 354.24
+margin_bottom = 204.736
 custom_fonts/font = ExtResource( 5 )
-text = "Rate $20"
+text = "Fire Rate $20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TimeButton" type="Button" parent="Panel2"]
 anchor_right = 0.015
 anchor_bottom = 0.043
-margin_left = 29.0
-margin_top = 232.0
-margin_right = 360.805
-margin_bottom = 268.65
+margin_left = 24.0
+margin_top = 264.0
+margin_right = 354.24
+margin_bottom = 300.736
 custom_fonts/font = ExtResource( 5 )
 text = "Time $20"
 
 [node name="CashButton" type="Button" parent="Panel2"]
 anchor_right = 0.015
 anchor_bottom = 0.043
-margin_left = 29.0
-margin_top = 345.0
-margin_right = 360.805
-margin_bottom = 381.65
+margin_left = 24.0
+margin_top = 360.0
+margin_right = 354.24
+margin_bottom = 396.736
 custom_fonts/font = ExtResource( 5 )
 text = "Wafers $20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="InfoPanelButton" type="Button" parent="."]
-margin_left = 88.0
-margin_top = 633.0
-margin_right = 448.0
-margin_bottom = 680.0
-custom_fonts/font = ExtResource( 5 )
-text = "Info Panel"
+margin_left = 32.0
+margin_top = 626.0
+margin_right = 94.0
+margin_bottom = 688.0
+custom_fonts/font = ExtResource( 3 )
+icon = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="InfoPanel" type="Panel" parent="."]
-margin_left = 68.0
-margin_top = 115.0
-margin_right = 847.0
-margin_bottom = 691.0
-custom_styles/panel = SubResource( 2 )
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = -188.0
+margin_right = 316.0
+margin_bottom = 188.0
+custom_styles/panel = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="InfoPanel"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 760.0
-margin_bottom = 435.0
-custom_fonts/bold_font = SubResource( 3 )
-custom_fonts/normal_font = SubResource( 4 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -296.0
+margin_top = -172.0
+margin_right = 304.0
+margin_bottom = 172.0
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
 custom_colors/default_color = Color( 0.105882, 0.0980392, 0.0980392, 1 )
 bbcode_enabled = true
-bbcode_text = "[b]Speed:[/b] Indicates how fast the player moves across the mining game mode
+bbcode_text = "[b]Speed:[/b] How fast you move while silicon mining
 
-[b]Fire Rate/Rate:[/b] Indicates how fast the player's turret shoots at drones in the mining game mode
+[b]Fire Rate:[/b] How fast your turret shoots at drones while silicon mining
 
-[b]Time Added/Time:[/b] Indicates how much time is added to the timer for each circuit collected
+[b]Time:[/b] How much time is added to the timer for each circuit board collected
 
-[b]Wafers Added/Wafers:[/b] Indicates how many wafers are added to the players running total for each circuit collected
-"
-text = "Speed: Indicates how fast the player moves across the mining game mode
+[b]Wafers:[/b] How many wafers are added to your running total for each circuit board collected"
+text = "Speed: How fast you move while silicon mining
 
-Fire Rate/Rate: Indicates how fast the player's turret shoots at drones in the mining game mode
+Fire Rate: How fast your turret shoots at drones while silicon mining
 
-Time Added/Time: Indicates how much time is added to the timer for each circuit collected
+Time: How much time is added to the timer for each circuit board collected
 
-Wafers Added/Wafers: Indicates how many wafers are added to the players running total for each circuit collected
-"
+Wafers: How many wafers are added to your running total for each circuit board collected"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CloseInfoPanelButton" type="Button" parent="InfoPanel"]
-margin_left = 20.0
-margin_top = 518.0
-margin_right = 386.0
-margin_bottom = 565.0
+margin_left = 352.0
+margin_top = 408.0
+margin_right = 414.0
+margin_bottom = 464.0
 custom_fonts/font = ExtResource( 5 )
-text = "Close Panel"
+text = "Close"
 __meta__ = {
 "_edit_use_anchors_": false
 }

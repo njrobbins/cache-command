@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/silicon_wafer.png-c9d511f91bf86d7d4a607468d002c6b5.stex"
+path="res://.import/wafers_panel.png-010a9009794fa4bfb2f3e524f4938d17.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/silicon_wafer.png"
-dest_files=[ "res://.import/silicon_wafer.png-c9d511f91bf86d7d4a607468d002c6b5.stex" ]
+source_file="res://Assets/wafers_panel.png"
+dest_files=[ "res://.import/wafers_panel.png-010a9009794fa4bfb2f3e524f4938d17.stex" ]
 
 [params]
 
