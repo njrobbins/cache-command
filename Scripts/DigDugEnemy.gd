@@ -30,9 +30,9 @@ func _physics_process(_delta):
 func _on_ShootTimer_timeout():
 	if current_target != null:
 		instance = shot.instance()
+		instance.sentBy = "enemy"
 		instance.set_target(current_target)
 		instance.position = self.get_global_transform().origin
-		instance.sentBy = "enemy"
 		get_parent().add_child(instance)
 
 

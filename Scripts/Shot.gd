@@ -20,9 +20,12 @@ func _physics_process(delta):
 		if timerStarted:
 			position += velocity * delta
 
-func set_target(new_target, fromPlayer=false):
-	if fromPlayer:
-		$BulletCopper.visible = false
+func set_target(new_target):
+	if sentBy=="player":
+		$BShot.visible = true
+	elif sentBy=="enemy":
+		$CShot.visible = true
+	elif sentBy=="tower":
 		$BulletSteel.visible = true
 	target = weakref(new_target)
 

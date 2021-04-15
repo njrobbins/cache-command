@@ -98,6 +98,7 @@ func _on_ShootTimer_timeout():
 		$SmallShotAudio.stop()
 		$SmallShotAudio.play()
 		instance = shot.instance()
+		instance.sentBy = "tower"
 		instance.set_target(current_target.get_ref())
 		instance.owner_tower = self
 		instance.position = $Gun/ShotPosition.get_global_transform().origin

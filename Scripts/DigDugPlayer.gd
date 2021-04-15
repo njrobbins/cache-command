@@ -7,6 +7,7 @@ var slow_amt = 0
 var enemy_array = []
 var instance
 var current_target = null
+var audio_playing = false
 var shot = load("res://Scenes/Shot.tscn")
 
 func _ready():
@@ -24,9 +25,12 @@ func _physics_process(_delta):
 		
 	velocity = (target - position).normalized() * getSpeed()
 	if (target - position).length() > 5:
-		$TankEngineAudio.play()
+		tankAudioToggle()
 		velocity = move_and_slide(velocity)
 		$PlayerWrapper.rotation = velocity.angle()
+	else:
+		$TankEngineAudio.pitch_scale = 0.4
+		audio_playing = false
 				
 	if current_target != null:
 		var target_position = current_target.get_global_transform().origin
@@ -34,6 +38,14 @@ func _physics_process(_delta):
 	if current_target == null and len(enemy_array) > 0:
 		current_target = enemy_array[0]
 		$ShootTimer.start()
+		
+		
+func tankAudioToggle():
+	if not audio_playing:
+		$TankEngineAudio.stop()
+		$TankEngineAudio.play()
+		$TankEngineAudio.pitch_scale = 1.0
+		audio_playing = true
 		
 func getSpeed():
 	if (Settings.player_speed - slow_amt) < 50:
@@ -52,9 +64,9 @@ func _on_ShootTimer_timeout():
 		$PlayerShotAudio.stop()
 		$PlayerShotAudio.play()
 		instance = shot.instance()
-		instance.set_target(current_target, true)
-		instance.position = $Turret/ShotPosition.get_global_transform().origin
 		instance.sentBy = "player"
+		instance.set_target(current_target)
+		instance.position = $Turret/ShotPosition.get_global_transform().origin
 		get_parent().add_child(instance)
 
 func _on_Aggro_body_entered(body):

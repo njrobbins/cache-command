@@ -99,10 +99,12 @@ __meta__ = {
 [node name="PlayerShotAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -15.0
+pitch_scale = 2.0
 
 [node name="TankEngineAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -8.0
+pitch_scale = 0.41
 [connection signal="area_entered" from="PlayerWrapper/HitDetector" to="." method="_on_HitDetector_area_entered"]
 [connection signal="body_entered" from="PlayerWrapper/HitDetector" to="." method="_on_HitDetector_body_entered"]
 [connection signal="body_entered" from="PlayerWrapper/Aggro" to="." method="_on_Aggro_body_entered"]
