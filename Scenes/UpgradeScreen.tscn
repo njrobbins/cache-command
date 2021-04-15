@@ -233,11 +233,10 @@ __meta__ = {
 }
 
 [node name="InfoPanel" type="Panel" parent="."]
-visible = false
 margin_left = 68.0
 margin_top = 115.0
 margin_right = 847.0
-margin_bottom = 635.0
+margin_bottom = 691.0
 custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -271,9 +270,9 @@ Wafers Added/Wafers: Indicates how many wafers are added to the players running 
 
 [node name="CloseInfoPanelButton" type="Button" parent="InfoPanel"]
 margin_left = 20.0
-margin_top = 471.0
+margin_top = 518.0
 margin_right = 386.0
-margin_bottom = 518.0
+margin_bottom = 565.0
 custom_fonts/font = ExtResource( 5 )
 text = "Close Panel"
 __meta__ = {
@@ -282,6 +281,7 @@ __meta__ = {
 
 [node name="UpgradeButtonAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -9.0
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="Panel2/SpeedButton" to="." method="_on_SpeedButton_pressed"]
 [connection signal="pressed" from="Panel2/RateButton" to="." method="_on_RateButton_pressed"]

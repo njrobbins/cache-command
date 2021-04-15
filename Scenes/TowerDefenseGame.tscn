@@ -182,10 +182,10 @@ stream = ExtResource( 2 )
 [node name="PauseMenu" parent="." instance=ExtResource( 12 )]
 visible = false
 
-[node name="PlaceTowerAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="PlaceTowerAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 
-[node name="StartWaveAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="StartWaveAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

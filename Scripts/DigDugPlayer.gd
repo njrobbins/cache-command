@@ -49,6 +49,8 @@ func _on_HitDetector_area_entered(area):
 
 func _on_ShootTimer_timeout():
 	if current_target != null:
+		$PlayerShotAudio.stop()
+		$PlayerShotAudio.play()
 		instance = shot.instance()
 		instance.set_target(current_target, true)
 		instance.position = $Turret/ShotPosition.get_global_transform().origin
@@ -60,7 +62,7 @@ func _on_Aggro_body_entered(body):
 		current_target = body
 		enemy_array.append(body)
 		$ShootTimer.start()
-		$PlayerShotAudio.play()
+		
 
 func _on_Aggro_body_exited(body):
 	if body.is_in_group("enemy"):

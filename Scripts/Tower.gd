@@ -95,6 +95,7 @@ func _on_Aggro_area_exited(area):
 
 func _on_ShootTimer_timeout():
 	if current_target.get_ref():
+		$SmallShotAudio.stop()
 		$SmallShotAudio.play()
 		instance = shot.instance()
 		instance.set_target(current_target.get_ref())
