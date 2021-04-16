@@ -25,9 +25,13 @@ func init(t_type,rad=210, rate=3):
 		RADIUS = rad
 		shoot_rate = rate
 		type = "copperhead"
-	elif t_type == "steel":
+	elif t_type == "steel" and rad==210:
 		RADIUS = 350
 		shoot_rate = 8
+		type = "steel"
+	elif t_type == "steel":
+		RADIUS = rad
+		shoot_rate = rate
 		type = "steel"
 	
 	$Aggro/AggroShape.shape.radius = RADIUS
