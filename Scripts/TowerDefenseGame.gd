@@ -144,8 +144,10 @@ func base_hit():
 		Settings.tower_positions = [] # Keeps a list of all the positions currently occupied by a tower
 		Settings.current_towers_info = [] # Keeps a list of dictionaries containing information about each placed tower
 		Settings.tower_costs = {
-			"normal": 25,
-			"type2": 100,
+			"copperhead": 25,
+			"steel": 100,
+			"moon": 100,
+			"doubletrouble": 100,
 		}
 		# Dig Dug Variables
 		Settings.player_speed = 200
