@@ -40,8 +40,8 @@ func _ready():
 	
 	tilemap = current_map.get_node("TowerPlacementTileMap")
 	cell_size = tilemap.cell_size
-	$BaseLabel.text = str(base_hp)
-	$CashLabel.text = str(Settings.cash)
+	$UI/BaseLabel.text = str(base_hp)
+	$UI/CashLabel.text = str(Settings.cash)
 	
 	get_mobs()
 	# Calculates the total number of drones that need to be destroyed before the level is over
@@ -51,7 +51,7 @@ func _ready():
 	print(total_drones)
 	
 	# Places any previously placed towers
-	for tow in Settings.current_towers_info:
+	for tow in Settings.current_towers_info[current_map_num]:
 		instance = tower.instance()
 		$TowersNode.add_child(instance)
 		instance.recreate(tow)
@@ -62,21 +62,25 @@ func _process(_delta):
 		if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
 			saveTowers()
 			Settings.td_level += 1
-			if Settings.td_level % 3 == 0:
+			if Settings.td_level % 5 == 0:
 				Settings.level += 1
+				Settings.mob_time = Settings.mob_time * 0.9
 				if Settings.level == 4:
 					Settings.level = 1 
 			var _scene = get_tree().change_scene("res://Scenes/UpgradeScreen.tscn")
 			
 	
 func get_mobs():
+	if Settings.td_level % 5 == 0:
+		Settings.cash += 300
+	$MobTimer.wait_time = Settings.mob_time
 	for _i in range(Settings.td_level - 1):
 		for i in range(len(wave_mobs)):
 			wave_mobs[i] += 6
 	
 	
 func _input(event):
-	$CashLabel.text = str(Settings.cash)
+	$UI/CashLabel.text = str(Settings.cash)
 	if event is InputEventMouseButton and event.pressed:
 		var m_position = get_global_mouse_position()
 		placeTower(m_position)
@@ -86,9 +90,9 @@ func placeTower(var pos):
 	cell_id = tilemap.get_cellv(cell_position)
 	if cell_id != -1:
 		var tower_pos = Vector2(cell_position.x * cell_size.x , cell_position.y * cell_size.y)
-		if Settings.tower_positions.count(tower_pos) == 0 and Settings.cash >= Settings.tower_costs[Settings.tower_type_selected]:
+		if Settings.tower_positions[current_map_num].count(tower_pos) == 0 and Settings.cash >= Settings.tower_costs[Settings.tower_type_selected]:
 			Settings.cash -= Settings.tower_costs[Settings.tower_type_selected]
-			Settings.tower_positions.push_back(tower_pos)
+			Settings.tower_positions[current_map_num].push_back(tower_pos)
 			instance = tower.instance()
 			instance.init(Settings.tower_type_selected)
 			$TowersNode.add_child(instance)
@@ -107,7 +111,7 @@ func _on_PauseButton_pressed():
 
 func drone_destroyed(cash):
 	Settings.cash += cash
-	$CashLabel.text = str(Settings.cash)
+	$UI/CashLabel.text = str(Settings.cash)
 		
 # Saves the current towers information in the global current_towers_info structure
 func saveTowers():
@@ -125,12 +129,12 @@ func saveTowers():
 			"speed_level": tower.speed_level,
 		}
 		t.push_back(d)
-	Settings.current_towers_info = t
+	Settings.current_towers_info[current_map_num] = t
 		
 
 func base_hit():
 	base_hp -= 1
-	$BaseLabel.text = str(base_hp)
+	$UI/BaseLabel.text = str(base_hp)
 	if base_hp == 0:
 		# RESET TO ALL BASE STATS
 		# Global Game Variables
@@ -140,9 +144,18 @@ func base_hit():
 		# Tower Defense Variables
 		Settings.drones_destroyed = 0
 		Settings.td_level = 1
+		Settings.mob_time = 0.5
 		Settings.tower_type_selected = "copperhead"
-		Settings.tower_positions = [] # Keeps a list of all the positions currently occupied by a tower
-		Settings.current_towers_info = [] # Keeps a list of dictionaries containing information about each placed tower
+		Settings.tower_positions = {
+			"1": [],
+			"2": [],
+			"3": [],
+		}
+		Settings.current_towers_info = {
+			"1": [],
+			"2": [],
+			"3": [],
+		}
 		Settings.tower_costs = {
 			"copperhead": 25,
 			"steel": 100,

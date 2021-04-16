@@ -126,16 +126,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RangeButton" type="Button" parent="UpgradePanel"]
-margin_left = 3.47296
-margin_top = 18.2137
-margin_right = 81.473
-margin_bottom = 38.2137
-text = "Range (10)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="SpeedButton" type="Button" parent="UpgradePanel"]
 margin_left = 3.47296
 margin_top = 47.7279
@@ -145,10 +135,20 @@ text = "Speed (10)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RangeButton" type="Button" parent="UpgradePanel"]
+margin_left = 3.47296
+margin_top = 18.2137
+margin_right = 81.473
+margin_bottom = 38.2137
+text = "Range (10)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="area_entered" from="Aggro" to="." method="_on_Aggro_area_entered"]
 [connection signal="area_exited" from="Aggro" to="." method="_on_Aggro_area_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
 [connection signal="finished" from="SmallShotAudio" to="." method="_on_SmallShotAudio_finished"]
 [connection signal="pressed" from="TowerButton" to="." method="_on_TowerButton_pressed"]
-[connection signal="pressed" from="UpgradePanel/RangeButton" to="." method="_on_RangeButton_pressed"]
 [connection signal="pressed" from="UpgradePanel/SpeedButton" to="." method="_on_SpeedButton_pressed"]
+[connection signal="pressed" from="UpgradePanel/RangeButton" to="." method="_on_RangeButton_pressed"]

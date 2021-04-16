@@ -36,6 +36,7 @@ func _physics_process(_delta):
 		var target_position = current_target.get_global_transform().origin
 		$Turret.set_rotation((target_position - position).angle()+deg2rad(90))
 	if current_target == null and len(enemy_array) > 0:
+		$PlayerShotAudio.stop()
 		current_target = enemy_array[0]
 		$ShootTimer.start()
 		

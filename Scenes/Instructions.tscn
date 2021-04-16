@@ -71,29 +71,45 @@ custom_fonts/bold_font = ExtResource( 7 )
 custom_fonts/normal_font = ExtResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "[center][b]Digging mode[/b][/center]
+bbcode_text = "[center][b]Objective[/b][/center]
+You play as a small tank collecting circuit boards that contain silicon wafers that you can use to build towers to defend your Motherboard.
 
-Use the left thumbstick to gather blue resources while avoiding enemies.
+[center][b]Silicon Mining Mode[/b][/center]
 
-Resources gathered will be used to purchase towers.
+Goal: Collect circuit boards scattered around the map. 
+Wafers: Used to buy towers or purchase upgrades for your tank
+Movement: Touch/Click where you want to move the tank.
+Enemies: Slow your tank's movement
 
 [center][b]Tower Defense Mode[/b][/center]
 
 Create towers by clicking on tower placement positions.
 
+Buy different towers by pressing the Cart/Shop Icon
+
+View stats and upgrade towers by pressing them
+
 Towers defeat enemies to protect your base, every enemy leaked will subtract 1 health point.
 
 To win kill all of the enemies before your health reaches 0.
 "
-text = "Digging mode
+text = "Objective
+You play as a small tank collecting circuit boards that contain silicon wafers that you can use to build towers to defend your Motherboard.
 
-Use the left thumbstick to gather blue resources while avoiding enemies.
+Silicon Mining Mode
 
-Resources gathered will be used to purchase towers.
+Goal: Collect circuit boards scattered around the map. 
+Wafers: Used to buy towers or purchase upgrades for your tank
+Movement: Touch/Click where you want to move the tank.
+Enemies: Slow your tank's movement
 
 Tower Defense Mode
 
 Create towers by clicking on tower placement positions.
+
+Buy different towers by pressing the Cart/Shop Icon
+
+View stats and upgrade towers by pressing them
 
 Towers defeat enemies to protect your base, every enemy leaked will subtract 1 health point.
 

@@ -6,7 +6,7 @@ const Enemy = preload("res://Scenes/DigDugEnemy.tscn")
 
 var scene
 var number_of_enemies = 8
-var number_of_resources = 25
+var number_of_resources = 30
 
 var current_map_num = str(Settings.level)
 var current_map
@@ -33,8 +33,8 @@ func _ready():
 	randomize()
 	var size_w = ProjectSettings.get_setting("display/window/size/width")
 	var size_h = ProjectSettings.get_setting("display/window/size/height")
-	var tiles_w = (size_w / 64) - 2
-	var tiles_h = (size_h / 64) - 2
+	var tiles_w = (size_w / 64) - 1
+	var tiles_h = (size_h / 64) - 1
 	
 	while(number_of_resources != 0):
 		var x = (randi() % tiles_w) + 1
@@ -77,5 +77,3 @@ func update_wafers():
 func _on_GameTimer_timeout():
 	var _scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
 
-func _on_PauseButton_pressed():
-	scene = get_tree().change_scene("res://Scenes/PauseMenu.tscn")

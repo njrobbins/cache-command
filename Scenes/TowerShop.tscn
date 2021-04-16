@@ -9,13 +9,9 @@
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 224, 312 )
 
-[node name="TowerShop" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="TowerShop" type="Node2D"]
+z_index = 5
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Panel" type="Panel" parent="."]
 margin_right = 224.0

@@ -49,17 +49,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BaseHealthSection" type="TextureRect" parent="."]
+[node name="UI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BaseHealthSection" type="TextureRect" parent="UI"]
 margin_left = 88.0
 margin_top = 24.0
 margin_right = 278.0
 margin_bottom = 69.0
+mouse_filter = 2
 texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BaseHealthLabel" type="Label" parent="."]
+[node name="BaseHealthLabel" type="Label" parent="UI"]
 margin_left = 136.0
 margin_top = 32.0
 margin_right = 243.0
@@ -71,11 +80,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BaseLabel" type="Label" parent="."]
+[node name="BaseLabel" type="Label" parent="UI"]
 margin_left = 248.0
 margin_top = 32.0
-margin_right = 264.0
-margin_bottom = 58.0
+margin_right = 265.0
+margin_bottom = 59.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
@@ -83,28 +92,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WafersSection" type="TextureRect" parent="."]
-margin_left = 1000.0
-margin_top = 24.0
-margin_right = 1190.0
-margin_bottom = 69.0
-texture = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Heart" type="TextureRect" parent="."]
+[node name="Heart" type="TextureRect" parent="UI"]
 margin_left = 93.0
 margin_top = 24.0
 margin_right = 133.0
 margin_bottom = 64.0
+mouse_filter = 2
 texture = ExtResource( 10 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WafersLeftLabel" type="Label" parent="."]
+[node name="WafersSection" type="TextureRect" parent="UI"]
+margin_left = 1000.0
+margin_top = 24.0
+margin_right = 1190.0
+margin_bottom = 69.0
+mouse_filter = 2
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WafersLeftLabel" type="Label" parent="UI"]
 margin_left = 1008.0
 margin_top = 32.0
 margin_right = 1121.0
@@ -116,7 +127,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CashLabel" type="Label" parent="."]
+[node name="CashLabel" type="Label" parent="UI"]
 margin_left = 1128.0
 margin_top = 32.0
 margin_right = 1179.0
@@ -151,10 +162,7 @@ __meta__ = {
 
 [node name="TowerShop" parent="." instance=ExtResource( 11 )]
 visible = false
-margin_left = 1036.26
-margin_top = 88.0
-margin_right = 1036.26
-margin_bottom = 88.0
+position = Vector2( 1056.52, 80 )
 
 [node name="DebugLabel" type="Label" parent="."]
 margin_left = 609.509
@@ -167,7 +175,7 @@ __meta__ = {
 }
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
 
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 0.6
