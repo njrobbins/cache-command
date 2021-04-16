@@ -10,12 +10,14 @@ var paused = false
 # Tower Defense Variables
 var drones_destroyed = 0
 var td_level = 1
-var tower_type_selected = "normal"
+var tower_type_selected = "copperhead"
 var tower_positions = [] # Keeps a list of all the positions currently occupied by a tower
 var current_towers_info = [] # Keeps a list of dictionaries containing information about each placed tower
 var tower_costs = {
-	"normal": 25,
-	"type2": 100,
+	"copperhead": 25,
+	"steel": 100,
+	"moon": 100,
+	"doubletrouble": 100,
 }
 
 # Dig Dug Variables

@@ -37,15 +37,15 @@ func _on_Area2D_area_entered(area):
 				area.owner_tower.updateDronesDestroyed()
 			Settings.drones_destroyed += 1
 			if type == "big":
-				get_parent().get_parent().get_parent().drone_destroyed(5)
+				get_parent().get_parent().get_parent().get_parent().drone_destroyed(5)
 			elif type == "fast":
-				get_parent().get_parent().get_parent().drone_destroyed(2)
+				get_parent().get_parent().get_parent().get_parent().drone_destroyed(2)
 			elif type == "normal":
-				get_parent().get_parent().get_parent().drone_destroyed(1)
+				get_parent().get_parent().get_parent().get_parent().drone_destroyed(1)
 			
 			queue_free()
 			
 	if area.is_in_group("Base"):
 		Settings.drones_destroyed += 1
-		get_parent().get_parent().get_parent().base_hit()
+		get_parent().get_parent().get_parent().get_parent().base_hit()
 		queue_free()

@@ -21,14 +21,14 @@ var speed_level = 0
 # rad is the range of the tower for shooting, and rate is how fast it shoots
 func init(t_type,rad=210, rate=3):
 	
-	if t_type == "normal":
+	if t_type == "copperhead":
 		RADIUS = rad
 		shoot_rate = rate
-		type = "normal"
-	elif t_type == "type2":
+		type = "copperhead"
+	elif t_type == "steel":
 		RADIUS = 350
 		shoot_rate = 8
-		type = "type2"
+		type = "steel"
 	
 	$Aggro/AggroShape.shape.radius = RADIUS
 	var rad_scale = RADIUS / 100.0
@@ -98,7 +98,7 @@ func _on_ShootTimer_timeout():
 		$SmallShotAudio.stop()
 		$SmallShotAudio.play()
 		instance = shot.instance()
-		instance.sentBy = "tower"
+		instance.sentBy = type
 		instance.set_target(current_target.get_ref())
 		instance.owner_tower = self
 		instance.position = $Gun/ShotPosition.get_global_transform().origin

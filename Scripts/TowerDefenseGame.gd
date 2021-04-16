@@ -11,6 +11,14 @@ var instance
 var scene
 var tilemap
 
+var current_map_num = str(Settings.level)
+var current_map
+var maps = {
+	"1": "res://Scenes/TDLevels/TDLevel1.tscn",
+	"2": "res://Scenes/TDLevels/TDLevel2.tscn",
+	"3": "res://Scenes/TDLevels/TDLevel3.tscn",
+}
+
 # Variables used in tracking towers
 var current_towers = []
 
@@ -23,7 +31,14 @@ var total_drones = 0 # Tracks the total number of drones destroyed
 
 func _ready():
 	Settings.paused = true
-	tilemap = $TDLevel1/TowerPlacementTileMap
+	
+	if current_map != null:
+		current_map.queue_free()
+
+	current_map = load(maps[current_map_num]).instance()
+	$TowersNode.add_child(current_map)
+	
+	tilemap = current_map.get_node("TowerPlacementTileMap")
 	cell_size = tilemap.cell_size
 	$BaseLabel.text = str(base_hp)
 	$CashLabel.text = str(Settings.cash)
@@ -47,6 +62,10 @@ func _process(_delta):
 		if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
 			saveTowers()
 			Settings.td_level += 1
+			if Settings.td_level % 3 == 0:
+				Settings.level += 1
+				if Settings.level == 4:
+					Settings.level = 1 
 			var _scene = get_tree().change_scene("res://Scenes/UpgradeScreen.tscn")
 			
 	
@@ -121,7 +140,7 @@ func base_hit():
 		# Tower Defense Variables
 		Settings.drones_destroyed = 0
 		Settings.td_level = 1
-		Settings.tower_type_selected = "normal"
+		Settings.tower_type_selected = "copperhead"
 		Settings.tower_positions = [] # Keeps a list of all the positions currently occupied by a tower
 		Settings.current_towers_info = [] # Keeps a list of dictionaries containing information about each placed tower
 		Settings.tower_costs = {
@@ -159,7 +178,8 @@ func _on_MobTimer_timeout():
 	else:
 		# Spawn normal mobs
 		instance.init(100, 10, "normal")
-	$TDLevel1/Path2D.add_child(instance)
+	current_map.get_node("Path2D").add_child(instance)
+	
 	
 	mobs_left_wave -= 1
 	if mobs_left_wave <= 0:

@@ -1,14 +1,24 @@
 extends Control
 
 func _ready():
-	$Panel/NormalType.text = "Normal " + str(Settings.tower_costs["normal"])
-	$Panel/TowerType2.text = "Type 2 " + str(Settings.tower_costs["type2"])
-
-func _on_NormalType_pressed():
-	Settings.tower_type_selected = "normal"
-	print("Normal tower selected")
+	$Panel/TowerPreviewLabel.text = "The Copperhead"
+	$Panel/DescriptionLabel.text = "Costs $" + str(Settings.tower_costs[Settings.tower_type_selected]) + ". A tower that shoots copper bullets out of 1 turret(s)."
 
 
-func _on_TowerType2_pressed():
-	Settings.tower_type_selected = "type2"
-	print("Type 2 tower selected")
+func _on_CopperheadTower_pressed():
+	Settings.tower_type_selected = "copperhead"
+	$Panel/TowerPreviewLabel.text = "The Copperhead"
+	$Panel/DescriptionLabel.text = "Costs $" + str(Settings.tower_costs[Settings.tower_type_selected]) + " . A tower that shoots copper bullets out of 1 turret(s)."
+
+func _on_SteelTower_pressed():
+	Settings.tower_type_selected = "steel"
+	$Panel/TowerPreviewLabel.text = "Steel Team 6"
+	$Panel/DescriptionLabel.text = "Costs $" + str(Settings.tower_costs[Settings.tower_type_selected]) + ". A tower that shoots steel bullets out of 1 turret(s)."
+
+
+func _on_MoonTower_pressed():
+	Settings.tower_type_selected = "moon"
+
+
+func _on_DoubleTroubleTower_pressed():
+	Settings.tower_type_selected = "doubletrouble"

@@ -41,9 +41,9 @@ __meta__ = {
 }
 
 [node name="TowerPreviewLabel" type="Label" parent="Panel"]
-margin_left = 80.0
+margin_left = 48.0
 margin_top = 32.0
-margin_right = 144.0
+margin_right = 164.0
 margin_bottom = 96.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Currently selected tower"
@@ -90,6 +90,7 @@ __meta__ = {
 }
 
 [node name="MoonTower" type="Button" parent="Panel"]
+visible = false
 margin_left = 32.0
 margin_top = 232.0
 margin_right = 192.0
@@ -101,11 +102,14 @@ __meta__ = {
 }
 
 [node name="DoubleTroubleTower" type="Button" parent="Panel"]
+visible = false
 margin_left = 32.0
 margin_top = 272.0
 margin_right = 192.0
 margin_bottom = 304.0
 custom_fonts/font = ExtResource( 2 )
 text = "Double Trouble"
-[connection signal="pressed" from="Panel/CopperheadTower" to="." method="_on_NormalType_pressed"]
-[connection signal="pressed" from="Panel/SteelTower" to="." method="_on_TowerType2_pressed"]
+[connection signal="pressed" from="Panel/CopperheadTower" to="." method="_on_CopperheadTower_pressed"]
+[connection signal="pressed" from="Panel/SteelTower" to="." method="_on_SteelTower_pressed"]
+[connection signal="pressed" from="Panel/MoonTower" to="." method="_on_MoonTower_pressed"]
+[connection signal="pressed" from="Panel/DoubleTroubleTower" to="." method="_on_DoubleTroubleTower_pressed"]

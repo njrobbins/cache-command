@@ -25,7 +25,9 @@ func set_target(new_target):
 		$BShot.visible = true
 	elif sentBy=="enemy":
 		$CShot.visible = true
-	elif sentBy=="tower":
+	elif sentBy=="copperhead":
+		$BulletCopper.visible = true
+	elif sentBy=="steel":
 		$BulletSteel.visible = true
 	target = weakref(new_target)
 
