@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 var target = position
-
 var slow_amt = 0
 var enemy_array = []
 var instance
@@ -13,10 +12,11 @@ var shot = load("res://Scenes/Shot.tscn")
 func _ready():
 	$ShootTimer.set_wait_time(1.0 / Settings.player_shoot_rate)
 
+
 # TEMPORARY - just for debugging
 func _process(_delta):
 	$Debug/Label1.text = str(getSpeed())
-	
+
 
 func _physics_process(_delta):
 	
@@ -39,26 +39,29 @@ func _physics_process(_delta):
 		$PlayerShotAudio.stop()
 		current_target = enemy_array[0]
 		$ShootTimer.start()
-		
-		
+
+
 func tankAudioToggle():
 	if not audio_playing:
 		$TankEngineAudio.stop()
 		$TankEngineAudio.play()
 		$TankEngineAudio.pitch_scale = 1.0
 		audio_playing = true
-		
+
+
 func getSpeed():
 	if (Settings.player_speed - slow_amt) < 50:
 		return 50
 	else:
 		return (Settings.player_speed - slow_amt)
 
+
 func _on_HitDetector_area_entered(area):
 	if area.is_in_group("shot") and area.sentBy != "player":
 		area.queue_free()
 		slow_amt += 20
 		$SlowTimer.start()
+
 
 func _on_ShootTimer_timeout():
 	if current_target != null:
@@ -70,12 +73,13 @@ func _on_ShootTimer_timeout():
 		instance.position = $Turret/ShotPosition.get_global_transform().origin
 		get_parent().add_child(instance)
 
+
 func _on_Aggro_body_entered(body):
 	if body.is_in_group("enemy"):
 		current_target = body
 		enemy_array.append(body)
 		$ShootTimer.start()
-		
+
 
 func _on_Aggro_body_exited(body):
 	if body.is_in_group("enemy"):
@@ -85,6 +89,7 @@ func _on_Aggro_body_exited(body):
 				current_target = null
 				$ShootTimer.stop()
 				$PlayerShotAudio.stop()
+
 
 func _on_SlowTimer_timeout():
 	slow_amt = 0

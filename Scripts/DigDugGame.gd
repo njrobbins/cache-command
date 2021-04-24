@@ -7,13 +7,19 @@ const Enemy = preload("res://Scenes/DigDugEnemy.tscn")
 var scene
 var number_of_enemies = 8
 var number_of_resources = 30
-
 var current_map_num = str(Settings.level)
 var current_map
 var maps = {
 	"1": "res://Scenes/DDLevels/ObstaclesTileMap.tscn",
 	"2": "res://Scenes/DDLevels/ObstaclesTileMap2.tscn",
 	"3": "res://Scenes/DDLevels/ObstaclesTileMap3.tscn",
+	"4": "res://Scenes/DDLevels/ObstaclesTileMap4.tscn",
+	"5": "res://Scenes/DDLevels/ObstaclesTileMap5.tscn",
+	"6": "res://Scenes/DDLevels/ObstaclesTileMap6.tscn",
+	"7": "res://Scenes/DDLevels/ObstaclesTileMap7.tscn",
+	"8": "res://Scenes/DDLevels/ObstaclesTileMap8.tscn",
+	"9": "res://Scenes/DDLevels/ObstaclesTileMap9.tscn",
+	"10": "res://Scenes/DDLevels/ObstaclesTileMap10.tscn"
 }
 
 func _ready():
@@ -25,7 +31,7 @@ func _ready():
 
 	if current_map != null:
 		current_map.queue_free()
-
+	
 	current_map = load(maps[current_map_num]).instance()
 	background_maps[current_map_num].visible = true
 	$Map.add_child(current_map)
@@ -68,12 +74,14 @@ func _ready():
 func _process(_delta):
 	$UI/TimeLabel.text = str(stepify($GameTimer.time_left,0.001))
 
+
 func add_time(var amt):
 	$GameTimer.start($GameTimer.time_left + amt)
+
 
 func update_wafers():
 	$UI/WafersCollectedLabel.text = str("Wafers: " + str(Settings.cash))
 
+
 func _on_GameTimer_timeout():
 	var _scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
-

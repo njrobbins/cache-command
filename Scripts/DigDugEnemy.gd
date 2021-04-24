@@ -13,20 +13,22 @@ var velocity
 func _ready():
 	$Label.text = str(hp)
 
+
 func init(rad, rate):
 	RADIUS = rad
 	shoot_rate = rate
 	$Aggro/AggroShape.shape.radius = RADIUS
 	$ShootTimer.set_wait_time(1.0 / shoot_rate)
-	
+
+
 func _physics_process(_delta):
 	if current_target != null:
 		velocity = ((current_target.get_global_transform().origin - position).normalized() * move_speed)
 		if (position - current_target.get_global_transform().origin).length() > 50:
 			velocity = move_and_slide(velocity)
 		rotation = velocity.angle()
-	
-	
+
+
 func _on_ShootTimer_timeout():
 	if current_target != null:
 		instance = shot.instance()
