@@ -65,6 +65,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Debug" type="Control" parent="."]
+visible = false
 margin_left = -16.0
 margin_top = -85.7035
 margin_right = 24.0

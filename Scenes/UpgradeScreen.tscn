@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/UpgradeScreen.gd" type="Script" id=2]
@@ -13,7 +13,8 @@
 [ext_resource path="res://Assets/Icons/info.png" type="Texture" id=11]
 [ext_resource path="res://Assets/stats_panel.png" type="Texture" id=12]
 [ext_resource path="res://Assets/wafers_panel.png" type="Texture" id=13]
-[ext_resource path="res://Assets/glass_panel.png" type="Texture" id=14]
+[ext_resource path="res://Assets/info_panel.png" type="Texture" id=14]
+[ext_resource path="res://Assets/upgrade_screen_button.png" type="Texture" id=15]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 12 )
@@ -28,14 +29,78 @@ texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 384, 448 )
 
 [sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=15]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=16]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=17]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=18]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=19]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 336, 56 )
+
+[sub_resource type="StyleBoxTexture" id=20]
 texture = ExtResource( 14 )
 region_rect = Rect2( 0, 0, 632, 376 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=21]
 size = 28
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=22]
 size = 28
 use_filter = true
 font_data = ExtResource( 8 )
@@ -215,8 +280,15 @@ margin_left = 24.0
 margin_top = 72.0
 margin_right = 354.24
 margin_bottom = 108.736
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
 custom_fonts/font = ExtResource( 5 )
-text = "Speed $20"
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Speed (20)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -228,8 +300,15 @@ margin_left = 24.0
 margin_top = 168.0
 margin_right = 354.24
 margin_bottom = 204.736
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 custom_fonts/font = ExtResource( 5 )
-text = "Fire Rate $20"
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Fire Rate (20)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -241,8 +320,15 @@ margin_left = 24.0
 margin_top = 264.0
 margin_right = 354.24
 margin_bottom = 300.736
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/normal = SubResource( 15 )
 custom_fonts/font = ExtResource( 5 )
-text = "Time $20"
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Time (20)"
 
 [node name="CashButton" type="Button" parent="Panel2"]
 anchor_right = 0.015
@@ -251,8 +337,15 @@ margin_left = 24.0
 margin_top = 360.0
 margin_right = 354.24
 margin_bottom = 396.736
+custom_styles/hover = SubResource( 16 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/focus = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
 custom_fonts/font = ExtResource( 5 )
-text = "Wafers $20"
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Wafers (20)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -278,7 +371,7 @@ margin_left = -316.0
 margin_top = -188.0
 margin_right = 316.0
 margin_bottom = 188.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -292,8 +385,8 @@ margin_left = -296.0
 margin_top = -172.0
 margin_right = 304.0
 margin_bottom = 172.0
-custom_fonts/bold_font = SubResource( 5 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/bold_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 22 )
 custom_colors/default_color = Color( 0.105882, 0.0980392, 0.0980392, 1 )
 bbcode_enabled = true
 bbcode_text = "[b]Speed:[/b] How fast you move while silicon mining

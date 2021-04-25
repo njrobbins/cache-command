@@ -5,11 +5,11 @@ func _process(_delta):
 	$Panel/RateLabel.text = "Rate: " + str(Settings.player_shoot_rate)
 	$Panel/TimeLabel.text = "Time Added: " + str(Settings.time_added_per_wafer)
 	$Panel/CashLabel.text = "Wafers Added: " + str(Settings.cash_per_wafer)
-	$Panel3/CashLabel.text = "Wafers: $" + str(Settings.cash)
-	$Panel2/CashButton.text = "Wafers $" + str(Settings.upgrade_costs["wafers"])
-	$Panel2/RateButton.text = "Rate $" + str(Settings.upgrade_costs["rate"])
-	$Panel2/SpeedButton.text = "Speed $" + str(Settings.upgrade_costs["speed"])
-	$Panel2/TimeButton.text = "Time $" + str(Settings.upgrade_costs["time"])
+	$Panel3/CashLabel.text = "Wafers: " + str(Settings.cash)
+	$Panel2/CashButton.text = "Wafers (" + str(Settings.upgrade_costs["wafers"])+")"
+	$Panel2/RateButton.text = "Rate (" + str(Settings.upgrade_costs["rate"])+")"
+	$Panel2/SpeedButton.text = "Speed (" + str(Settings.upgrade_costs["speed"])+")"
+	$Panel2/TimeButton.text = "Time (" + str(Settings.upgrade_costs["time"])+")"
 
 
 func _on_SpeedButton_pressed():
