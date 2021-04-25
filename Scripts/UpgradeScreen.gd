@@ -47,7 +47,7 @@ func _on_CashButton_pressed():
 func _on_ContinueButton_pressed():
 	$MenuButtonAudio.play()
 	yield($MenuButtonAudio, "finished")
-	var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
+	var _scene = get_tree().change_scene("res://Scenes/DigDug.tscn")
 
 
 func _on_InfoPanelButton_pressed():

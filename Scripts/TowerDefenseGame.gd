@@ -73,7 +73,7 @@ func _process(_delta):
 			Settings.mob_time = Settings.mob_time * 0.9
 			if Settings.level == 11:
 				Settings.level = 1 
-			var _scene = get_tree().change_scene("res://Scenes/UpgradeScreen.tscn")
+			var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
 
 
 func get_mobs():
