@@ -71,8 +71,7 @@ margin_bottom = 497.944
 custom_fonts/bold_font = ExtResource( 7 )
 custom_fonts/normal_font = ExtResource( 6 )
 bbcode_enabled = true
-bbcode_text = "[center][color=#000000]
-[b]Developers:[/b]
+bbcode_text = "[center][color=#000000][b]Developers:[/b]
 [center]Tristan Tyler
 Niko Robbins
 Matthew Glenn
@@ -85,8 +84,7 @@ www.kenney.nl
 Kevin MacLeod
  \"Neon Laser Horizon\"
 www.filmmusic.io/song/7015-neon-laser-horizon"
-text = "
-Developers:
+text = "Developers:
 Tristan Tyler
 Niko Robbins
 Matthew Glenn

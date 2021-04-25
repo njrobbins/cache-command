@@ -1,13 +1,28 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Tower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tower_gun_1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tower_base.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Audio/short_laser.wav" type="AudioStream" id=4]
-[ext_resource path="res://Assets/tower-radius-100.png" type="Texture" id=5]
+[ext_resource path="res://Assets/tower_radius.png" type="Texture" id=5]
+[ext_resource path="res://fonts/kenvector_future_thin_extra_tiny.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/tower_upgrade_panel.png" type="Texture" id=7]
+[ext_resource path="res://Assets/tower_upgrade_button.png" type="Texture" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 100.0
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 148, 104 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 84, 20 )
 
 [node name="Tower" type="Area2D"]
 z_index = 4
@@ -68,27 +83,34 @@ __meta__ = {
 
 [node name="UpgradePanel" type="Panel" parent="."]
 visible = false
-margin_left = 7.0
-margin_top = -99.0
-margin_right = 155.0
-margin_bottom = -1.0
+margin_left = 32.0
+margin_top = -104.0
+margin_right = 180.0
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UpgradeLabel" type="Label" parent="UpgradePanel"]
-margin_left = 13.9666
-margin_right = 66.9666
-margin_bottom = 14.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 92.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Upgrade"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StatLabel" type="Label" parent="UpgradePanel"]
-margin_left = 87.6057
-margin_right = 140.606
-margin_bottom = 14.0
+margin_left = 96.0
+margin_top = 8.0
+margin_right = 144.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Stats"
 align = 1
 __meta__ = {
@@ -96,53 +118,84 @@ __meta__ = {
 }
 
 [node name="RangeLabel" type="Label" parent="UpgradePanel"]
-margin_left = 87.6057
-margin_top = 18.2137
-margin_right = 140.606
-margin_bottom = 32.2137
+margin_left = 96.0
+margin_top = 27.0
+margin_right = 144.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Range"
 align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SpeedLabel" type="Label" parent="UpgradePanel"]
-margin_left = 87.6057
-margin_top = 47.7279
-margin_right = 140.606
-margin_bottom = 61.7279
+margin_left = 96.0
+margin_top = 56.0
+margin_right = 144.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Speed"
 align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DronesDestroyedLabel" type="Label" parent="UpgradePanel"]
+margin_left = 8.0
+margin_top = 82.0
+margin_right = 92.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Destroyed:"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DronesDestroyed" type="Label" parent="UpgradePanel"]
-margin_left = 3.47296
-margin_top = 76.098
-margin_right = 73.473
-margin_bottom = 90.098
-text = "Destroyed: "
+margin_left = 96.0
+margin_top = 82.0
+margin_right = 144.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "123"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SpeedButton" type="Button" parent="UpgradePanel"]
-margin_left = 3.47296
-margin_top = 47.7279
-margin_right = 82.473
-margin_bottom = 67.7279
-text = "Speed (10)"
+anchor_bottom = 7.33596e-08
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 92.0
+margin_bottom = 76.0
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Speed (10):"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RangeButton" type="Button" parent="UpgradePanel"]
-margin_left = 3.47296
-margin_top = 18.2137
-margin_right = 81.473
-margin_bottom = 38.2137
-text = "Range (10)"
+margin_left = 8.0
+margin_top = 27.0
+margin_right = 92.0
+margin_bottom = 47.0
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Range (10):"
 __meta__ = {
 "_edit_use_anchors_": false
 }

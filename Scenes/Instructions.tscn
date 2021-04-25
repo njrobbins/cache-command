@@ -64,8 +64,8 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MetalPanel"]
-margin_left = 20.0
-margin_right = 980.0
+margin_left = 12.0
+margin_right = 996.0
 margin_bottom = 497.0
 custom_fonts/bold_font = ExtResource( 7 )
 custom_fonts/normal_font = ExtResource( 6 )
@@ -75,45 +75,33 @@ bbcode_text = "[center][b]Objective[/b][/center]
 You play as a small tank collecting circuit boards that contain silicon wafers that you can use to build towers to defend your Motherboard.
 
 [center][b]Silicon Mining Mode[/b][/center]
-
-Goal: Collect circuit boards scattered around the map. 
-Wafers: Used to buy towers or purchase upgrades for your tank
-Movement: Touch/Click where you want to move the tank.
-Enemies: Slow your tank's movement
+[u]Goal[/u]: Collect circuit boards scattered around the map. 
+[u]Wafers[/u]: Used to buy towers or purchase upgrades for your tank.
+[u]Movement[/u]: Touch where you want to move the tank.
+[u]Enemies[/u]: Slow down your tank's movement.
 
 [center][b]Tower Defense Mode[/b][/center]
-
-Create towers by clicking on tower placement positions.
-
-Buy different towers by pressing the Cart/Shop Icon
-
-View stats and upgrade towers by pressing them
-
-Towers defeat enemies to protect your base, every enemy leaked will subtract 1 health point.
-
-To win kill all of the enemies before your health reaches 0.
+-Create towers by clicking on tower placement positions.
+-Buy different towers by pressing the cart/shop icon.
+-View stats and upgrade towers by pressing them.
+-Towers defeat enemies to protect your base; every enemy leaked will subtract 1 health point.
+-To win, kill all of the enemies before your health reaches 0.
 "
 text = "Objective
 You play as a small tank collecting circuit boards that contain silicon wafers that you can use to build towers to defend your Motherboard.
 
 Silicon Mining Mode
-
 Goal: Collect circuit boards scattered around the map. 
-Wafers: Used to buy towers or purchase upgrades for your tank
-Movement: Touch/Click where you want to move the tank.
-Enemies: Slow your tank's movement
+Wafers: Used to buy towers or purchase upgrades for your tank.
+Movement: Touch where you want to move the tank.
+Enemies: Slow down your tank's movement.
 
 Tower Defense Mode
-
-Create towers by clicking on tower placement positions.
-
-Buy different towers by pressing the Cart/Shop Icon
-
-View stats and upgrade towers by pressing them
-
-Towers defeat enemies to protect your base, every enemy leaked will subtract 1 health point.
-
-To win kill all of the enemies before your health reaches 0.
+-Create towers by clicking on tower placement positions.
+-Buy different towers by pressing the cart/shop icon.
+-View stats and upgrade towers by pressing them.
+-Towers defeat enemies to protect your base; every enemy leaked will subtract 1 health point.
+-To win, kill all of the enemies before your health reaches 0.
 "
 __meta__ = {
 "_edit_use_anchors_": false

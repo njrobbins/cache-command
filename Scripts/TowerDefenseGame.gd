@@ -69,11 +69,10 @@ func _process(_delta):
 		if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
 			saveTowers()
 			Settings.td_level += 1
-			if Settings.td_level % 5 == 0:
-				Settings.level += 1
-				Settings.mob_time = Settings.mob_time * 0.9
-				if Settings.level == 11:
-					Settings.level = 1 
+			Settings.level += 1
+			Settings.mob_time = Settings.mob_time * 0.9
+			if Settings.level == 11:
+				Settings.level = 1 
 			var _scene = get_tree().change_scene("res://Scenes/UpgradeScreen.tscn")
 
 

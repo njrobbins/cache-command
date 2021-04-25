@@ -38,7 +38,7 @@ func init(t_type,rad=210, rate=3):
 	$ShootTimer.set_wait_time(1.0 / shoot_rate)
 	$UpgradePanel/RangeLabel.text = str(RADIUS)
 	$UpgradePanel/SpeedLabel.text = str(shoot_rate)
-	$UpgradePanel/DronesDestroyed.text = "Destroyed: " + str(enemies_destroyed)
+	$UpgradePanel/DronesDestroyed.text = str(enemies_destroyed)
 
 
 # Used whenever you need to place a previously placed tower
@@ -113,7 +113,7 @@ func _on_ShootTimer_timeout():
 
 func updateDronesDestroyed():
 	enemies_destroyed += 1
-	$UpgradePanel/DronesDestroyed.text = "Destroyed: " + str(enemies_destroyed)
+	$UpgradePanel/DronesDestroyed.text = str(enemies_destroyed)
 
 
 #### Stats and Upgrade Screen Functions ####
@@ -121,8 +121,8 @@ func _on_TowerButton_pressed():
 	if placed:
 		$RadiusCircle.visible = !$RadiusCircle.visible
 		$UpgradePanel.visible = !$UpgradePanel.visible
-		$UpgradePanel/RangeButton.text = "Range $"+str(range_cost)
-		$UpgradePanel/SpeedButton.text = "Speed $"+str(speed_cost)
+		$UpgradePanel/RangeButton.text = "Range ("+str(range_cost)+"):"
+		$UpgradePanel/SpeedButton.text = "Speed ("+str(speed_cost)+"):"
 	else:
 		placed = true
 
@@ -137,7 +137,7 @@ func _on_RangeButton_pressed():
 		var rad_scale = RADIUS / 100.0
 		$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
 		$UpgradePanel/RangeLabel.text = str(RADIUS)
-		$UpgradePanel/RangeButton.text = "Range $"+str(range_cost)
+		$UpgradePanel/RangeButton.text = "Range ("+str(range_cost)+"):"
 
 
 func _on_SpeedButton_pressed():
@@ -148,7 +148,7 @@ func _on_SpeedButton_pressed():
 		shoot_rate += 1
 		$ShootTimer.set_wait_time(1.0 / shoot_rate)
 		$UpgradePanel/SpeedLabel.text = str(shoot_rate)
-		$UpgradePanel/SpeedButton.text = "Speed $"+str(speed_cost)
+		$UpgradePanel/SpeedButton.text = "Speed ("+str(speed_cost)+"):"
 
 
 func _on_SmallShotAudio_finished():

@@ -87,9 +87,9 @@ autostart = true
 z_index = 2
 
 [node name="TimeSection" type="TextureRect" parent="UI"]
-margin_left = 522.0
+margin_left = 16.0
 margin_top = 16.0
-margin_right = 712.0
+margin_right = 206.0
 margin_bottom = 61.0
 texture = ExtResource( 6 )
 expand = true
@@ -98,9 +98,9 @@ __meta__ = {
 }
 
 [node name="TimeLeftLabel" type="Label" parent="UI"]
-margin_left = 536.0
+margin_left = 24.0
 margin_top = 24.0
-margin_right = 609.0
+margin_right = 97.0
 margin_bottom = 56.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -110,21 +110,21 @@ __meta__ = {
 }
 
 [node name="TimeLabel" type="Label" parent="UI"]
-margin_left = 608.0
+margin_left = 96.0
 margin_top = 24.0
-margin_right = 695.0
+margin_right = 200.0
 margin_bottom = 51.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "12.345"
+text = "12.3456"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="WafersSection" type="TextureRect" parent="UI"]
-margin_left = 1074.0
+margin_left = 1072.0
 margin_top = 16.0
-margin_right = 1264.0
+margin_right = 1262.0
 margin_bottom = 61.0
 texture = ExtResource( 6 )
 __meta__ = {

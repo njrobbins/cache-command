@@ -87,7 +87,6 @@ __meta__ = {
 }
 
 [node name="MoonTower" type="Button" parent="Panel"]
-visible = false
 margin_left = 32.0
 margin_top = 232.0
 margin_right = 192.0
@@ -99,7 +98,6 @@ __meta__ = {
 }
 
 [node name="DoubleTroubleTower" type="Button" parent="Panel"]
-visible = false
 margin_left = 32.0
 margin_top = 272.0
 margin_right = 192.0

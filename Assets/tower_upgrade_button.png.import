@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tower-radius-100.png-cf4cbfd8fcdc53302d77525c8a77b21e.stex"
+path="res://.import/tower_upgrade_button.png-2a86c4ed6674ae0964fba70ee4115a01.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tower-radius-100.png"
-dest_files=[ "res://.import/tower-radius-100.png-cf4cbfd8fcdc53302d77525c8a77b21e.stex" ]
+source_file="res://Assets/tower_upgrade_button.png"
+dest_files=[ "res://.import/tower_upgrade_button.png-2a86c4ed6674ae0964fba70ee4115a01.stex" ]
 
 [params]
 

@@ -72,7 +72,7 @@ func _ready():
 
 
 func _process(_delta):
-	$UI/TimeLabel.text = str(stepify($GameTimer.time_left,0.001))
+	$UI/TimeLabel.text = str(stepify($GameTimer.time_left,0.0001))
 
 
 func add_time(var amt):
