@@ -1,13 +1,78 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/TowerShop.gd" type="Script" id=1]
 [ext_resource path="res://fonts/kenvector_future_thin_tiny.tres" type="DynamicFont" id=2]
 [ext_resource path="res://fonts/roboto/roboto_regular_tiny.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/tower_shop_panel.png" type="Texture" id=4]
+[ext_resource path="res://Assets/tower_shop_button.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 224, 312 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=15]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=16]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
+
+[sub_resource type="StyleBoxTexture" id=17]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 32 )
 
 [node name="TowerShop" type="Node2D"]
 z_index = 5
@@ -26,9 +91,9 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -52.0
-margin_top = 8.0
+margin_top = 6.0
 margin_right = 52.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 2 )
 text = "Tower Shop"
 align = 1
@@ -38,12 +103,12 @@ __meta__ = {
 }
 
 [node name="TowerPreviewLabel" type="Label" parent="Panel"]
-margin_left = 48.0
-margin_top = 32.0
-margin_right = 164.0
-margin_bottom = 96.0
+margin_left = 80.0
+margin_top = 34.0
+margin_right = 144.0
+margin_bottom = 99.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Currently selected tower"
+text = "Currently selected tower image"
 align = 1
 valign = 1
 autowrap = true
@@ -66,10 +131,17 @@ __meta__ = {
 
 [node name="CopperheadTower" type="Button" parent="Panel"]
 margin_left = 32.0
-margin_top = 152.0
+margin_top = 150.0
 margin_right = 192.0
-margin_bottom = 184.0
+margin_bottom = 182.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "The Copperhead"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -77,10 +149,17 @@ __meta__ = {
 
 [node name="SteelTower" type="Button" parent="Panel"]
 margin_left = 32.0
-margin_top = 192.0
+margin_top = 190.0
 margin_right = 192.0
-margin_bottom = 224.0
+margin_bottom = 222.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Steel Team 6"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -88,10 +167,17 @@ __meta__ = {
 
 [node name="MoonTower" type="Button" parent="Panel"]
 margin_left = 32.0
-margin_top = 232.0
+margin_top = 230.0
 margin_right = 192.0
-margin_bottom = 264.0
+margin_bottom = 262.0
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "To the Moon"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -99,10 +185,17 @@ __meta__ = {
 
 [node name="DoubleTroubleTower" type="Button" parent="Panel"]
 margin_left = 32.0
-margin_top = 272.0
+margin_top = 270.0
 margin_right = 192.0
-margin_bottom = 304.0
+margin_bottom = 302.0
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Double Trouble"
 [connection signal="pressed" from="Panel/CopperheadTower" to="." method="_on_CopperheadTower_pressed"]
 [connection signal="pressed" from="Panel/SteelTower" to="." method="_on_SteelTower_pressed"]

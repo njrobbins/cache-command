@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/robot_green.png-ddcefea5d08a0a888e3f8a0e5dfbb272.stex"
+path="res://.import/tower_shop_button.png-c3887f205540766393df523c2f40eaad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/robot_green.png"
-dest_files=[ "res://.import/robot_green.png-ddcefea5d08a0a888e3f8a0e5dfbb272.stex" ]
+source_file="res://Assets/tower_shop_button.png"
+dest_files=[ "res://.import/tower_shop_button.png-c3887f205540766393df523c2f40eaad.stex" ]
 
 [params]
 

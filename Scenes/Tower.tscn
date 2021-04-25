@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Tower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tower_gun_1.png" type="Texture" id=2]
@@ -21,6 +21,30 @@ texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 84, 20 )
 
 [sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=10]
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 84, 20 )
 
@@ -83,9 +107,10 @@ __meta__ = {
 
 [node name="UpgradePanel" type="Panel" parent="."]
 visible = false
-margin_left = 32.0
-margin_top = -104.0
-margin_right = 180.0
+margin_left = 48.0
+margin_top = -88.0
+margin_right = 196.0
+margin_bottom = 16.0
 custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -179,9 +204,14 @@ margin_left = 8.0
 margin_top = 56.0
 margin_right = 92.0
 margin_bottom = 76.0
-custom_styles/normal = SubResource( 3 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Speed (10):"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -192,9 +222,14 @@ margin_left = 8.0
 margin_top = 27.0
 margin_right = 92.0
 margin_bottom = 47.0
-custom_styles/normal = SubResource( 4 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Range (10):"
 __meta__ = {
 "_edit_use_anchors_": false

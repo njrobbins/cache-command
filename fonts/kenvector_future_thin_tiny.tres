@@ -1,3 +1,6 @@
-[gd_resource type="DynamicFont" format=2]
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://fonts/kenvector_future_thin.ttf" type="DynamicFontData" id=1]
 
 [resource]
+font_data = ExtResource( 1 )
