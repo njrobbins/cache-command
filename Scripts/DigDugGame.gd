@@ -33,18 +33,18 @@ func _ready():
 		current_map.queue_free()
 	
 	current_map = load(maps[current_map_num]).instance()
-	background_maps[current_map_num].visible = true
+	background_maps[str((int(current_map_num)%3)+1)].visible = true
 	$Map.add_child(current_map)
 	
 	randomize()
 	var size_w = ProjectSettings.get_setting("display/window/size/width")
 	var size_h = ProjectSettings.get_setting("display/window/size/height")
-	var tiles_w = (size_w / 64) - 1
-	var tiles_h = (size_h / 64) - 1
+	var tiles_w = (size_w / 64) + 1
+	var tiles_h = (size_h / 64) + 1
 	
 	while(number_of_resources != 0):
-		var x = (randi() % tiles_w) + 1
-		var y = (randi() % tiles_h) + 1
+		var x = (randi() % tiles_w)
+		var y = (randi() % tiles_h)
 		
 		if current_map.get_cell(x, y) == -1:
 			var inst = Res.instance()

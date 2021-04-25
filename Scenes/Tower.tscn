@@ -11,6 +11,7 @@ radius = 100.0
 
 [node name="Tower" type="Area2D"]
 z_index = 4
+z_as_relative = false
 script = ExtResource( 1 )
 
 [node name="RadiusCircle" type="TextureRect" parent="."]

@@ -163,6 +163,8 @@ __meta__ = {
 [node name="TowerShop" parent="." instance=ExtResource( 11 )]
 visible = false
 position = Vector2( 1056.52, 80 )
+z_index = 6
+z_as_relative = true
 
 [node name="DebugLabel" type="Label" parent="."]
 margin_left = 609.509

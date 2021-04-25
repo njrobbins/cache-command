@@ -16,6 +16,13 @@ var tower_positions = {
 	"1": [],
 	"2": [],
 	"3": [],
+	"4": [],
+	"5": [],
+	"6": [],
+	"7": [],
+	"8": [],
+	"9": [],
+	"10": [],
 }
 
 # Keeps a list of dictionaries containing information about each placed tower
@@ -23,6 +30,13 @@ var current_towers_info = {
 	"1": [],
 	"2": [],
 	"3": [],
+	"4": [],
+	"5": [],
+	"6": [],
+	"7": [],
+	"8": [],
+	"9": [],
+	"10": [],
 }
 var tower_costs = {
 	"copperhead": 25,

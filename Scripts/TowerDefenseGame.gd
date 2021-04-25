@@ -16,6 +16,13 @@ var maps = {
 	"1": "res://Scenes/TDLevels/TDLevel1.tscn",
 	"2": "res://Scenes/TDLevels/TDLevel2.tscn",
 	"3": "res://Scenes/TDLevels/TDLevel3.tscn",
+	"4": "res://Scenes/TDLevels/TDLevel4.tscn",
+	"5": "res://Scenes/TDLevels/TDLevel5.tscn",
+	"6": "res://Scenes/TDLevels/TDLevel6.tscn",
+	"7": "res://Scenes/TDLevels/TDLevel7.tscn",
+	"8": "res://Scenes/TDLevels/TDLevel8.tscn",
+	"9": "res://Scenes/TDLevels/TDLevel9.tscn",
+	"10": "res://Scenes/TDLevels/TDLevel10.tscn",
 }
 
 # Variables used in tracking towers
@@ -65,7 +72,7 @@ func _process(_delta):
 			if Settings.td_level % 5 == 0:
 				Settings.level += 1
 				Settings.mob_time = Settings.mob_time * 0.9
-				if Settings.level == 4:
+				if Settings.level == 11:
 					Settings.level = 1 
 			var _scene = get_tree().change_scene("res://Scenes/UpgradeScreen.tscn")
 
@@ -154,11 +161,25 @@ func base_hit():
 			"1": [],
 			"2": [],
 			"3": [],
+			"4": [],
+			"5": [],
+			"6": [],
+			"7": [],
+			"8": [],
+			"9": [],
+			"10": [],
 		}
 		Settings.current_towers_info = {
 			"1": [],
 			"2": [],
 			"3": [],
+			"4": [],
+			"5": [],
+			"6": [],
+			"7": [],
+			"8": [],
+			"9": [],
+			"10": [],
 		}
 		Settings.tower_costs = {
 			"copperhead": 25,
