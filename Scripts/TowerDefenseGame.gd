@@ -10,7 +10,6 @@ var cell_size
 var instance
 var scene
 var tilemap
-
 var current_map_num = str(Settings.level)
 var current_map
 var maps = {
@@ -34,7 +33,7 @@ func _ready():
 	
 	if current_map != null:
 		current_map.queue_free()
-
+		
 	current_map = load(maps[current_map_num]).instance()
 	$TowersNode.add_child(current_map)
 	
@@ -57,6 +56,7 @@ func _ready():
 		instance.recreate(tow)
 		current_towers.push_back(instance)
 
+
 func _process(_delta):
 	if (Settings.paused == false):
 		if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
@@ -68,8 +68,8 @@ func _process(_delta):
 				if Settings.level == 4:
 					Settings.level = 1 
 			var _scene = get_tree().change_scene("res://Scenes/UpgradeScreen.tscn")
-			
-	
+
+
 func get_mobs():
 	if Settings.td_level % 5 == 0:
 		Settings.cash += 300
@@ -77,13 +77,14 @@ func get_mobs():
 	for _i in range(Settings.td_level - 1):
 		for i in range(len(wave_mobs)):
 			wave_mobs[i] += 6
-	
-	
+
+
 func _input(event):
 	$UI/CashLabel.text = str(Settings.cash)
 	if event is InputEventMouseButton and event.pressed:
 		var m_position = get_global_mouse_position()
 		placeTower(m_position)
+
 
 func placeTower(var pos):
 	cell_position = Vector2(floor(pos.x / cell_size.x), floor(pos.y / cell_size.y))
@@ -100,6 +101,7 @@ func placeTower(var pos):
 			current_towers.push_back(instance)
 			$PlaceTowerAudio.play()
 
+
 func _on_PauseButton_pressed():
 	$MenuButtonAudio.play()
 	yield($MenuButtonAudio, "finished")
@@ -109,10 +111,12 @@ func _on_PauseButton_pressed():
 	$WaveTimer.paused = true
 	Settings.paused = true
 
+
 func drone_destroyed(cash):
 	Settings.cash += cash
 	$UI/CashLabel.text = str(Settings.cash)
-		
+
+
 # Saves the current towers information in the global current_towers_info structure
 func saveTowers():
 	var t = []
@@ -130,7 +134,7 @@ func saveTowers():
 		}
 		t.push_back(d)
 	Settings.current_towers_info[current_map_num] = t
-		
+
 
 func base_hit():
 	base_hp -= 1
@@ -175,11 +179,13 @@ func base_hit():
 		}
 		var _scene = get_tree().change_scene("res://Scenes/GameOver.tscn")
 
+
 func _on_WaveTimer_timeout():
 	# Starts a wave
 	mobs_left_wave = wave_mobs[wave]
 	$MobTimer.start()
 	$WaveTimer.stop()
+
 
 func _on_MobTimer_timeout():
 	# Spawns a new mob, changes depending on how many mobs are left in wave
@@ -194,19 +200,18 @@ func _on_MobTimer_timeout():
 		# Spawn normal mobs
 		instance.init(100, 10, "normal")
 	current_map.get_node("Path2D").add_child(instance)
-	
-	
+		
 	mobs_left_wave -= 1
 	if mobs_left_wave <= 0:
 		$MobTimer.stop()
 		wave += 1
 		if wave < len(wave_mobs):
 			$WaveTimer.start()
-			
+
 
 func _on_TowerShopButton_pressed():
 	$TowerShop.visible = !$TowerShop.visible
-		
+
 
 func _on_StartButton_pressed():
 	Settings.paused = false

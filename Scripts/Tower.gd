@@ -6,7 +6,6 @@ export var shoot_rate = 4
 var instance
 var distance_to_t
 var target_position
-
 var current_target = null
 var enemy_array = []
 var shot = load("res://Scenes/Shot.tscn")
@@ -20,7 +19,6 @@ var speed_level = 0
 
 # rad is the range of the tower for shooting, and rate is how fast it shoots
 func init(t_type,rad=210, rate=3):
-	
 	if t_type == "copperhead":
 		RADIUS = rad
 		shoot_rate = rate
@@ -41,7 +39,7 @@ func init(t_type,rad=210, rate=3):
 	$UpgradePanel/RangeLabel.text = str(RADIUS)
 	$UpgradePanel/SpeedLabel.text = str(shoot_rate)
 	$UpgradePanel/DronesDestroyed.text = "Destroyed: " + str(enemies_destroyed)
-		
+
 
 # Used whenever you need to place a previously placed tower
 func recreate(var t):
@@ -58,6 +56,7 @@ func recreate(var t):
 	
 	init(type, RADIUS, shoot_rate)
 
+
 func _physics_process(_delta):
 	if Settings.paused == true:
 		$SmallShotAudio.stop()
@@ -65,7 +64,7 @@ func _physics_process(_delta):
 	else:
 		if $ShootTimer.paused == true:
 			$ShootTimer.paused = false
-
+		
 	if !current_target:
 		distance_to_t = RADIUS + 1
 		for target in enemy_array:
@@ -84,9 +83,11 @@ func _physics_process(_delta):
 			target_position = current_target.get_ref().get_global_transform().origin
 			$Gun.set_rotation((target_position - position).angle() + 30)
 
+
 func _on_Aggro_area_entered(area):
 	if area.is_in_group("enemy"):
 		enemy_array.append(area.get_parent())
+
 
 func _on_Aggro_area_exited(area):
 	if area.is_in_group("enemy"):
@@ -96,6 +97,7 @@ func _on_Aggro_area_exited(area):
 				current_target = null
 				$ShootTimer.stop()
 				$SmallShotAudio.stop()
+
 
 func _on_ShootTimer_timeout():
 	if current_target.get_ref():
@@ -108,9 +110,11 @@ func _on_ShootTimer_timeout():
 		instance.position = $Gun/ShotPosition.get_global_transform().origin
 		get_parent().add_child(instance)
 
+
 func updateDronesDestroyed():
 	enemies_destroyed += 1
 	$UpgradePanel/DronesDestroyed.text = "Destroyed: " + str(enemies_destroyed)
+
 
 #### Stats and Upgrade Screen Functions ####
 func _on_TowerButton_pressed():
@@ -121,6 +125,7 @@ func _on_TowerButton_pressed():
 		$UpgradePanel/SpeedButton.text = "Speed $"+str(speed_cost)
 	else:
 		placed = true
+
 
 func _on_RangeButton_pressed():
 	if Settings.cash >= range_cost:
@@ -133,6 +138,7 @@ func _on_RangeButton_pressed():
 		$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
 		$UpgradePanel/RangeLabel.text = str(RADIUS)
 		$UpgradePanel/RangeButton.text = "Range $"+str(range_cost)
+
 
 func _on_SpeedButton_pressed():
 	if Settings.cash >= speed_cost:

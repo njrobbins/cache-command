@@ -10,7 +10,7 @@ var number_of_resources = 30
 var current_map_num = str(Settings.level)
 var current_map
 var maps = {
-	"1": "res://Scenes/DDLevels/ObstaclesTileMap.tscn",
+	"1": "res://Scenes/DDLevels/ObstaclesTileMap1.tscn",
 	"2": "res://Scenes/DDLevels/ObstaclesTileMap2.tscn",
 	"3": "res://Scenes/DDLevels/ObstaclesTileMap3.tscn",
 	"4": "res://Scenes/DDLevels/ObstaclesTileMap4.tscn",

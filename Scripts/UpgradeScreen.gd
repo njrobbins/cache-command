@@ -12,7 +12,6 @@ func _process(_delta):
 	$Panel2/TimeButton.text = "Time $" + str(Settings.upgrade_costs["time"])
 
 
-
 func _on_SpeedButton_pressed():
 	if Settings.cash >= Settings.upgrade_costs["speed"]:
 		Settings.cash -= Settings.upgrade_costs["speed"]
@@ -43,7 +42,7 @@ func _on_CashButton_pressed():
 		Settings.upgrade_costs["wafers"] += 20
 		Settings.cash_per_wafer += 1
 		$UpgradeButtonAudio.play()
-		
+
 
 func _on_ContinueButton_pressed():
 	$MenuButtonAudio.play()

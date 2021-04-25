@@ -1,7 +1,6 @@
 extends Area2D
 
 var velocity
-
 var speed = 400
 var timerStarted = false
 var target = null
@@ -20,6 +19,7 @@ func _physics_process(delta):
 		if timerStarted:
 			position += velocity * delta
 
+
 func set_target(new_target):
 	if sentBy=="player":
 		$BShot.visible = true
@@ -30,6 +30,7 @@ func set_target(new_target):
 	elif sentBy=="steel":
 		$BulletSteel.visible = true
 	target = weakref(new_target)
+
 
 func _on_LifeTimer_timeout():
 	timerStarted = false

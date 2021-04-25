@@ -2,6 +2,7 @@ extends PathFollow2D
 
 export var speed = 160
 export var hp = 10
+
 var type
 
 func init(spd, h, drone_type):
@@ -15,8 +16,10 @@ func init(spd, h, drone_type):
 	elif type == "normal":
 		$Area2D/DroneGray.visible = true
 
+
 func _ready():
 	$Label.text = str(hp)
+
 
 func _physics_process(delta):
 	if(Settings.paused == false):
@@ -24,8 +27,10 @@ func _physics_process(delta):
 		if unit_offset >= 1:
 			reached_end()
 
+
 func reached_end():
 	queue_free()
+
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("shot"):

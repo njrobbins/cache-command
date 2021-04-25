@@ -10,6 +10,7 @@ func _on_CopperheadTower_pressed():
 	$Panel/TowerPreviewLabel.text = "The Copperhead"
 	$Panel/DescriptionLabel.text = "Costs $" + str(Settings.tower_costs[Settings.tower_type_selected]) + " . A tower that shoots copper bullets out of 1 turret(s)."
 
+
 func _on_SteelTower_pressed():
 	Settings.tower_type_selected = "steel"
 	$Panel/TowerPreviewLabel.text = "Steel Team 6"
