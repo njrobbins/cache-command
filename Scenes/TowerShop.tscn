@@ -102,19 +102,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TowerPreviewLabel" type="Label" parent="Panel"]
-margin_left = 80.0
-margin_top = 34.0
-margin_right = 144.0
-margin_bottom = 99.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Currently selected tower image"
-align = 1
-valign = 1
-autowrap = true
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+margin_left = 79.078
+margin_top = 35.7841
+margin_right = 143.078
+margin_bottom = 99.7841
+color = Color( 0.423529, 0.423529, 0.423529, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TowerPreview" type="Node2D" parent="Panel"]
+position = Vector2( 79.078, 35.7841 )
 
 [node name="DescriptionLabel" type="Label" parent="Panel"]
 margin_left = 8.0

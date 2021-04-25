@@ -1,21 +1,28 @@
 extends Node2D
+var tower = load("res://Scenes/Tower.tscn")
 
 func _ready():
-	$Panel/TowerPreviewLabel.text = "The Copperhead"
+	addTowerImage()
 	$Panel/DescriptionLabel.text = "Costs $" + str(Settings.tower_costs[Settings.tower_type_selected]) + ". A tower that shoots copper bullets out of 1 turret(s)."
 
 
 func _on_CopperheadTower_pressed():
 	Settings.tower_type_selected = "copperhead"
-	$Panel/TowerPreviewLabel.text = "The Copperhead"
-	$Panel/DescriptionLabel.text = "Costs $" + str(Settings.tower_costs[Settings.tower_type_selected]) + " . A tower that shoots copper bullets out of 1 turret(s)."
+	addTowerImage()
+	$Panel/DescriptionLabel.text = "Costs $" + str(Settings.tower_costs[Settings.tower_type_selected]) + ". A tower that shoots copper bullets out of 1 turret(s)."
 
 
 func _on_SteelTower_pressed():
 	Settings.tower_type_selected = "steel"
-	$Panel/TowerPreviewLabel.text = "Steel Team 6"
+	addTowerImage()
 	$Panel/DescriptionLabel.text = "Costs $" + str(Settings.tower_costs[Settings.tower_type_selected]) + ". A tower that shoots steel bullets out of 1 turret(s)."
 
+
+func addTowerImage():
+	var instance = tower.instance()
+	instance.disabled = true
+	$Panel/TowerPreview.add_child(instance)
+	instance.init(Settings.tower_type_selected)
 
 func _on_MoonTower_pressed():
 	Settings.tower_type_selected = "moon"

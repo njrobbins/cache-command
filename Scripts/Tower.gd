@@ -16,9 +16,12 @@ var speed_cost = 10
 var range_cost = 10
 var range_level = 0
 var speed_level = 0
+var disabled
 
 # rad is the range of the tower for shooting, and rate is how fast it shoots
 func init(t_type,rad=210, rate=3):
+	if disabled:
+		z_as_relative = true
 	if t_type == "copperhead":
 		RADIUS = rad
 		shoot_rate = rate
@@ -58,39 +61,40 @@ func recreate(var t):
 
 
 func _physics_process(_delta):
-	if Settings.paused == true:
-		$SmallShotAudio.stop()
-		$ShootTimer.paused = true
-	else:
-		if $ShootTimer.paused == true:
-			$ShootTimer.paused = false
-		
-	if !current_target:
-		distance_to_t = RADIUS + 1
-		for target in enemy_array:
-			if (position - target.get_global_transform().origin).length() < distance_to_t:
-				current_target = weakref(target)
-				target_position = target.get_global_transform().origin
-				distance_to_t = (position - target.position).length()
-			if current_target:
-				$ShootTimer.start()
-	else:
-		if !current_target.get_ref():
-			current_target = null
-			$ShootTimer.stop()
+	if not disabled:
+		if Settings.paused == true:
 			$SmallShotAudio.stop()
+			$ShootTimer.paused = true
 		else:
-			target_position = current_target.get_ref().get_global_transform().origin
-			$Gun.set_rotation((target_position - position).angle() + 30)
+			if $ShootTimer.paused == true:
+				$ShootTimer.paused = false
+			
+		if !current_target:
+			distance_to_t = RADIUS + 1
+			for target in enemy_array:
+				if (position - target.get_global_transform().origin).length() < distance_to_t:
+					current_target = weakref(target)
+					target_position = target.get_global_transform().origin
+					distance_to_t = (position - target.position).length()
+				if current_target:
+					$ShootTimer.start()
+		else:
+			if !current_target.get_ref():
+				current_target = null
+				$ShootTimer.stop()
+				$SmallShotAudio.stop()
+			else:
+				target_position = current_target.get_ref().get_global_transform().origin
+				$Gun.set_rotation((target_position - position).angle() + 30)
 
 
 func _on_Aggro_area_entered(area):
-	if area.is_in_group("enemy"):
+	if area.is_in_group("enemy") and not disabled:
 		enemy_array.append(area.get_parent())
 
 
 func _on_Aggro_area_exited(area):
-	if area.is_in_group("enemy"):
+	if area.is_in_group("enemy") and not disabled:
 		enemy_array.erase(area.get_parent())
 		if current_target:
 			if area.get_parent() == current_target.get_ref():
@@ -118,37 +122,40 @@ func updateDronesDestroyed():
 
 #### Stats and Upgrade Screen Functions ####
 func _on_TowerButton_pressed():
-	if placed:
-		$RadiusCircle.visible = !$RadiusCircle.visible
-		$UpgradePanel.visible = !$UpgradePanel.visible
-		$UpgradePanel/RangeButton.text = "Range ("+str(range_cost)+"):"
-		$UpgradePanel/SpeedButton.text = "Speed ("+str(speed_cost)+"):"
-	else:
-		placed = true
+	if not disabled:
+		if placed:
+			$RadiusCircle.visible = !$RadiusCircle.visible
+			$UpgradePanel.visible = !$UpgradePanel.visible
+			$UpgradePanel/RangeButton.text = "Range ("+str(range_cost)+"):"
+			$UpgradePanel/SpeedButton.text = "Speed ("+str(speed_cost)+"):"
+		else:
+			placed = true
 
 
 func _on_RangeButton_pressed():
-	if Settings.cash >= range_cost:
-		Settings.cash -= range_cost
-		range_cost += 5 + range_level*5
-		range_level += 1
-		RADIUS += 25
-		$Aggro/AggroShape.shape.radius = RADIUS
-		var rad_scale = RADIUS / 100.0
-		$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
-		$UpgradePanel/RangeLabel.text = str(RADIUS)
-		$UpgradePanel/RangeButton.text = "Range ("+str(range_cost)+"):"
+	if not disabled:
+		if Settings.cash >= range_cost:
+			Settings.cash -= range_cost
+			range_cost += 5 + range_level*5
+			range_level += 1
+			RADIUS += 25
+			$Aggro/AggroShape.shape.radius = RADIUS
+			var rad_scale = RADIUS / 100.0
+			$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
+			$UpgradePanel/RangeLabel.text = str(RADIUS)
+			$UpgradePanel/RangeButton.text = "Range ("+str(range_cost)+"):"
 
 
 func _on_SpeedButton_pressed():
-	if Settings.cash >= speed_cost:
-		Settings.cash -= speed_cost
-		speed_cost += 5 + speed_level*5
-		speed_level += 1
-		shoot_rate += 1
-		$ShootTimer.set_wait_time(1.0 / shoot_rate)
-		$UpgradePanel/SpeedLabel.text = str(shoot_rate)
-		$UpgradePanel/SpeedButton.text = "Speed ("+str(speed_cost)+"):"
+	if not disabled:
+		if Settings.cash >= speed_cost:
+			Settings.cash -= speed_cost
+			speed_cost += 5 + speed_level*5
+			speed_level += 1
+			shoot_rate += 1
+			$ShootTimer.set_wait_time(1.0 / shoot_rate)
+			$UpgradePanel/SpeedLabel.text = str(shoot_rate)
+			$UpgradePanel/SpeedButton.text = "Speed ("+str(speed_cost)+"):"
 
 
 func _on_SmallShotAudio_finished():
