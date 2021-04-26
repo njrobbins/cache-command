@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Icons/exit.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Icons/home.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Icons/redo.png" type="Texture" id=4]
+[ext_resource path="res://fonts/kenvector_future_thin.tres" type="DynamicFont" id=5]
+[ext_resource path="res://fonts/kenvector_future_large.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=7]
+
+[node name="Menu" type="Control"]
+margin_right = 1280.0
+margin_bottom = 720.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0.247059, 0.486275, 0.713726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -232.0
+margin_top = -168.0
+margin_right = 233.0
+margin_bottom = -100.0
+custom_fonts/font = ExtResource( 6 )
+text = "You WON!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuButton" type="Button" parent="."]
+margin_left = 102.0
+margin_top = 451.0
+margin_right = 384.0
+margin_bottom = 523.0
+custom_fonts/font = ExtResource( 5 )
+text = "Main Menu"
+icon = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TryAgainButton" type="Button" parent="."]
+margin_left = 512.0
+margin_top = 451.0
+margin_right = 768.0
+margin_bottom = 523.0
+custom_fonts/font = ExtResource( 5 )
+text = "New Game"
+icon = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitGameButton" type="Button" parent="."]
+margin_left = 896.0
+margin_top = 451.0
+margin_right = 1043.0
+margin_bottom = 523.0
+custom_fonts/font = ExtResource( 5 )
+text = "Quit Game"
+icon = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButtonAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
+[connection signal="pressed" from="TryAgainButton" to="." method="_on_TryAgainButton_pressed"]
+[connection signal="pressed" from="QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
