@@ -35,7 +35,6 @@ func _ready():
 	current_map = load(maps[current_map_num]).instance()
 	background_maps[str((int(current_map_num)%3)+1)].visible = true
 	$Map.add_child(current_map)
-	
 	randomize()
 	var size_w = ProjectSettings.get_setting("display/window/size/width")
 	var size_h = ProjectSettings.get_setting("display/window/size/height")

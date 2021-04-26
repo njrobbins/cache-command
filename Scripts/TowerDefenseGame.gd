@@ -28,7 +28,7 @@ var maps = {
 # Variables used in tracking towers
 var current_towers = []
 
-# General Variables
+# General variables
 var base_hp = 20 # The base hp before the base is destroyed
 var wave = 0 # Indicates what wave is active (i.e what index of wave_mobs is being run)
 var mobs_left_wave = 0 # Indicates how many mobs are left in the current wave
@@ -37,19 +37,16 @@ var total_drones = 0 # Tracks the total number of drones destroyed
 
 func _ready():
 	Settings.paused = true
-	
 	if current_map != null:
 		current_map.queue_free()
-		
 	current_map = load(maps[current_map_num]).instance()
 	$TowersNode.add_child(current_map)
-	
 	tilemap = current_map.get_node("TowerPlacementTileMap")
 	cell_size = tilemap.cell_size
 	$UI/BaseLabel.text = str(base_hp)
 	$UI/CashLabel.text = str(Settings.cash)
-	
 	get_mobs()
+	
 	# Calculates the total number of drones that need to be destroyed before the level is over
 	Settings.drones_destroyed = 0
 	for i in wave_mobs:
@@ -148,7 +145,7 @@ func base_hit():
 	if base_hp == 0:
 		# RESET TO ALL BASE STATS
 		# Global Game Variables
-		Settings.cash = 75
+		Settings.cash = 100
 		Settings.level = 1
 		Settings.paused = false
 		# Tower Defense Variables
@@ -186,16 +183,16 @@ func base_hit():
 			"moon": 100,
 			"doubletrouble": 150,
 		}
-		# Dig Dug Variables
+		# Dig Dug variables
 		Settings.player_speed = 200
 		Settings.player_shoot_rate = 2
 		Settings.time_added_per_wafer = 0.5
 		Settings.cash_per_wafer = 5
 		Settings.upgrade_costs = {
-			"speed": 20,
-			"rate": 20,
-			"time": 20,
-			"wafers": 20,
+			"speed": 50,
+			"rate": 50,
+			"time": 50,
+			"wafers": 50,
 		}
 		var _scene = get_tree().change_scene("res://Scenes/GameOver.tscn")
 
@@ -220,7 +217,6 @@ func _on_MobTimer_timeout():
 		# Spawn normal mobs
 		instance.init(100, 10, "normal")
 	current_map.get_node("Path2D").add_child(instance)
-		
 	mobs_left_wave -= 1
 	if mobs_left_wave <= 0:
 		$MobTimer.stop()

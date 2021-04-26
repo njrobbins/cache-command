@@ -34,11 +34,10 @@ func init(t_type,rad=250, rate=10):
 		RADIUS = 300
 		shoot_rate = 30
 		type = "moon"
-	elif t_type == "double":
+	elif t_type == "doubletrouble":
 		RADIUS = 350
 		shoot_rate = 40
-		type = "double"
-	
+		type = "doubletrouble"
 	$Aggro/AggroShape.shape.radius = RADIUS
 	var rad_scale = RADIUS / 100.0
 	$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
@@ -60,7 +59,6 @@ func recreate(var t):
 	speed_level = t["speed_level"]
 	range_level = t["range_level"]
 	placed = true
-	
 	init(type, RADIUS, shoot_rate)
 
 
@@ -72,7 +70,6 @@ func _physics_process(_delta):
 		else:
 			if $ShootTimer.paused == true:
 				$ShootTimer.paused = false
-			
 		if !current_target:
 			distance_to_t = RADIUS + 1
 			for target in enemy_array:

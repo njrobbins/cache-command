@@ -24,6 +24,7 @@ func addTowerImage():
 	$Panel/TowerPreview.add_child(instance)
 	instance.init(Settings.tower_type_selected)
 
+
 func _on_MoonTower_pressed():
 	Settings.tower_type_selected = "moon"
 

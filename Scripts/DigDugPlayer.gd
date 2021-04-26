@@ -19,10 +19,8 @@ func _process(_delta):
 
 
 func _physics_process(_delta):
-	
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		target = get_global_mouse_position()
-		
 	velocity = (target - position).normalized() * getSpeed()
 	if (target - position).length() > 5:
 		tankAudioToggle()
@@ -31,7 +29,6 @@ func _physics_process(_delta):
 	else:
 		$TankEngineAudio.pitch_scale = 0.4
 		audio_playing = false
-				
 	if current_target != null:
 		var target_position = current_target.get_global_transform().origin
 		$Turret.set_rotation((target_position - position).angle()+deg2rad(90))

@@ -41,7 +41,6 @@ func _on_PauseButton_pressed():
 func _on_QuitGameButton_pressed():
 	$MenuButtonAudio.play()
 	yield($MenuButtonAudio, "finished")
-
 	get_tree().quit()
 
 func _on_ResumeButton_pressed():
@@ -49,7 +48,6 @@ func _on_ResumeButton_pressed():
 	yield($MenuButtonAudio, "finished")
 	visible = false
 	Settings.paused = false
-	
 	get_parent().get_node("MobTimer").paused = false
 	get_parent().get_node("WaveTimer").paused = false
 	get_parent().get_node("TowersNode").visible = true

@@ -11,6 +11,7 @@ var paused = false
 var drones_destroyed = 0
 var td_level = 1
 var tower_type_selected = "copperhead"
+
 # Keeps a list of all the positions currently occupied by a tower on a level
 var tower_positions = {
 	"1": [],
@@ -38,6 +39,7 @@ var current_towers_info = {
 	"9": [],
 	"10": [],
 }
+
 var tower_costs = {
 	"copperhead": 25,
 	"steel": 50,
