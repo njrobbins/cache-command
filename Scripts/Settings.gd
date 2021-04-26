@@ -3,7 +3,7 @@ extends Node
 # This file can be accessed by doing Settings.<variable-name> anywhere in code
 
 # Global Game Variables
-var cash = 75
+var cash = 100
 var level = 1
 var paused = false
 
@@ -40,9 +40,9 @@ var current_towers_info = {
 }
 var tower_costs = {
 	"copperhead": 25,
-	"steel": 100,
+	"steel": 50,
 	"moon": 100,
-	"doubletrouble": 100,
+	"doubletrouble": 150,
 }
 var mob_time = 0.5
 
@@ -50,10 +50,10 @@ var mob_time = 0.5
 var player_speed = 200
 var player_shoot_rate = 2
 var time_added_per_wafer = 0.5
-var cash_per_wafer = 5
+var cash_per_wafer = 10
 var upgrade_costs = {
-	"speed": 20,
-	"rate": 20,
-	"time": 20,
-	"wafers": 20,
+	"speed": 50,
+	"rate": 50,
+	"time": 50,
+	"wafers": 50,
 }

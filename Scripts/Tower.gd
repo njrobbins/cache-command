@@ -1,7 +1,7 @@
 extends Area2D
 
 export var RADIUS = 200
-export var shoot_rate = 4
+export var shoot_rate = 6
 
 var instance
 var distance_to_t
@@ -19,21 +19,25 @@ var speed_level = 0
 var disabled
 
 # rad is the range of the tower for shooting, and rate is how fast it shoots
-func init(t_type,rad=210, rate=3):
+func init(t_type,rad=250, rate=10):
 	if disabled:
 		z_as_relative = true
 	if t_type == "copperhead":
 		RADIUS = rad
 		shoot_rate = rate
 		type = "copperhead"
-	elif t_type == "steel" and rad==210:
+	elif t_type == "steel" and rad==250:
+		RADIUS = 250
+		shoot_rate = 20
+		type = "steel"
+	elif t_type == "moon":
+		RADIUS = 300
+		shoot_rate = 30
+		type = "moon"
+	elif t_type == "double":
 		RADIUS = 350
-		shoot_rate = 8
-		type = "steel"
-	elif t_type == "steel":
-		RADIUS = rad
-		shoot_rate = rate
-		type = "steel"
+		shoot_rate = 40
+		type = "double"
 	
 	$Aggro/AggroShape.shape.radius = RADIUS
 	var rad_scale = RADIUS / 100.0

@@ -29,7 +29,7 @@ var maps = {
 var current_towers = []
 
 # General Variables
-var base_hp = 15 # The base hp before the base is destroyed
+var base_hp = 20 # The base hp before the base is destroyed
 var wave = 0 # Indicates what wave is active (i.e what index of wave_mobs is being run)
 var mobs_left_wave = 0 # Indicates how many mobs are left in the current wave
 var wave_mobs = [4, 4, 4, 4, 6] # Indicates how many mobs are in each wave
@@ -182,9 +182,9 @@ func base_hit():
 		}
 		Settings.tower_costs = {
 			"copperhead": 25,
-			"steel": 100,
+			"steel": 50,
 			"moon": 100,
-			"doubletrouble": 100,
+			"doubletrouble": 150,
 		}
 		# Dig Dug Variables
 		Settings.player_speed = 200
@@ -212,10 +212,10 @@ func _on_MobTimer_timeout():
 	instance = mob.instance()
 	if mobs_left_wave % 5 == 0:
 		# Every 5 mobs are bigger, slower mobs
-		instance.init(100, 40, "big")
+		instance.init(100, 50, "big")
 	elif mobs_left_wave % 3 == 0:
 		# Every 3 mobs are smaller, faster mobs
-		instance.init(140, 10, "fast")
+		instance.init(140, 25, "fast")
 	else:
 		# Spawn normal mobs
 		instance.init(100, 10, "normal")
