@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/Tower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tower_gun_1.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://fonts/kenvector_future_thin_extra_tiny.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Assets/tower_upgrade_panel.png" type="Texture" id=7]
 [ext_resource path="res://Assets/tower_upgrade_button.png" type="Texture" id=8]
+[ext_resource path="res://Assets/tower_gun_2.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 100.0
@@ -74,8 +75,6 @@ __meta__ = {
 }
 
 [node name="Gun" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
 rect_pivot_offset = Vector2( 32, 32 )
 texture = ExtResource( 2 )
 flip_v = true
@@ -86,7 +85,23 @@ __meta__ = {
 [node name="ShotPosition" type="Node2D" parent="Gun"]
 position = Vector2( 32, 50 )
 
+[node name="Rocket" type="TextureRect" parent="."]
+visible = false
+rect_pivot_offset = Vector2( 32, 32 )
+texture = ExtResource( 9 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShotPosition1" type="Node2D" parent="Rocket"]
+position = Vector2( 24.797, 55 )
+
+[node name="ShotPosition2" type="Node2D" parent="Rocket"]
+position = Vector2( 39, 55 )
+
 [node name="Aggro" type="Area2D" parent="."]
+visible = false
 
 [node name="AggroShape" type="CollisionShape2D" parent="Aggro"]
 position = Vector2( 32, 32 )

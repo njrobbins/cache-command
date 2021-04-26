@@ -29,6 +29,8 @@ func set_target(new_target):
 		$BulletCopper.visible = true
 	elif sentBy=="steel":
 		$BulletSteel.visible = true
+	elif sentBy=="moon":
+		$RocketSmall.visible = true
 	target = weakref(new_target)
 
 

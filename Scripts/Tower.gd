@@ -1,7 +1,7 @@
 extends Area2D
 
-export var RADIUS = 200
-export var shoot_rate = 6
+var RADIUS = 200
+var shoot_rate = 6
 
 var instance
 var distance_to_t
@@ -17,27 +17,23 @@ var range_cost = 10
 var range_level = 0
 var speed_level = 0
 var disabled
+var rocketLeft = true
 
 # rad is the range of the tower for shooting, and rate is how fast it shoots
-func init(t_type,rad=250, rate=10):
+func init(t_type):
 	if disabled:
 		z_as_relative = true
-	if t_type == "copperhead":
-		RADIUS = rad
-		shoot_rate = rate
-		type = "copperhead"
-	elif t_type == "steel" and rad==250:
-		RADIUS = 250
-		shoot_rate = 20
-		type = "steel"
-	elif t_type == "moon":
-		RADIUS = 300
-		shoot_rate = 30
-		type = "moon"
-	elif t_type == "doubletrouble":
-		RADIUS = 350
-		shoot_rate = 40
-		type = "doubletrouble"
+	type = t_type
+	RADIUS = Settings.tower_stats[t_type]['base_range']
+	shoot_rate = Settings.tower_stats[t_type]['base_rate']
+	speed_cost = Settings.tower_stats[t_type]['speed_upgrade_base_cost']
+	range_cost = Settings.tower_stats[t_type]['range_upgrade_base_cost']
+	if type == "copperhead":
+		$Gun.texture = load("res://Assets/tower_gun_1_copper.png")
+	if type == "moon":
+		$Rocket.visible = true
+		$Gun.visible = false
+		
 	$Aggro/AggroShape.shape.radius = RADIUS
 	var rad_scale = RADIUS / 100.0
 	$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
@@ -59,7 +55,18 @@ func recreate(var t):
 	speed_level = t["speed_level"]
 	range_level = t["range_level"]
 	placed = true
-	init(type, RADIUS, shoot_rate)
+	if type == "copperhead":
+		$Gun.texture = load("res://Assets/tower_gun_1_copper.png")
+	if type == "moon":
+		$Rocket.visible = true
+		$Gun.visible = false
+	$Aggro/AggroShape.shape.radius = RADIUS
+	var rad_scale = RADIUS / 100.0
+	$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
+	$ShootTimer.set_wait_time(1.0 / shoot_rate)
+	$UpgradePanel/RangeLabel.text = str(RADIUS)
+	$UpgradePanel/SpeedLabel.text = str(shoot_rate)
+	$UpgradePanel/DronesDestroyed.text = str(enemies_destroyed)
 
 
 func _physics_process(_delta):
@@ -87,6 +94,7 @@ func _physics_process(_delta):
 			else:
 				target_position = current_target.get_ref().get_global_transform().origin
 				$Gun.set_rotation((target_position - position).angle() + 30)
+				$Rocket.set_rotation((target_position - position).angle() + 30)
 
 
 func _on_Aggro_area_entered(area):
@@ -112,7 +120,15 @@ func _on_ShootTimer_timeout():
 		instance.sentBy = type
 		instance.set_target(current_target.get_ref())
 		instance.owner_tower = self
-		instance.position = $Gun/ShotPosition.get_global_transform().origin
+		if type == "moon":
+			if rocketLeft:
+				instance.position = $Rocket/ShotPosition1.get_global_transform().origin
+			else:
+				instance.position = $Rocket/ShotPosition2.get_global_transform().origin
+			rocketLeft = !rocketLeft
+		else:
+			instance.position = $Gun/ShotPosition.get_global_transform().origin
+		
 		get_parent().add_child(instance)
 
 
@@ -137,9 +153,9 @@ func _on_RangeButton_pressed():
 	if not disabled:
 		if Settings.cash >= range_cost:
 			Settings.cash -= range_cost
-			range_cost += 5 + range_level*5
+			range_cost += Settings.tower_stats[type]['range_cost_added'] + range_level*Settings.tower_stats[type]['range_cost_added']
 			range_level += 1
-			RADIUS += 25
+			RADIUS += Settings.tower_stats[type]['range_amt_per_level']
 			$Aggro/AggroShape.shape.radius = RADIUS
 			var rad_scale = RADIUS / 100.0
 			$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
@@ -151,9 +167,9 @@ func _on_SpeedButton_pressed():
 	if not disabled:
 		if Settings.cash >= speed_cost:
 			Settings.cash -= speed_cost
-			speed_cost += 5 + speed_level*5
+			speed_cost += Settings.tower_stats[type]['speed_cost_added'] + speed_level*Settings.tower_stats[type]['speed_cost_added']
 			speed_level += 1
-			shoot_rate += 1
+			shoot_rate += Settings.tower_stats[type]['speed_amt_per_level']
 			$ShootTimer.set_wait_time(1.0 / shoot_rate)
 			$UpgradePanel/SpeedLabel.text = str(shoot_rate)
 			$UpgradePanel/SpeedButton.text = "Speed ("+str(speed_cost)+"):"

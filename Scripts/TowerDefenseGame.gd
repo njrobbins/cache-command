@@ -66,20 +66,21 @@ func _process(_delta):
 		if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
 			saveTowers()
 			Settings.td_level += 1
-			Settings.level += 1
-			Settings.mob_time = Settings.mob_time * 0.9
+			if Settings.td_level % Settings.tower_map_variables["levels_til_level_swap"] == 0:
+				Settings.level += 1
+			Settings.mob_time = Settings.mob_time * Settings.tower_map_variables["mob_time_multiplier_per_level"]
 			if Settings.level == 11:
 				Settings.level = 1 
 			var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
 
 
 func get_mobs():
-	if Settings.td_level % 5 == 0:
-		Settings.cash += 300
+	if Settings.td_level % Settings.tower_map_variables["levels_til_level_swap"] == 0:
+		Settings.cash += Settings.tower_map_variables["cash_bonus_after_swap"]
 	$MobTimer.wait_time = Settings.mob_time
 	for _i in range(Settings.td_level - 1):
 		for i in range(len(wave_mobs)):
-			wave_mobs[i] += 6
+			wave_mobs[i] += Settings.tower_map_variables["mobs_added_each_wave_per_level"]
 
 
 func _input(event):
@@ -94,8 +95,8 @@ func placeTower(var pos):
 	cell_id = tilemap.get_cellv(cell_position)
 	if cell_id != -1:
 		var tower_pos = Vector2(cell_position.x * cell_size.x , cell_position.y * cell_size.y)
-		if Settings.tower_positions[current_map_num].count(tower_pos) == 0 and Settings.cash >= Settings.tower_costs[Settings.tower_type_selected]:
-			Settings.cash -= Settings.tower_costs[Settings.tower_type_selected]
+		if Settings.tower_positions[current_map_num].count(tower_pos) == 0 and Settings.cash >= Settings.tower_stats[Settings.tower_type_selected]['cost']:
+			Settings.cash -= Settings.tower_stats[Settings.tower_type_selected]['cost']
 			Settings.tower_positions[current_map_num].push_back(tower_pos)
 			instance = tower.instance()
 			instance.init(Settings.tower_type_selected)
@@ -145,13 +146,13 @@ func base_hit():
 	if base_hp == 0:
 		# RESET TO ALL BASE STATS
 		# Global Game Variables
-		Settings.cash = 100
+		Settings.cash = Settings.tower_map_variables["base_cash"]
 		Settings.level = 1
 		Settings.paused = false
 		# Tower Defense Variables
 		Settings.drones_destroyed = 0
 		Settings.td_level = 1
-		Settings.mob_time = 0.5
+		Settings.mob_time = Settings.tower_map_variables["base_mob_time"]
 		Settings.tower_type_selected = "copperhead"
 		Settings.tower_positions = {
 			"1": [],
@@ -177,23 +178,12 @@ func base_hit():
 			"9": [],
 			"10": [],
 		}
-		Settings.tower_costs = {
-			"copperhead": 25,
-			"steel": 50,
-			"moon": 100,
-			"doubletrouble": 150,
-		}
 		# Dig Dug variables
-		Settings.player_speed = 200
-		Settings.player_shoot_rate = 2
-		Settings.time_added_per_wafer = 0.5
-		Settings.cash_per_wafer = 5
-		Settings.upgrade_costs = {
-			"speed": 50,
-			"rate": 50,
-			"time": 50,
-			"wafers": 50,
-		}
+		Settings.player_speed = Settings.base_dd_stats['player_speed']
+		Settings.player_shoot_rate = Settings.base_dd_stats['player_shoot_rate']
+		Settings.time_added_per_wafer = Settings.base_dd_stats['time_added_per_wafer']
+		Settings.cash_per_wafer = Settings.base_dd_stats['cash_per_wafer']
+		Settings.upgrade_costs = Settings.base_dd_stats['base_upgrade_costs']
 		var _scene = get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 
@@ -209,13 +199,13 @@ func _on_MobTimer_timeout():
 	instance = mob.instance()
 	if mobs_left_wave % 5 == 0:
 		# Every 5 mobs are bigger, slower mobs
-		instance.init(100, 50, "big")
+		instance.init("big")
 	elif mobs_left_wave % 3 == 0:
 		# Every 3 mobs are smaller, faster mobs
-		instance.init(140, 25, "fast")
+		instance.init("fast")
 	else:
 		# Spawn normal mobs
-		instance.init(100, 10, "normal")
+		instance.init("normal")
 	current_map.get_node("Path2D").add_child(instance)
 	mobs_left_wave -= 1
 	if mobs_left_wave <= 0:

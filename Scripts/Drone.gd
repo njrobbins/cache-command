@@ -5,10 +5,10 @@ export var hp = 10
 
 var type
 
-func init(spd, h, drone_type):
-	speed = spd
-	hp = h
+func init(drone_type):
 	type = drone_type
+	speed = Settings.tower_mob_stats[type]["speed"]
+	hp = Settings.tower_mob_stats[type]["hp"]
 	if type == "big":
 		$Area2D/DroneGreen.visible = true
 	elif type == "fast":

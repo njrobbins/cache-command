@@ -66,8 +66,13 @@ __meta__ = {
 
 [node name="RocketSmall" type="TextureRect" parent="."]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 35.3745
+margin_top = -7.88679
+margin_right = 99.3745
+margin_bottom = 56.1132
+rect_rotation = 90.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( -16, -16 )
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
