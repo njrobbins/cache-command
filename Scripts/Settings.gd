@@ -3,7 +3,7 @@ extends Node
 # This file can be accessed by doing Settings.<variable-name> anywhere in code
 
 # Global Game Variables
-var level = 9
+var level = 1
 var paused = false
 
 # Tower Defense Variables
