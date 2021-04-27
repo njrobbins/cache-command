@@ -1,0 +1,170 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://fonts/kenvector_future_thin_extra_tiny.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/tower_upgrade_panel.png" type="Texture" id=2]
+[ext_resource path="res://Assets/tower_upgrade_button.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 148, 104 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 84, 20 )
+
+[node name="UpgradePanelAttached" type="Panel"]
+margin_left = 48.0
+margin_top = -88.0
+margin_right = 196.0
+margin_bottom = 16.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeLabel" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 92.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Upgrade"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatLabel" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 8.0
+margin_right = 144.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Stats"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RangeLabel" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 27.0
+margin_right = 144.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Range"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedLabel" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 56.0
+margin_right = 144.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Speed"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DronesDestroyedLabel" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 82.0
+margin_right = 92.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Destroyed:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DronesDestroyed" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 82.0
+margin_right = 144.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "123"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedButton" type="Button" parent="."]
+anchor_bottom = 7.33596e-08
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 92.0
+margin_bottom = 76.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Speed (10):"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RangeButton" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 27.0
+margin_right = 92.0
+margin_bottom = 47.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Range (10):"
+__meta__ = {
+"_edit_use_anchors_": false
+}

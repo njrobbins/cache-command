@@ -3,13 +3,14 @@ extends Node
 # This file can be accessed by doing Settings.<variable-name> anywhere in code
 
 # Global Game Variables
-var level = 1
+var level = 9
 var paused = false
 
 # Tower Defense Variables
 var drones_destroyed = 0
 var td_level = 1
 var tower_type_selected = "copperhead"
+var upgrade_panel_attached = false
 
 # Keeps a list of all the positions currently occupied by a tower on a level
 var tower_positions = {

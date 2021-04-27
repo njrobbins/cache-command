@@ -38,9 +38,9 @@ func init(t_type):
 	var rad_scale = RADIUS / 100.0
 	$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
 	$ShootTimer.set_wait_time(1.0 / shoot_rate)
-	$UpgradePanel/RangeLabel.text = str(RADIUS)
-	$UpgradePanel/SpeedLabel.text = str(shoot_rate)
-	$UpgradePanel/DronesDestroyed.text = str(enemies_destroyed)
+	$UpgradePanelAttached/RangeLabel.text = str(RADIUS)
+	$UpgradePanelAttached/SpeedLabel.text = str(shoot_rate)
+	$UpgradePanelAttached/DronesDestroyed.text = str(enemies_destroyed)
 
 
 # Used whenever you need to place a previously placed tower
@@ -64,9 +64,9 @@ func recreate(var t):
 	var rad_scale = RADIUS / 100.0
 	$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
 	$ShootTimer.set_wait_time(1.0 / shoot_rate)
-	$UpgradePanel/RangeLabel.text = str(RADIUS)
-	$UpgradePanel/SpeedLabel.text = str(shoot_rate)
-	$UpgradePanel/DronesDestroyed.text = str(enemies_destroyed)
+	$UpgradePanelAttached/RangeLabel.text = str(RADIUS)
+	$UpgradePanelAttached/SpeedLabel.text = str(shoot_rate)
+	$UpgradePanelAttached/DronesDestroyed.text = str(enemies_destroyed)
 
 
 func _physics_process(_delta):
@@ -134,17 +134,32 @@ func _on_ShootTimer_timeout():
 
 func updateDronesDestroyed():
 	enemies_destroyed += 1
-	$UpgradePanel/DronesDestroyed.text = str(enemies_destroyed)
-
+	
+	if not Settings.upgrade_panel_attached:
+		var upgrade_panel = get_parent().get_parent().get_node("UpgradePanelDetached")
+		if upgrade_panel.selected_tower == self:
+			upgrade_panel.get_node("DronesDestroyed").text = str(enemies_destroyed)
+	else:
+		$UpgradePanelAttached/DronesDestroyed.text = str(enemies_destroyed)
 
 #### Stats and Upgrade Screen Functions ####
 func _on_TowerButton_pressed():
 	if not disabled:
 		if placed:
-			$RadiusCircle.visible = !$RadiusCircle.visible
-			$UpgradePanel.visible = !$UpgradePanel.visible
-			$UpgradePanel/RangeButton.text = "Range ("+str(range_cost)+"):"
-			$UpgradePanel/SpeedButton.text = "Speed ("+str(speed_cost)+"):"
+			if not Settings.upgrade_panel_attached:
+				var upgrade_panel = get_parent().get_parent().get_node("UpgradePanelDetached")
+				if upgrade_panel.selected_tower == self:
+					upgrade_panel.check()
+					upgrade_panel.toggle()
+				else:
+					upgrade_panel.check()
+					upgrade_panel.selected_tower = self
+					upgrade_panel.toggle()
+			else:
+				$RadiusCircle.visible = !$RadiusCircle.visible
+				$UpgradePanelAttached.visible = !$UpgradePanelAttached.visible
+				$UpgradePanelAttached/RangeButton.text = "Range ("+str(range_cost)+"):"
+				$UpgradePanelAttached/SpeedButton.text = "Speed ("+str(speed_cost)+"):"
 		else:
 			placed = true
 
@@ -159,8 +174,8 @@ func _on_RangeButton_pressed():
 			$Aggro/AggroShape.shape.radius = RADIUS
 			var rad_scale = RADIUS / 100.0
 			$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
-			$UpgradePanel/RangeLabel.text = str(RADIUS)
-			$UpgradePanel/RangeButton.text = "Range ("+str(range_cost)+"):"
+			$UpgradePanelAttached/RangeLabel.text = str(RADIUS)
+			$UpgradePanelAttached/RangeButton.text = "Range ("+str(range_cost)+"):"
 
 
 func _on_SpeedButton_pressed():
@@ -171,8 +186,8 @@ func _on_SpeedButton_pressed():
 			speed_level += 1
 			shoot_rate += Settings.tower_stats[type]['speed_amt_per_level']
 			$ShootTimer.set_wait_time(1.0 / shoot_rate)
-			$UpgradePanel/SpeedLabel.text = str(shoot_rate)
-			$UpgradePanel/SpeedButton.text = "Speed ("+str(speed_cost)+"):"
+			$UpgradePanelAttached/SpeedLabel.text = str(shoot_rate)
+			$UpgradePanelAttached/SpeedButton.text = "Speed ("+str(speed_cost)+"):"
 
 
 func _on_SmallShotAudio_finished():
