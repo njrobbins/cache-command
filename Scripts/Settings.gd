@@ -105,7 +105,7 @@ var tower_mob_stats  = {
 
 
 var tower_map_variables = {
-	"base_cash": 100, # The starting cash amount
+	"base_cash": 120, # The starting cash amount
 	"base_hp": 20, # The amount of health the base has before game over
 	"base_mob_time": 0.6, # The amount of time between each mob being spawned (i.e. a mob spawns every 0.5 seconds)
 	"mob_time_multiplier_per_level": 0.9, # Adjusts mob time to be lower each level. The lower mob time the more difficult
@@ -113,7 +113,7 @@ var tower_map_variables = {
 	"starting_wave_mobs": [3, 3, 3, 3, 5], # How many mobs will spawn in each wave (i.e 4 then 4 then 4 then 4 then 6)
 	"mobs_added_each_wave_per_level": 5, # How many mobs get added to each wave i.e 4 will go to 10
 	"levels_til_level_swap": 5, # How many levels are played on each set of maps. i.e you'll play 5 times on the same map, then switch
-	"cash_bonus_after_swap": 300, # How much money you get afer getting to a level swap. i.e 300 after 5
+	"cash_bonus_after_swap": 500, # How much money you get afer getting to a level swap. i.e 300 after 5
 }
 var mob_time = tower_map_variables["base_mob_time"]
 var base_hp = tower_map_variables["base_hp"]
