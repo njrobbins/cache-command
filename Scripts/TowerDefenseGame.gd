@@ -116,6 +116,7 @@ func removeTower(tow):
 		current_towers.erase(tow)
 		Settings.tower_positions[current_map_num].erase(tow.position)
 		Settings.cash += int(tow.amountSpent * Settings.tower_map_variables["refund_multiplier"])
+		$UI/CashLabel.text = str(Settings.cash)
 		tow.queue_free()
 		print("Removed Tower", tow)
 	else:
