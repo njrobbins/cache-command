@@ -31,7 +31,10 @@ func init(t_type):
 	if type == "copperhead":
 		$Gun.texture = load("res://Assets/tower_gun_1_copper.png")
 	if type == "moon":
-		$Rocket.visible = true
+		$Rocket1.visible = true
+		$Gun.visible = false
+	if type == "doubletrouble":
+		$Rocket2.visible = true
 		$Gun.visible = false
 		
 	$Aggro/AggroShape.shape.radius = RADIUS
@@ -58,7 +61,10 @@ func recreate(var t):
 	if type == "copperhead":
 		$Gun.texture = load("res://Assets/tower_gun_1_copper.png")
 	if type == "moon":
-		$Rocket.visible = true
+		$Rocket1.visible = true
+		$Gun.visible = false
+	if type == "doubletrouble":
+		$Rocket2.visible = true
 		$Gun.visible = false
 	$Aggro/AggroShape.shape.radius = RADIUS
 	var rad_scale = RADIUS / 100.0
@@ -94,7 +100,8 @@ func _physics_process(_delta):
 			else:
 				target_position = current_target.get_ref().get_global_transform().origin
 				$Gun.set_rotation((target_position - position).angle() + 30)
-				$Rocket.set_rotation((target_position - position).angle() + 30)
+				$Rocket1.set_rotation((target_position - position).angle() + 30)
+				$Rocket2.set_rotation((target_position - position).angle() + 30)
 
 
 func _on_Aggro_area_entered(area):
@@ -121,10 +128,12 @@ func _on_ShootTimer_timeout():
 		instance.set_target(current_target.get_ref())
 		instance.owner_tower = self
 		if type == "moon":
+			instance.position = $Rocket1/ShotPosition1.get_global_transform().origin
+		elif type == "doubletrouble":
 			if rocketLeft:
-				instance.position = $Rocket/ShotPosition1.get_global_transform().origin
+				instance.position = $Rocket2/ShotPosition1.get_global_transform().origin
 			else:
-				instance.position = $Rocket/ShotPosition2.get_global_transform().origin
+				instance.position = $Rocket2/ShotPosition2.get_global_transform().origin
 			rocketLeft = !rocketLeft
 		else:
 			instance.position = $Gun/ShotPosition.get_global_transform().origin

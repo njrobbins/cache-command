@@ -65,9 +65,9 @@ var tower_stats = {
 		"speed_amt_per_level": 1,
 	},
 	"moon": {
-		"cost": 150,
-		"base_range": 400,
-		"base_rate": 10,
+		"cost": 75,
+		"base_range": 325,
+		"base_rate": 6,
 		"range_upgrade_base_cost": 10,
 		"speed_upgrade_base_cost": 10,
 		"range_cost_added": 5, 
@@ -77,8 +77,8 @@ var tower_stats = {
 	},
 	"doubletrouble": {
 		"cost": 150,
-		"base_range": 350,
-		"base_rate": 40,
+		"base_range": 400,
+		"base_rate": 10,
 		"range_upgrade_base_cost": 10,
 		"speed_upgrade_base_cost": 10,
 		"range_cost_added": 5, 
@@ -107,8 +107,8 @@ var tower_mob_stats  = {
 var tower_map_variables = {
 	"base_cash": 120, # The starting cash amount
 	"base_hp": 20, # The amount of health the base has before game over
-	"base_mob_time": 0.6, # The amount of time between each mob being spawned (i.e. a mob spawns every 0.5 seconds)
-	"mob_time_multiplier_per_level": 0.9, # Adjusts mob time to be lower each level. The lower mob time the more difficult
+	"base_mob_time": 0.62, # The amount of time between each mob being spawned (i.e. a mob spawns every 0.5 seconds)
+	"mob_time_multiplier_per_level": 0.95, # Adjusts mob time to be lower each level. The lower mob time the more difficult
 										  # Lowering this number will drastically increase difficulty BE CAREFUL
 	"starting_wave_mobs": [3, 3, 3, 3, 5], # How many mobs will spawn in each wave (i.e 4 then 4 then 4 then 4 then 6)
 	"mobs_added_each_wave_per_level": 5, # How many mobs get added to each wave i.e 4 will go to 10
@@ -137,3 +137,43 @@ var player_shoot_rate = base_dd_stats['player_shoot_rate']
 var time_added_per_wafer = base_dd_stats['time_added_per_wafer']
 var cash_per_wafer = base_dd_stats['cash_per_wafer']
 var upgrade_costs = base_dd_stats['base_upgrade_costs']
+
+func resetGameSettings():
+	cash = tower_map_variables["base_cash"]
+	level = 1
+	paused = false
+	# Tower Defense Variables
+	drones_destroyed = 0
+	td_level = 1
+	mob_time = tower_map_variables["base_mob_time"]
+	tower_type_selected = "copperhead"
+	tower_positions = {
+		"1": [],
+		"2": [],
+		"3": [],
+		"4": [],
+		"5": [],
+		"6": [],
+		"7": [],
+		"8": [],
+		"9": [],
+		"10": [],
+	}
+	current_towers_info = {
+		"1": [],
+		"2": [],
+		"3": [],
+		"4": [],
+		"5": [],
+		"6": [],
+		"7": [],
+		"8": [],
+		"9": [],
+		"10": [],
+	}
+	# Dig Dug variables
+	player_speed = base_dd_stats['player_speed']
+	player_shoot_rate = base_dd_stats['player_shoot_rate']
+	time_added_per_wafer = base_dd_stats['time_added_per_wafer']
+	cash_per_wafer = base_dd_stats['cash_per_wafer']
+	upgrade_costs = base_dd_stats['base_upgrade_costs']

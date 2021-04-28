@@ -66,17 +66,23 @@ func _process(_delta):
 		if Settings.drones_destroyed == total_drones: # Level Complete, all drones destroyed
 			saveTowers()
 			Settings.td_level += 1
+			Settings.mob_time = Settings.mob_time * Settings.tower_map_variables["mob_time_multiplier_per_level"]
 			if Settings.td_level % Settings.tower_map_variables["levels_til_level_swap"] == 0:
 				Settings.level += 1
-			Settings.mob_time = Settings.mob_time * Settings.tower_map_variables["mob_time_multiplier_per_level"]
-			if Settings.level == 11:
-				Settings.level = 1 
-			var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
+				if Settings.level == 11:
+					Settings.resetGameSettings()
+					Settings.level = 1 
+					var _scene = get_tree().change_scene("res://Scenes/YouWon.tscn")
+				else:
+					var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
+			else:
+				var _scene = get_tree().change_scene("res://Scenes/LevelComplete.tscn")
 
 
 func get_mobs():
 	if Settings.td_level % Settings.tower_map_variables["levels_til_level_swap"] == 0:
 		Settings.cash += Settings.tower_map_variables["cash_bonus_after_swap"]
+		print("Muh muh money")
 	$MobTimer.wait_time = Settings.mob_time
 	for _i in range(Settings.td_level - 1):
 		for i in range(len(wave_mobs)):
@@ -111,6 +117,9 @@ func _on_PauseButton_pressed():
 	yield($MenuButtonAudio, "finished")
 	$PauseMenu.visible = true
 	$TowersNode.visible = false
+	$TowerShop.visible = false
+	$UpgradePanelDetached.check()
+	$UpgradePanelDetached.visible = false
 	$MobTimer.paused = true
 	$WaveTimer.paused = true
 	Settings.paused = true
@@ -146,44 +155,7 @@ func base_hit():
 	if base_hp == 0:
 		# RESET TO ALL BASE STATS
 		# Global Game Variables
-		Settings.cash = Settings.tower_map_variables["base_cash"]
-		Settings.level = 1
-		Settings.paused = false
-		# Tower Defense Variables
-		Settings.drones_destroyed = 0
-		Settings.td_level = 1
-		Settings.mob_time = Settings.tower_map_variables["base_mob_time"]
-		Settings.tower_type_selected = "copperhead"
-		Settings.tower_positions = {
-			"1": [],
-			"2": [],
-			"3": [],
-			"4": [],
-			"5": [],
-			"6": [],
-			"7": [],
-			"8": [],
-			"9": [],
-			"10": [],
-		}
-		Settings.current_towers_info = {
-			"1": [],
-			"2": [],
-			"3": [],
-			"4": [],
-			"5": [],
-			"6": [],
-			"7": [],
-			"8": [],
-			"9": [],
-			"10": [],
-		}
-		# Dig Dug variables
-		Settings.player_speed = Settings.base_dd_stats['player_speed']
-		Settings.player_shoot_rate = Settings.base_dd_stats['player_shoot_rate']
-		Settings.time_added_per_wafer = Settings.base_dd_stats['time_added_per_wafer']
-		Settings.cash_per_wafer = Settings.base_dd_stats['cash_per_wafer']
-		Settings.upgrade_costs = Settings.base_dd_stats['base_upgrade_costs']
+		Settings.resetGameSettings()
 		var _scene = get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 
