@@ -106,6 +106,7 @@ var tower_mob_stats  = {
 
 var tower_map_variables = {
 	"base_cash": 120, # The starting cash amount
+	"refund_multiplier": 0.5, # The percentage of cash refunded by recycling a tower
 	"base_hp": 20, # The amount of health the base has before game over
 	"base_mob_time": 0.62, # The amount of time between each mob being spawned (i.e. a mob spawns every 0.5 seconds)
 	"mob_time_multiplier_per_level": 0.95, # Adjusts mob time to be lower each level. The lower mob time the more difficult

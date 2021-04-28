@@ -221,10 +221,10 @@ stream = ExtResource( 7 )
 
 [node name="UpgradePanelDetached" parent="." instance=ExtResource( 14 )]
 visible = false
-margin_left = 652.988
-margin_top = 9.18062
-margin_right = 955.988
-margin_bottom = 77.1806
+margin_left = 587.441
+margin_top = 8.0
+margin_right = 997.441
+margin_bottom = 76.0
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="TowerShopButton2" to="." method="_on_TowerShopButton_pressed"]

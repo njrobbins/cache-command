@@ -110,6 +110,16 @@ func placeTower(var pos):
 			instance.position = tower_pos
 			current_towers.push_back(instance)
 			$PlaceTowerAudio.play()
+			
+func removeTower(tow):
+	if tow in current_towers:
+		current_towers.erase(tow)
+		Settings.tower_positions[current_map_num].erase(tow.position)
+		Settings.cash += int(tow.amountSpent * Settings.tower_map_variables["refund_multiplier"])
+		tow.queue_free()
+		print("Removed Tower", tow)
+	else:
+		print("Failed to remove tower", tow)
 
 
 func _on_PauseButton_pressed():

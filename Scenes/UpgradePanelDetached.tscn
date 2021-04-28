@@ -42,6 +42,7 @@ texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 84, 20 )
 
 [node name="UpgradePanelDetached" type="Panel"]
+margin_left = -107.0
 margin_right = 303.0
 margin_bottom = 68.0
 custom_styles/panel = SubResource( 1 )
@@ -155,5 +156,24 @@ text = "Range (10):"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RecycleButton" type="Button" parent="."]
+margin_left = 301.361
+margin_top = 8.0
+margin_right = 387.361
+margin_bottom = 39.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Recycle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="SpeedButton" to="." method="_on_SpeedButton_pressed"]
 [connection signal="pressed" from="RangeButton" to="." method="_on_RangeButton_pressed"]
+[connection signal="pressed" from="RecycleButton" to="." method="_on_RecycleButton_pressed"]

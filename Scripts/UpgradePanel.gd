@@ -48,3 +48,10 @@ func _on_SpeedButton_pressed():
 			$SpeedLabel.text = str(selected_tower.shoot_rate)
 			$SpeedButton.text = "Speed ("+str(selected_tower.speed_cost)+"):"
 
+
+
+func _on_RecycleButton_pressed():
+	if selected_tower:
+		get_parent().removeTower(selected_tower)
+		visible = false
+		selected_tower = null

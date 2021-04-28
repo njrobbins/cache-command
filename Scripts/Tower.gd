@@ -18,6 +18,7 @@ var range_level = 0
 var speed_level = 0
 var disabled
 var rocketLeft = true
+var amountSpent = 0
 
 # rad is the range of the tower for shooting, and rate is how fast it shoots
 func init(t_type):
@@ -28,6 +29,7 @@ func init(t_type):
 	shoot_rate = Settings.tower_stats[t_type]['base_rate']
 	speed_cost = Settings.tower_stats[t_type]['speed_upgrade_base_cost']
 	range_cost = Settings.tower_stats[t_type]['range_upgrade_base_cost']
+	amountSpent = Settings.tower_stats[t_type]["cost"]
 	if type == "copperhead":
 		$Gun.texture = load("res://Assets/tower_gun_1_copper.png")
 	if type == "moon":
@@ -177,6 +179,7 @@ func _on_RangeButton_pressed():
 	if not disabled:
 		if Settings.cash >= range_cost:
 			Settings.cash -= range_cost
+			amountSpent += range_cost
 			range_cost += Settings.tower_stats[type]['range_cost_added'] + range_level*Settings.tower_stats[type]['range_cost_added']
 			range_level += 1
 			RADIUS += Settings.tower_stats[type]['range_amt_per_level']
@@ -191,6 +194,7 @@ func _on_SpeedButton_pressed():
 	if not disabled:
 		if Settings.cash >= speed_cost:
 			Settings.cash -= speed_cost
+			amountSpent += speed_cost
 			speed_cost += Settings.tower_stats[type]['speed_cost_added'] + speed_level*Settings.tower_stats[type]['speed_cost_added']
 			speed_level += 1
 			shoot_rate += Settings.tower_stats[type]['speed_amt_per_level']
