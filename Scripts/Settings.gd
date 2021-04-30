@@ -99,7 +99,7 @@ var tower_mob_stats  = {
 	},
 	"fast": {
 		"speed": 140,
-		"hp": 15,
+		"hp": 25,
 	},
 } 
 
