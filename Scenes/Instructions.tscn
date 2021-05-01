@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Icons/return.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=2]
@@ -7,6 +7,26 @@
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=5]
 [ext_resource path="res://fonts/roboto/roboto_regular.tres" type="DynamicFont" id=6]
 [ext_resource path="res://fonts/roboto/roboto_black_bold.tres" type="DynamicFont" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends RichTextLabel
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+var t=Texture.new()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+
+
+	t=load(\"res://Assets/bestiar.png\")
+	add_image(t)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
 
 [node name="Instructions" type="Control"]
 anchor_right = 1.0
@@ -86,7 +106,15 @@ You play as a small tank collecting circuit boards that contain silicon wafers t
 -View stats and upgrade towers by pressing them.
 -Towers defeat enemies to protect your base; every enemy leaked will subtract 1 health point.
 -To win, kill all of the enemies before your health reaches 0.
-"
+
+[center][b]
+Bestiary
+[img]res://Assets/bestiary.png[/img]
+[/b][/center]
+[b]Cache Commandos[/b] are fearsome foes that come in a variety of sizes and types.
+[b]Gray Garry:[/b] The basic bad guy. He has low health, dies easily and is slow. They usually appear in great numbers. Not that anyone cares.
+[b]Orange Lightning:[/b] Fast as a speeding bullet, your towers better be able to shoot fast. He is twice as fast as the other commandos.
+[b]Green Behemoth:[/b] The tank. He might be slow but his guy will wreck your day. He eats bullets for dinner. You probably need more guns."
 text = "Objective
 You play as a small tank collecting circuit boards that contain silicon wafers that you can use to build towers to defend your Motherboard.
 
@@ -102,7 +130,16 @@ Tower Defense Mode
 -View stats and upgrade towers by pressing them.
 -Towers defeat enemies to protect your base; every enemy leaked will subtract 1 health point.
 -To win, kill all of the enemies before your health reaches 0.
-"
+
+
+Bestiary
+
+
+Cache Commandos are fearsome foes that come in a variety of sizes and types.
+Gray Garry: The basic bad guy. He has low health, dies easily and is slow. They usually appear in great numbers. Not that anyone cares.
+Orange Lightning: Fast as a speeding bullet, your towers better be able to shoot fast. He is twice as fast as the other commandos.
+Green Behemoth: The tank. He might be slow but his guy will wreck your day. He eats bullets for dinner. You probably need more guns."
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
