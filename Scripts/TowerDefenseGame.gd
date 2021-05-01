@@ -67,7 +67,7 @@ func _process(_delta):
 			saveTowers()
 			Settings.td_level += 1
 			Settings.mob_time = Settings.mob_time * Settings.tower_map_variables["mob_time_multiplier_per_level"]
-			if Settings.td_level % Settings.tower_map_variables["levels_til_level_swap"] == 0:
+			if Settings.td_level % Settings.tower_map_variables["levels_til_level_swap"] == 0 and Settings.td_level != 0:
 				Settings.level += 1
 				if Settings.level == 11:
 					Settings.resetGameSettings()
@@ -80,8 +80,9 @@ func _process(_delta):
 
 
 func get_mobs():
-	if Settings.td_level % Settings.tower_map_variables["levels_til_level_swap"] == 0:
+	if Settings.td_level % Settings.tower_map_variables["levels_til_level_swap"] == 0 and Settings.td_level != 0:
 		Settings.cash += Settings.tower_map_variables["cash_bonus_after_swap"]
+		$UI/CashLabel.text = str(Settings.cash)
 		print("Muh muh money")
 	$MobTimer.wait_time = Settings.mob_time
 	for _i in range(Settings.td_level - 1):
@@ -116,7 +117,7 @@ func removeTower(tow):
 		current_towers.erase(tow)
 		Settings.tower_positions[current_map_num].erase(tow.position)
 		var refund_amt = tow.amountSpent * Settings.tower_map_variables["refund_multiplier"]
-		Settings.cash += int(tow.amountSpent * Settings.tower_map_variables["refund_multiplier"])
+		Settings.cash += int(refund_amt)
 		$UI/CashLabel.text = str(Settings.cash)
 		tow.queue_free()
 		print("Removed Tower", tow)
