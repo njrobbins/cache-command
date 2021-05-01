@@ -25,6 +25,7 @@ func _on_RangeButton_pressed():
 	if selected_tower:
 		if Settings.cash >= selected_tower.range_cost:
 			Settings.cash -= selected_tower.range_cost
+			selected_tower.amountSpent += selected_tower.range_cost
 			selected_tower.range_cost += Settings.tower_stats[selected_tower.type]['range_cost_added'] + selected_tower.range_level*Settings.tower_stats[selected_tower.type]['range_cost_added']
 			selected_tower.range_level += 1
 			selected_tower.RADIUS += Settings.tower_stats[selected_tower.type]['range_amt_per_level']
@@ -40,6 +41,7 @@ func _on_SpeedButton_pressed():
 	if selected_tower:
 		if Settings.cash >= selected_tower.speed_cost:
 			Settings.cash -= selected_tower.speed_cost
+			selected_tower.amountSpent += selected_tower.speed_cost
 			selected_tower.speed_cost += Settings.tower_stats[selected_tower.type]['speed_cost_added'] + selected_tower.speed_level*Settings.tower_stats[selected_tower.type]['speed_cost_added']
 			selected_tower.speed_level += 1
 			selected_tower.shoot_rate += Settings.tower_stats[selected_tower.type]['speed_amt_per_level']
