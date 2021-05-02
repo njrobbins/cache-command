@@ -9,6 +9,7 @@ var paused = false
 # Tower Defense Variables
 var drones_destroyed = 0
 var td_level = 0
+var tutorial = true
 var tower_type_selected = "copperhead"
 var upgrade_panel_attached = false
 
@@ -142,6 +143,7 @@ var upgrade_costs = base_dd_stats['base_upgrade_costs']
 func resetGameSettings():
 	cash = tower_map_variables["base_cash"]
 	level = 1
+	tutorial = true
 	paused = false
 	# Tower Defense Variables
 	drones_destroyed = 0

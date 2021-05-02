@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/TowerDefenseGame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=12]
 [ext_resource path="res://fonts/kenvector_future_thin.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Scenes/UpgradePanelDetached.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/TutorialOverlay.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/rect-highlight.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 20 )
@@ -191,16 +193,6 @@ position = Vector2( 1042, 80 )
 z_index = 6
 z_as_relative = true
 
-[node name="DebugLabel" type="Label" parent="."]
-margin_left = 609.509
-margin_top = 64.0
-margin_right = 649.509
-margin_bottom = 80.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
 
@@ -225,6 +217,40 @@ margin_left = 587.441
 margin_top = 8.0
 margin_right = 997.441
 margin_bottom = 76.0
+
+[node name="TutorialOverlay" parent="." instance=ExtResource( 15 )]
+z_index = 10
+
+[node name="TowerShopHighlight" type="TextureRect" parent="TutorialOverlay"]
+margin_left = 991.761
+margin_right = 1055.76
+margin_bottom = 64.0
+rect_scale = Vector2( 4.5, 6.5 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeHighlight" type="TextureRect" parent="TutorialOverlay"]
+margin_left = 587.441
+margin_right = 651.441
+margin_bottom = 64.0
+rect_scale = Vector2( 6.5, 1.3 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartHighlight" type="TextureRect" parent="TutorialOverlay"]
+margin_left = 305.924
+margin_top = 4.59189
+margin_right = 369.924
+margin_bottom = 68.5919
+rect_scale = Vector2( 4.2, 1.3 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="TowerShopButton2" to="." method="_on_TowerShopButton_pressed"]

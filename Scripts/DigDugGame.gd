@@ -5,6 +5,7 @@ const Res = preload("res://Scenes/DigDugResource.tscn")
 const Enemy = preload("res://Scenes/DigDugEnemy.tscn")
 
 var scene
+var tutorial = true
 var number_of_enemies = 8
 var number_of_resources = 30
 var current_map_num = str(Settings.level)
@@ -59,6 +60,17 @@ func _ready():
 				inst.position = Vector2(x * 64, y * 64)
 				$Map.add_child(inst)
 			
+	
+	if Settings.tutorial == false:
+		startLevel()
+		$TutorialOverlay.visible = false
+
+func startLevel():
+	tutorial = false
+	var size_w = ProjectSettings.get_setting("display/window/size/width")
+	var size_h = ProjectSettings.get_setting("display/window/size/height")
+	var tiles_w = (size_w / 64) + 1
+	var tiles_h = (size_h / 64) + 1
 	while(number_of_enemies != 0):
 		var x = (randi() % tiles_w) + 1
 		var y = (randi() % tiles_h) + 1
@@ -68,7 +80,7 @@ func _ready():
 			inst.position = Vector2(x * 64, y * 64)
 			$Map.add_child(inst)
 			number_of_enemies -= 1
-
+	$GameTimer.start()
 
 func _process(_delta):
 	$UI/TimeLabel.text = str(stepify($GameTimer.time_left,0.0001))

@@ -37,6 +37,8 @@ var total_drones = 0 # Tracks the total number of drones destroyed
 
 func _ready():
 	Settings.paused = true
+	if Settings.tutorial == false:
+		$TutorialOverlay.visible = false
 	if current_map != null:
 		current_map.queue_free()
 	current_map = load(maps[current_map_num]).instance()
@@ -92,7 +94,7 @@ func get_mobs():
 
 func _input(event):
 	$UI/CashLabel.text = str(Settings.cash)
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and Settings.tutorial == false:
 		var m_position = get_global_mouse_position()
 		placeTower(m_position)
 
