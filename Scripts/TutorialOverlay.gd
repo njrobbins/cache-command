@@ -26,4 +26,5 @@ func _on_Button_pressed():
 		Settings.tutorial = false
 	elif digDugTutorial:
 		visible = false
+		Settings.dd_tutorial = false
 		get_parent().startLevel()
