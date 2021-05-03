@@ -1,13 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Tower.gd" type="Script" id=1]
-[ext_resource path="res://Assets/tower_gun_1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tower_base.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Audio/short_laser.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/tower_radius.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/UpgradePanelAttached.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/tower_gun_3.png" type="Texture" id=7]
-[ext_resource path="res://Assets/tower_gun_2.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 100.0
@@ -39,7 +36,6 @@ __meta__ = {
 
 [node name="Gun" type="TextureRect" parent="."]
 rect_pivot_offset = Vector2( 32, 32 )
-texture = ExtResource( 2 )
 flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -51,7 +47,6 @@ position = Vector2( 32, 50 )
 [node name="Rocket2" type="TextureRect" parent="."]
 visible = false
 rect_pivot_offset = Vector2( 32, 32 )
-texture = ExtResource( 9 )
 flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -66,7 +61,6 @@ position = Vector2( 39, 55 )
 [node name="Rocket1" type="TextureRect" parent="."]
 visible = false
 rect_pivot_offset = Vector2( 32, 32 )
-texture = ExtResource( 7 )
 flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tower_gun_2.png-7012f0298920fc1de4647470e0923e9a.stex"
+path="res://.import/tower_gun_3_moon.png-29f21f7fb513cc252e95f96e1b23deeb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tower_gun_2.png"
-dest_files=[ "res://.import/tower_gun_2.png-7012f0298920fc1de4647470e0923e9a.stex" ]
+source_file="res://Assets/tower_gun_3_moon.png"
+dest_files=[ "res://.import/tower_gun_3_moon.png-29f21f7fb513cc252e95f96e1b23deeb.stex" ]
 
 [params]
 
