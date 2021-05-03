@@ -5,11 +5,11 @@ export var digDugTutorial = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if towerDefenseTutorial:
+	if towerDefenseTutorial and Settings.tutorial:
 		get_parent().get_node("UpgradePanelDetached").visible = true
 		get_parent().get_node("TowerShop").visible = true
 		$TDText.visible = true
-	elif digDugTutorial:
+	elif digDugTutorial and Settings.tutorial:
 		$DDText.visible = true
 	else:
 		visible = false

@@ -145,8 +145,8 @@ var upgrade_costs = base_dd_stats['base_upgrade_costs']
 func resetGameSettings():
 	cash = tower_map_variables["base_cash"]
 	level = 1
-	tutorial = true
-	dd_tutorial = true
+	tutorial = false
+	dd_tutorial = false
 	paused = false
 	# Tower Defense Variables
 	drones_destroyed = 0
