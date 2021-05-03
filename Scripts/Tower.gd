@@ -2,7 +2,6 @@ extends Area2D
 
 var RADIUS = 200
 var shoot_rate = 6
-
 var instance
 var distance_to_t
 var target_position
@@ -38,7 +37,6 @@ func init(t_type):
 	if type == "doubletrouble":
 		$Rocket2.visible = true
 		$Gun.visible = false
-		
 	$Aggro/AggroShape.shape.radius = RADIUS
 	var rad_scale = RADIUS / 100.0
 	$RadiusCircle.rect_scale = Vector2(rad_scale, rad_scale)
@@ -139,19 +137,18 @@ func _on_ShootTimer_timeout():
 			rocketLeft = !rocketLeft
 		else:
 			instance.position = $Gun/ShotPosition.get_global_transform().origin
-		
 		get_parent().add_child(instance)
 
 
 func updateDronesDestroyed():
 	enemies_destroyed += 1
-	
 	if not Settings.upgrade_panel_attached:
 		var upgrade_panel = get_parent().get_parent().get_node("UpgradePanelDetached")
 		if upgrade_panel.selected_tower == self:
 			upgrade_panel.get_node("DronesDestroyed").text = str(enemies_destroyed)
 	else:
 		$UpgradePanelAttached/DronesDestroyed.text = str(enemies_destroyed)
+
 
 #### Stats and Upgrade Screen Functions ####
 func _on_TowerButton_pressed():

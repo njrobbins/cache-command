@@ -29,10 +29,8 @@ func _ready():
 		"2": $Map/BackgroundTileMap2,
 		"3": $Map/BackgroundTileMap3,
 	}
-
 	if current_map != null:
 		current_map.queue_free()
-	
 	current_map = load(maps[current_map_num]).instance()
 	background_maps[str((int(current_map_num)%3)+1)].visible = true
 	$Map.add_child(current_map)
@@ -41,29 +39,25 @@ func _ready():
 	var size_h = ProjectSettings.get_setting("display/window/size/height")
 	var tiles_w = (size_w / 64) + 1
 	var tiles_h = (size_h / 64) + 1
-	
 	while(number_of_resources != 0):
 		var x = (randi() % tiles_w)
 		var y = (randi() % tiles_h)
-		
 		if current_map.get_cell(x, y) == -1:
 			var inst = Res.instance()
 			inst.position = Vector2(x * 64, y * 64)
 			$Map.add_child(inst)
 			current_map.set_cell(x, y, 21)
 			number_of_resources -= 1
-	
 	for y in range(tiles_h):
 		for x in range(tiles_w):
 			if current_map.get_cell(x, y) == -1:
 				var inst = Tile.instance()
 				inst.position = Vector2(x * 64, y * 64)
 				$Map.add_child(inst)
-			
-	
 	if Settings.tutorial == false:
 		startLevel()
 		$TutorialOverlay.visible = false
+
 
 func startLevel():
 	tutorial = false
@@ -74,13 +68,13 @@ func startLevel():
 	while(number_of_enemies != 0):
 		var x = (randi() % tiles_w) + 1
 		var y = (randi() % tiles_h) + 1
-		
 		if current_map.get_cell(x, y) == -1:
 			var inst = Enemy.instance()
 			inst.position = Vector2(x * 64, y * 64)
 			$Map.add_child(inst)
 			number_of_enemies -= 1
 	$GameTimer.start()
+
 
 func _process(_delta):
 	$UI/TimeLabel.text = str(stepify($GameTimer.time_left,0.0001))

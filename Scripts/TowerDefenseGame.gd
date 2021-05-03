@@ -113,7 +113,8 @@ func placeTower(var pos):
 			instance.position = tower_pos
 			current_towers.push_back(instance)
 			$PlaceTowerAudio.play()
-			
+
+
 func removeTower(tow):
 	if tow in current_towers:
 		current_towers.erase(tow)

@@ -43,6 +43,7 @@ func _on_QuitGameButton_pressed():
 	yield($MenuButtonAudio, "finished")
 	get_tree().quit()
 
+
 func _on_ResumeButton_pressed():
 	$MenuButtonAudio.play()
 	yield($MenuButtonAudio, "finished")

@@ -1,98 +1,142 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://fonts/kenvector_future_thin_extra_tiny.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/tower_upgrade_panel.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tower_upgrade_button.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/UpgradePanel.gd" type="Script" id=4]
+[ext_resource path="res://fonts/kenvector_future_small.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Icons/recycle.png" type="Texture" id=6]
+[ext_resource path="res://Assets/recycle_button.png" type="Texture" id=7]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 148, 104 )
+region_rect = Rect2( 0, 0, 528, 61 )
 
 [sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 84, 20 )
+region_rect = Rect2( 0, 0, 152, 31 )
 
 [sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 84, 20 )
+region_rect = Rect2( 0, 0, 152, 31 )
 
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 84, 20 )
+region_rect = Rect2( 0, 0, 152, 31 )
 
 [sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 84, 20 )
+region_rect = Rect2( 0, 0, 152, 31 )
 
 [sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 84, 20 )
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 48, 48 )
 
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 84, 20 )
+region_rect = Rect2( 0, 0, 152, 31 )
 
 [sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 84, 20 )
+region_rect = Rect2( 0, 0, 152, 31 )
 
 [sub_resource type="StyleBoxTexture" id=9]
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 84, 20 )
+region_rect = Rect2( 0, 0, 152, 31 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 48, 48 )
 
 [node name="UpgradePanelDetached" type="Panel"]
-margin_left = -107.0
-margin_right = 303.0
-margin_bottom = 68.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -208.0
+margin_top = -32.0
+margin_right = 320.0
+margin_bottom = 29.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UpgradeLabel" type="Label" parent="."]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 92.0
-margin_bottom = 22.0
+[node name="CurrentRangeLabel" type="Label" parent="."]
+margin_left = 164.0
+margin_top = 3.0
+margin_right = 236.0
+margin_bottom = 43.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Upgrade"
+text = "Current Range:"
 align = 1
+valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RangeLabel" type="Label" parent="."]
-margin_left = 96.0
-margin_top = 27.0
-margin_right = 144.0
+margin_left = 164.0
+margin_top = 36.0
+margin_right = 236.0
 margin_bottom = 57.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Range"
+text = "250"
 align = 1
 valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentSpeedLabel" type="Label" parent="."]
+margin_left = 294.0
+margin_top = 3.0
+margin_right = 366.0
+margin_bottom = 43.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Current Speed:"
+align = 1
+valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SpeedLabel" type="Label" parent="."]
-margin_left = 233.0
-margin_top = 27.0
-margin_right = 281.0
+margin_left = 294.0
+margin_top = 36.0
+margin_right = 366.0
 margin_bottom = 57.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Speed"
+text = "4"
 align = 1
 valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DronesDestroyedLabel" type="Label" parent="."]
+visible = false
 margin_left = 144.0
 margin_top = 8.0
 margin_right = 228.0
@@ -107,6 +151,7 @@ __meta__ = {
 }
 
 [node name="DronesDestroyed" type="Label" parent="."]
+visible = false
 margin_left = 228.0
 margin_top = 8.0
 margin_right = 276.0
@@ -122,58 +167,58 @@ __meta__ = {
 
 [node name="SpeedButton" type="Button" parent="."]
 anchor_bottom = 7.33596e-08
-margin_left = 144.0
-margin_top = 27.0
-margin_right = 233.0
-margin_bottom = 57.0
+margin_left = 368.0
+margin_top = 15.5
+margin_right = 520.0
+margin_bottom = 46.5
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Speed (10):"
+text = " Speed (10)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RangeButton" type="Button" parent="."]
-margin_left = 11.0
-margin_top = 26.0
-margin_right = 97.0
-margin_bottom = 57.0
+margin_left = 8.0
+margin_top = 15.5
+margin_right = 160.0
+margin_bottom = 46.5
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/normal = SubResource( 9 )
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Range (10):"
+text = " Range (10)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RecycleButton" type="Button" parent="."]
-margin_left = 301.361
-margin_top = 8.0
-margin_right = 387.361
-margin_bottom = 39.0
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Recycle"
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -24.0
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/normal = SubResource( 10 )
+icon = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="SpeedButton" to="." method="_on_SpeedButton_pressed"]
 [connection signal="pressed" from="RangeButton" to="." method="_on_RangeButton_pressed"]
-[connection signal="pressed" from="RecycleButton" to="." method="_on_RecycleButton_pressed"]
+[connection signal="toggled" from="RecycleButton" to="." method="_on_RecycleButton_toggled"]

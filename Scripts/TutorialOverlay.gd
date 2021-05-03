@@ -1,9 +1,7 @@
 extends Node2D
 
-
 export var towerDefenseTutorial = true
 export var digDugTutorial = false
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +13,6 @@ func _ready():
 		$DDText.visible = true
 	else:
 		visible = false
-
 
 
 func _on_Button_pressed():

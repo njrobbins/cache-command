@@ -47,9 +47,7 @@ func _on_Area2D_area_entered(area):
 				get_parent().get_parent().get_parent().get_parent().drone_destroyed(2)
 			elif type == "normal":
 				get_parent().get_parent().get_parent().get_parent().drone_destroyed(1)
-			
 			queue_free()
-			
 	if area.is_in_group("Base"):
 		Settings.drones_destroyed += 1
 		get_parent().get_parent().get_parent().get_parent().base_hit()

@@ -105,7 +105,6 @@ var tower_mob_stats  = {
 	},
 } 
 
-
 var tower_map_variables = {
 	"base_cash": 120, # The starting cash amount
 	"refund_multiplier": 0.5, # The percentage of cash refunded by recycling a tower
@@ -118,6 +117,7 @@ var tower_map_variables = {
 	"levels_til_level_swap": 4, # How many levels are played on each set of maps. i.e you'll play 5 times on the same map, then switch
 	"cash_bonus_after_swap": 500, # How much money you get afer getting to a level swap. i.e 300 after 5
 }
+
 var mob_time = tower_map_variables["base_mob_time"]
 var base_hp = tower_map_variables["base_hp"]
 var cash = tower_map_variables["base_cash"]
@@ -135,6 +135,7 @@ var base_dd_stats = {
 		"wafers": 50,
 	}
 }
+
 var player_speed = base_dd_stats['player_speed']
 var player_shoot_rate = base_dd_stats['player_shoot_rate']
 var time_added_per_wafer = base_dd_stats['time_added_per_wafer']

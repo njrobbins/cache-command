@@ -76,37 +76,37 @@ bbcode_text = "[center][color=#000000][b]Developers:[/b]
 Niko Robbins
 Matthew Glenn
 
+[b]Audio:[/b]
+Kenney Vleugels (kenney.nl)
+mixkit.co
+
 [b]Graphics:[/b]
 Kenney Vleugels (kenney.nl)
 Mohit Gandhi (iconscout.com)
+Vaadin Icons (iconscout.com)
 
 [b]Music:[/b]
 Kevin MacLeod
  \"Neon Laser Horizon\"
-filmmusic.io/song/7015-neon-laser-horizon
-
-[b]Audio:[/b]
-https://mixkit.co
-Kenney Vleugels
-(kenney.nl)"
+filmmusic.io/song/7015-neon-laser-horizon"
 text = "Developers:
 Tristan Tyler
 Niko Robbins
 Matthew Glenn
 
+Audio:
+Kenney Vleugels (kenney.nl)
+mixkit.co
+
 Graphics:
 Kenney Vleugels (kenney.nl)
 Mohit Gandhi (iconscout.com)
+Vaadin Icons (iconscout.com)
 
 Music:
 Kevin MacLeod
  \"Neon Laser Horizon\"
-filmmusic.io/song/7015-neon-laser-horizon
-
-Audio:
-https://mixkit.co
-Kenney Vleugels
-(kenney.nl)"
+filmmusic.io/song/7015-neon-laser-horizon"
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""

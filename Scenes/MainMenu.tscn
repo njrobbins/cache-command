@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Audio/Neon Laser Horizon.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=4]
-[ext_resource path="res://fonts/kenvector_future_small.tres" type="DynamicFont" id=5]
+[ext_resource path="res://fonts/kenvector_future_main_menu.tres" type="DynamicFont" id=5]
 
 [node name="Menu" type="Control"]
 margin_right = 1280.0
