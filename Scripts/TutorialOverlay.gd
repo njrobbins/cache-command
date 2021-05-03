@@ -21,6 +21,7 @@ func _on_Button_pressed():
 		get_parent().get_node("UpgradePanelDetached").visible = false
 		get_parent().get_node("TowerShop").visible = false
 		Settings.tutorial = false
+		Settings.dd_tutorial = false
 	elif digDugTutorial:
 		visible = false
 		Settings.dd_tutorial = false
