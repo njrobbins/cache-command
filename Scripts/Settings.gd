@@ -114,7 +114,7 @@ var tower_map_variables = {
 										  # Lowering this number will drastically increase difficulty BE CAREFUL
 	"starting_wave_mobs": [3, 3, 3, 3, 5], # How many mobs will spawn in each wave (i.e 4 then 4 then 4 then 4 then 6)
 	"mobs_added_each_wave_per_level": 5, # How many mobs get added to each wave i.e 4 will go to 10
-	"levels_til_level_swap": 4, # How many levels are played on each set of maps. i.e you'll play 5 times on the same map, then switch
+	"levels_til_level_swap": 1, # How many levels are played on each set of maps. e.g. you'll play 2 times on the same map, then switch
 	"cash_bonus_after_swap": 500, # How much money you get afer getting to a level swap. i.e 300 after 5
 }
 
