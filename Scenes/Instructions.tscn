@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Icons/return.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/MenuButtonHandler.gd" type="Script" id=2]
@@ -7,26 +7,6 @@
 [ext_resource path="res://Assets/Audio/menu_button.wav" type="AudioStream" id=5]
 [ext_resource path="res://fonts/roboto/roboto_regular.tres" type="DynamicFont" id=6]
 [ext_resource path="res://fonts/roboto/roboto_black_bold.tres" type="DynamicFont" id=7]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends RichTextLabel
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-var t=Texture.new()
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-
-
-	t=load(\"res://Assets/bestiar.png\")
-	add_image(t)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-"
 
 [node name="Instructions" type="Control"]
 anchor_right = 1.0
@@ -137,7 +117,6 @@ Cache Commandos are fearsome foes that come in a variety of sizes and types:
 -Green Behemoth: The tank. He might be slow but this guy will wreck your day. He eats bullets for breakfast. You probably need more guns.
 -Orange Lightning: Fast as a speeding bullet. Your towers better be able to shoot fast. He is twice as fast as the other commandos.
 "
-script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

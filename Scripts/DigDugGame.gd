@@ -89,4 +89,5 @@ func update_wafers():
 
 
 func _on_GameTimer_timeout():
-	var _scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
+	if tutorial == false:
+		var _scene = get_tree().change_scene("res://Scenes/TowerDefenseGame.tscn")
