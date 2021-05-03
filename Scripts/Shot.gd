@@ -32,7 +32,7 @@ func set_target(new_target):
 	elif sentBy=="moon":
 		$RocketSmall.visible = true
 	elif sentBy=="doubletrouble":
-		$RocketSmall.visible = true
+		$RocketBig.visible = true
 	target = weakref(new_target)
 
 

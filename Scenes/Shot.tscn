@@ -80,8 +80,12 @@ __meta__ = {
 
 [node name="RocketBig" type="TextureRect" parent="."]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 9.22319
+margin_top = -15.5477
+margin_right = 73.2232
+margin_bottom = 48.4523
+rect_rotation = 90.0
+rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false

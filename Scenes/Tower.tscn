@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Tower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tower_gun_4_trouble.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/tower_radius.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/UpgradePanelAttached.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/tower_gun_3_moon.png" type="Texture" id=7]
+[ext_resource path="res://Assets/tower_gun_2_steel.png" type="Texture" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 100.0
@@ -38,6 +39,7 @@ __meta__ = {
 
 [node name="Gun" type="TextureRect" parent="."]
 rect_pivot_offset = Vector2( 32, 32 )
+texture = ExtResource( 8 )
 flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false

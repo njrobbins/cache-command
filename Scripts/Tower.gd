@@ -129,7 +129,7 @@ func _on_ShootTimer_timeout():
 		instance.owner_tower = self
 		if type == "moon":
 			instance.position = $Rocket1/ShotPosition1.get_global_transform().origin
-		elif type == "doubletrouble":
+		elif type == "doubletrouble" or type == "steel":
 			if rocketLeft:
 				instance.position = $Rocket2/ShotPosition1.get_global_transform().origin
 			else:
