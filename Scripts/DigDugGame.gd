@@ -73,7 +73,7 @@ func startLevel():
 			inst.position = Vector2(x * 64, y * 64)
 			$Map.add_child(inst)
 			number_of_enemies -= 1
-	$GameTimer.start()
+	$GameTimer.start(15)
 
 
 func _process(_delta):
